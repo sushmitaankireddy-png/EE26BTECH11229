@@ -1,0 +1,153 @@
+\begin{enumerate}[label=\thesubsection.\arabic*, ref=\thesubsection.\theenumi]
+\item A tangent to a circle with centre $\vec{O}$ is perpendicular to the radius through the point of contact $\vec{T}$,
+\begin{align}
+	\brak{\vec{P}-\vec{T}}^{\top}\brak{\vec{T}-\vec{O}} = 0
+	\label{eq:EE26BTECH11229-tangent-perp}
+\end{align}
+where $\vec{P}$ is any other point on the tangent.
+\item The lengths of the two tangents drawn from an external point $\vec{P}$ to a circle of radius $a$ and centre $\vec{O}$ are equal and
+\begin{align}
+	\norm{\vec{P}-\vec{T}_1} = \norm{\vec{P}-\vec{T}_2} = \sqrt{\norm{\vec{P}-\vec{O}}^2 - a^2}
+	\label{eq:EE26BTECH11229-tangent-equal}
+\end{align}
+where $\vec{T}_1$ and $\vec{T}_2$ are the points of contact.
+\\
+\solution
+From \eqref{eq:EE26BTECH11229-tangent-perp} and Pythagoras' theorem in the right triangle $\vec{O}\vec{T}_i\vec{P}$, $i=1,2$,
+\begin{align}
+	\norm{\vec{P}-\vec{O}}^2 = \norm{\vec{P}-\vec{T}_i}^2 + \norm{\vec{T}_i-\vec{O}}^2
+	= \norm{\vec{P}-\vec{T}_i}^2 + a^2
+\end{align}
+which is the same for $i=1,2$, yielding \eqref{eq:EE26BTECH11229-tangent-equal}.
+\item In a right triangle with an acute angle $\theta$,
+\begin{align}
+	\sin\theta = \frac{\text{opposite}}{\text{hypotenuse}}, \quad
+	\tan\theta = \frac{\text{opposite}}{\text{adjacent}}
+	\label{eq:EE26BTECH11229-trig}
+\end{align}
+\item For complementary angles,
+\begin{align}
+	\tan\brak{90^{\circ}-\theta} = \frac{1}{\tan\theta}
+	\label{eq:EE26BTECH11229-tan-comp}
+\end{align}
+\item The locus of a point $\vec{x}$ equidistant from the points $\vec{A}$ and $\vec{B}$ is
+\begin{align}
+	\brak{\vec{A}-\vec{B}}^{\top}\vec{x} = \frac{\norm{\vec{A}}^2 - \norm{\vec{B}}^2}{2}
+	\label{eq:EE26BTECH11229-perp-bisector}
+\end{align}
+\solution
+\begin{align}
+	\norm{\vec{x}-\vec{A}}^2 &= \norm{\vec{x}-\vec{B}}^2
+	\\
+	\implies \norm{\vec{x}}^2 - 2\vec{A}^{\top}\vec{x} + \norm{\vec{A}}^2
+	&= \norm{\vec{x}}^2 - 2\vec{B}^{\top}\vec{x} + \norm{\vec{B}}^2
+\end{align}
+which simplifies to \eqref{eq:EE26BTECH11229-perp-bisector}.
+\item For the quadratic equation $px^2 + qx + r = 0$ with roots $\alpha$ and $\beta$,
+\begin{align}
+	\alpha + \beta = -\frac{q}{p}, \quad \alpha\beta = \frac{r}{p}
+	\label{eq:EE26BTECH11229-quad-roots}
+\end{align}
+\item The $n^{\text{th}}$ term of an A.P. with first term $a$ and common difference $d$ is
+\begin{align}
+	a_n = a + \brak{n-1}d
+	\label{eq:EE26BTECH11229-ap-nth}
+\end{align}
+\item The area of a circle of radius $r$ and of a semicircle of radius $r$ are
+\begin{align}
+	A_{\text{circle}} = \pi r^2, \quad A_{\text{semicircle}} = \frac{1}{2}\pi r^2
+	\label{eq:EE26BTECH11229-area-circle}
+\end{align}
+\item The point $\vec{R}$ dividing the line segment joining $\vec{P}$ and $\vec{Q}$ in the ratio $k:1$ is
+\begin{align}
+	\vec{R} = \frac{k\vec{Q} + \vec{P}}{k+1}
+	\label{eq:EE26BTECH11229-section}
+\end{align}
+\item The points $\vec{A}$, $\vec{B}$ and $\vec{C}$ are collinear if and only if
+\begin{align}
+	\rank\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A}} = 1
+	\label{eq:EE26BTECH11229-collinear}
+\end{align}
+which, for points in a plane, is equivalent to
+\begin{align}
+	\mydet{\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A}}} = 0
+\end{align}
+\item The roots of the quadratic equation $px^2 + qx + r = 0$ are
+\begin{align}
+	x = \frac{-q \pm \sqrt{q^2 - 4pr}}{2p}
+	\label{eq:EE26BTECH11229-quad-formula}
+\end{align}
+The roots are equal if and only if
+\begin{align}
+	q^2 - 4pr = 0
+	\label{eq:EE26BTECH11229-quad-equal}
+\end{align}
+\item The sum of the first $n$ terms of an A.P. with first term $a$ and common difference $d$ is
+\begin{align}
+	S_n = \frac{n}{2}\sbrak{2a + \brak{n-1}d}
+	\label{eq:EE26BTECH11229-ap-sum}
+\end{align}
+\item The volume of a cuboid of length $l$, breadth $b$ and height $h$ is $lbh$. Water flowing through a canal of cross-sectional area $A$ with speed $v$ for a time $t$ has volume
+\begin{align}
+	V = A\,v\,t
+	\label{eq:EE26BTECH11229-flow}
+\end{align}
+\item The volume of a hollow cylinder of outer radius $R$, inner radius $r$ and length $h$ is
+\begin{align}
+	V = \pi\brak{R^2 - r^2}h
+	\label{eq:EE26BTECH11229-hollow-cyl}
+\end{align}
+\item The area of a sector of angle $\theta$ of a circle of radius $r$ and the area of a ring between circles of radii $R$ and $r$ are
+\begin{align}
+	A_{\text{sector}} = \frac{\theta}{360^{\circ}}\pi r^2, \quad
+	A_{\text{ring}} = \pi\brak{R^2 - r^2}
+	\label{eq:EE26BTECH11229-sector}
+\end{align}
+\item For a cone of radius $r$ and height $h$, the slant height $l$ and the curved surface area are
+\begin{align}
+	l = \sqrt{h^2 + r^2}, \quad A_{\text{cone}} = \pi r l
+	\label{eq:EE26BTECH11229-cone}
+\end{align}
+The curved surface area of a hemisphere of radius $r$ is
+\begin{align}
+	A_{\text{hemisphere}} = 2\pi r^2
+	\label{eq:EE26BTECH11229-hemisphere}
+\end{align}
+\item For an event $E$ with $m$ favourable outcomes out of $N$ equally likely outcomes, and its complement $E^{\prime}$,
+\begin{align}
+	\pr{E} = \frac{m}{N}, \quad \pr{E} + \pr{E^{\prime}} = 1
+	\label{eq:EE26BTECH11229-prob-def}
+\end{align}
+\item The volume of a cylinder of radius $r$ and height $h$ is
+\begin{align}
+	V = \pi r^2 h
+	\label{eq:EE26BTECH11229-cylinder}
+\end{align}
+\item The $m^{\text{th}}$ term of an A.P. is related to the sum of its first $2m-1$ terms by
+\begin{align}
+	S_{2m-1} = \brak{2m-1}a_m
+	\label{eq:EE26BTECH11229-ap-mid}
+\end{align}
+\solution
+From \eqref{eq:EE26BTECH11229-ap-sum}, with $n = 2m-1$,
+\begin{align}
+	S_{2m-1} = \frac{2m-1}{2}\sbrak{2a + \brak{2m-2}d} = \brak{2m-1}\brak{a + \brak{m-1}d}
+\end{align}
+yielding \eqref{eq:EE26BTECH11229-ap-mid} from \eqref{eq:EE26BTECH11229-ap-nth}.
+\item If a person completes a work in $t$ days, the rate of work is $\frac{1}{t}$ of the work per day. The rates of persons working together add up,
+\begin{align}
+	\frac{1}{t} = \frac{1}{t_1} + \frac{1}{t_2}
+	\label{eq:EE26BTECH11229-work}
+\end{align}
+\item The angle of depression of an object from a point at a height $h$ is equal to the angle of elevation of that point from the object (alternate angles). If the horizontal distance is $d$, from \eqref{eq:EE26BTECH11229-trig},
+\begin{align}
+	\tan\theta = \frac{h}{d}
+	\label{eq:EE26BTECH11229-depression}
+\end{align}
+\item An angle in a semicircle is a right angle. If $BC$ is a diameter of a circle and $A$ is a point on the circle, then
+\begin{align}
+	\angle BAC = 90^{\circ}, \quad BC^2 = AB^2 + AC^2
+	\label{eq:EE26BTECH11229-thales}
+\end{align}
+The area of a right triangle with perpendicular sides $p$ and $q$ is $\frac{1}{2}pq$.
+\end{enumerate}
