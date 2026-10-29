@@ -1,0 +1,340 @@
+\begin{enumerate}[label=\thesubsection.\arabic*, ref=\thesubsection.\theenumi]
+\item The normal form of the equation of a line is
+\begin{align}
+	\vec{n}^{\top}\vec{x} = c
+	\label{eq:EE26BTECH11229-normal-form}
+\end{align}
+The same form represents a plane when $\vec{x}$ and $\vec{n}$ are $3$-dimensional vectors.
+\item The distance between the parallel planes $\vec{n}^{\top}\vec{x} = c_1$ and $\vec{n}^{\top}\vec{x} = c_2$ is
+\begin{align}
+	d = \frac{\abs{c_2 - c_1}}{\norm{\vec{n}}}
+	\label{eq:EE26BTECH11229-plane-dist}
+\end{align}
+\solution
+The point $\vec{x}_1 = \frac{c_1}{\norm{\vec{n}}^2}\vec{n}$ lies on the first plane, from \eqref{eq:EE26BTECH11229-normal-form}. Moving along $\vec{n}$, $\vec{x}_1 + t\vec{n}$ lies on the second plane if
+\begin{align}
+	\vec{n}^{\top}\brak{\vec{x}_1 + t\vec{n}} = c_2
+	\implies c_1 + t\norm{\vec{n}}^2 = c_2
+	\implies t = \frac{c_2 - c_1}{\norm{\vec{n}}^2}
+\end{align}
+The distance is $\abs{t}\norm{\vec{n}}$, yielding \eqref{eq:EE26BTECH11229-plane-dist}.
+\item For a square matrix $\vec{A}$ of order $n$,
+\begin{align}
+	\vec{A}\,\text{adj}\brak{\vec{A}} = \mydet{\vec{A}}\vec{I}
+	\label{eq:EE26BTECH11229-adj}
+\end{align}
+\item (Trace of a Matrix) Let $\vec{A} \in \mathbb{R}^{n \times n}$ be a square matrix with eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_n$. Then,
+\begin{align}
+	\sum_{i=1}^{n}\lambda_i = \sum_{i=1}^{n}a_{ii} = \text{tr}\brak{\vec{A}}
+	\label{eq:EE26BTECH11229-trace}
+\end{align}
+\item The probability mass function (PMF) of the outcome $X$ of a fair die is
+\begin{align}
+	p_X\brak{n} = \begin{cases}
+		\frac{1}{6}, & 1 \le n \le 6
+		\\
+		0, & \text{otherwise}
+	\end{cases}
+	\label{eq:EE26BTECH11229-die-pmf}
+\end{align}
+The probability of an event $E$ is
+\begin{align}
+	\pr{E} = \sum_{n \in E}p_X\brak{n}
+	\label{eq:EE26BTECH11229-event-pmf}
+\end{align}
+\item The events $A$ and $B$ are independent if and only if
+\begin{align}
+	\pr{AB} = \pr{A}\pr{B}
+	\label{eq:EE26BTECH11229-indep}
+\end{align}
+\item A linear programming problem (LPP) for minimising the cost $Z$ is
+\begin{align}
+	\text{minimise } Z = \vec{c}^{\top}\vec{x} \quad \text{subject to } \vec{M}\vec{x} \succeq \vec{b}, \ \vec{x} \succeq \vec{0}
+	\label{eq:EE26BTECH11229-lpp}
+\end{align}
+where the inequality $\succeq$ holds for every row (component).
+\item Standard integrals,
+\begin{align}
+	\int \tan x\, dx = -\ln\abs{\cos x} + C, \quad
+	\int \cot x\, dx = \ln\abs{\sin x} + C
+	\label{eq:EE26BTECH11229-int-tancot}
+\end{align}
+\solution
+Substituting $u = \cos x$, $du = -\sin x\, dx$,
+\begin{align}
+	\int \frac{\sin x}{\cos x}\, dx = -\int \frac{du}{u} = -\ln\abs{\cos x} + C
+\end{align}
+Similarly, substituting $u = \sin x$, $du = \cos x\, dx$ gives the second integral.
+\item For $a > 0$,
+\begin{align}
+	\int \frac{dx}{a^2 - x^2} = \frac{1}{2a}\ln\abs{\frac{a + x}{a - x}} + C
+	\label{eq:EE26BTECH11229-int-a2x2}
+\end{align}
+\solution
+Using partial fractions,
+\begin{align}
+	\frac{1}{a^2 - x^2} = \frac{1}{2a}\sbrak{\frac{1}{a + x} + \frac{1}{a - x}}
+\end{align}
+Integrating, $\int\frac{dx}{a+x} = \ln\abs{a+x}$ and $\int\frac{dx}{a-x} = -\ln\abs{a-x}$, yielding \eqref{eq:EE26BTECH11229-int-a2x2}.
+\item (Continuity) A real-valued function $f\brak{x}$ is continuous at $x = x_0$ if and only if
+\begin{align}
+	\lim_{x \to x_0^-}f\brak{x} = \lim_{x \to x_0^+}f\brak{x} = f\brak{x_0}
+	\label{eq:EE26BTECH11229-continuity}
+\end{align}
+\item (Differentiability) A function $f\brak{x}$ is differentiable at $x = x_0$ if
+\begin{align}
+	f^{\prime}\brak{x_0^-} = \lim_{h \to 0^-}\frac{f\brak{x_0 + h} - f\brak{x_0}}{h}
+	= \lim_{h \to 0^+}\frac{f\brak{x_0 + h} - f\brak{x_0}}{h} = f^{\prime}\brak{x_0^+}
+	\label{eq:EE26BTECH11229-diff-def}
+\end{align}
+\item If $f\brak{x}$ is differentiable at $x = x_0$, it must necessarily be continuous at $x = x_0$.
+\\
+\solution
+\begin{align}
+	\lim_{x \to x_0}\sbrak{f\brak{x} - f\brak{x_0}}
+	= \lim_{x \to x_0}\sbrak{\frac{f\brak{x} - f\brak{x_0}}{x - x_0}\brak{x - x_0}}
+	= f^{\prime}\brak{x_0}\cdot 0 = 0
+	\label{eq:EE26BTECH11229-diff-cont}
+\end{align}
+\item (Piecewise Boundary Conditions at $x = a$) Consider a function defined by differentiable branches $f_1\brak{x}$ and $f_2\brak{x}$,
+\begin{align}
+	f\brak{x} = \begin{cases}
+		f_1\brak{x}, & x \le a
+		\\
+		f_2\brak{x}, & x > a
+	\end{cases}
+\end{align}
+For $f\brak{x}$ to be continuous at $x = a$,
+\begin{align}
+	\lim_{x \to a^-}f_1\brak{x} = \lim_{x \to a^+}f_2\brak{x} \implies f_1\brak{a} = f_2\brak{a}
+	\label{eq:EE26BTECH11229-piecewise-cont}
+\end{align}
+For $f\brak{x}$ to be differentiable at $x = a$, the one-sided derivatives must coincide,
+\begin{align}
+	f_1^{\prime}\brak{a} = f_2^{\prime}\brak{a}
+	\label{eq:EE26BTECH11229-piecewise-diff}
+\end{align}
+\item (Newton-Raphson Method) For a real-valued differentiable function $f\brak{x}$, the root is iteratively approximated using its first-order Taylor series expansion about the current estimate $x_n$,
+\begin{align}
+	x_{n+1} = x_n - \frac{f\brak{x_n}}{f^{\prime}\brak{x_n}}
+	\label{eq:EE26BTECH11229-newton}
+\end{align}
+\item (Rolle's Theorem) If $f\brak{x}$ is continuous on $\sbrak{a, b}$, differentiable on $\brak{a, b}$ and $f\brak{a} = f\brak{b}$, then there exists $c \in \brak{a, b}$ such that
+\begin{align}
+	f^{\prime}\brak{c} = 0
+	\label{eq:EE26BTECH11229-rolle}
+\end{align}
+\item If $f^{\prime}\brak{x} > 0$ for all $x$ in an interval, then $f\brak{x}$ is strictly increasing on that interval.
+\label{eq:EE26BTECH11229-increasing}
+\item If $A = xy$, where $x$ and $y$ vary with time $t$, then by the product rule
+\begin{align}
+	\frac{dA}{dt} = x\frac{dy}{dt} + y\frac{dx}{dt}
+	\label{eq:EE26BTECH11229-rate}
+\end{align}
+\item For a continuous function $f\brak{x}$,
+\begin{align}
+	\int_{0}^{a}f\brak{x}\, dx = \int_{0}^{a}f\brak{a - x}\, dx
+	\label{eq:EE26BTECH11229-prop-int}
+\end{align}
+\solution
+Substituting $x = a - t$, $dx = -dt$, the limits $x = 0, a$ become $t = a, 0$,
+\begin{align}
+	\int_{0}^{a}f\brak{x}\, dx = -\int_{a}^{0}f\brak{a - t}\, dt = \int_{0}^{a}f\brak{a - t}\, dt
+\end{align}
+\item Trigonometric identities,
+\begin{align}
+	\tan\brak{\pi - x} = -\tan x, \quad \sec\brak{\pi - x} = -\sec x
+	\label{eq:EE26BTECH11229-trig-pi}
+\end{align}
+\begin{align}
+	\frac{\tan x}{\sec x + \tan x} = \frac{\sin x}{1 + \sin x}, \quad
+	\frac{1}{1 + \sin x} = \sec^2 x - \sec x\tan x
+	\label{eq:EE26BTECH11229-trig-id}
+\end{align}
+\solution
+Multiplying the numerator and the denominator by $\cos x$ gives the first identity. For the second,
+\begin{align}
+	\frac{1}{1 + \sin x} = \frac{1 - \sin x}{1 - \sin^2 x} = \frac{1 - \sin x}{\cos^2 x}
+\end{align}
+which equals $\sec^2 x - \sec x\tan x$.
+\item The derivatives of $\tan x$ and $\sec x$ are
+\begin{align}
+	\frac{d}{dx}\tan x = \sec^2 x, \quad \frac{d}{dx}\sec x = \sec x\tan x
+	\label{eq:EE26BTECH11229-deriv-sec}
+\end{align}
+\item The absolute value is defined as
+\begin{align}
+	\abs{x - a} = \begin{cases}
+		x - a, & x \ge a
+		\\
+		a - x, & x < a
+	\end{cases}
+	\label{eq:EE26BTECH11229-abs-def}
+\end{align}
+\item Two vectors $\vec{u}$ and $\vec{v}$ are perpendicular if and only if
+\begin{align}
+	\vec{u}^{\top}\vec{v} = 0
+	\label{eq:EE26BTECH11229-perp-vec}
+\end{align}
+\item The area of a right-angled triangle with the perpendicular sides $\vec{u}$ and $\vec{v}$ is
+\begin{align}
+	A = \frac{1}{2}\norm{\vec{u}}\norm{\vec{v}}
+	\label{eq:EE26BTECH11229-area-right}
+\end{align}
+\item The mean and the variance of a discrete random variable $X$ with PMF $p_X\brak{n}$ are
+\begin{align}
+	E\brak{X} = \sum_{n}n\,p_X\brak{n}, \quad
+	\text{Var}\brak{X} = \sum_{n}n^2\,p_X\brak{n} - \brak{E\brak{X}}^2
+	\label{eq:EE26BTECH11229-mean-var}
+\end{align}
+\item (Bayes' Theorem) Let $E_1, E_2, \ldots, E_k$ be mutually exclusive events covering the sample space. For an event $A$,
+\begin{align}
+	\pr{E_i|A} = \frac{\pr{E_i}\pr{A|E_i}}{\sum_{j=1}^{k}\pr{E_j}\pr{A|E_j}}
+	\label{eq:EE26BTECH11229-bayes}
+\end{align}
+\item For $ab < 1$,
+\begin{align}
+	\tan^{-1}a + \tan^{-1}b = \tan^{-1}\brak{\frac{a + b}{1 - ab}}
+	\label{eq:EE26BTECH11229-tan-inv-sum}
+\end{align}
+\item The value of a determinant does not change if a multiple of one row is subtracted from another row. A determinant can be expanded along any row or column, using the cofactors of its entries.
+\label{eq:EE26BTECH11229-det-props}
+\item (System of Linear Equations) The matrix equation
+\begin{align}
+	\vec{A}\vec{x} = \vec{b}
+\end{align}
+is consistent if and only if
+\begin{align}
+	\rank\brak{\vec{A}} = \rank\brak{\sbrak{\vec{A} \mid \vec{b}}} = r
+	\label{eq:EE26BTECH11229-consist}
+\end{align}
+and the solution is unique if $r$ equals the number of unknowns.
+\item The derivative of the logarithm is
+\begin{align}
+	\frac{d}{dx}\ln u = \frac{1}{u}\frac{du}{dx}
+	\label{eq:EE26BTECH11229-deriv-ln}
+\end{align}
+\item (Logarithmic Differentiation) If $y$ is a function of $x$,
+\begin{align}
+	\frac{d}{dx}x^y = x^y\brak{\frac{y}{x} + \ln x\,\frac{dy}{dx}}, \quad
+	\frac{d}{dx}y^x = y^x\brak{\ln y + \frac{x}{y}\frac{dy}{dx}}
+	\label{eq:EE26BTECH11229-log-diff}
+\end{align}
+\solution
+Taking logarithms, $\ln\brak{x^y} = y\ln x$ and $\ln\brak{y^x} = x\ln y$. Differentiating both sides using \eqref{eq:EE26BTECH11229-deriv-ln} and multiplying by $x^y$ and $y^x$ respectively yields \eqref{eq:EE26BTECH11229-log-diff}.
+\item Standard integrals,
+\begin{align}
+	\int \frac{dt}{t^2 + a^2} = \frac{1}{a}\tan^{-1}\brak{\frac{t}{a}} + C, \quad
+	\int \frac{f^{\prime}\brak{t}}{f\brak{t}}\, dt = \ln\abs{f\brak{t}} + C
+	\label{eq:EE26BTECH11229-int-atan}
+\end{align}
+\item The maximum or the minimum value of a linear function $Z$ over a feasible region that is a convex polygon occurs at a corner point of the region.
+\label{eq:EE26BTECH11229-corner}
+\item The points $\vec{A}$, $\vec{B}$, $\vec{C}$ and $\vec{D}$ are coplanar if and only if
+\begin{align}
+	\rank\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A} & \vec{D}-\vec{A}} < 3
+	\label{eq:EE26BTECH11229-coplanar}
+\end{align}
+that is, the determinant of the matrix is zero.
+\item The plane through the points $\vec{A}$, $\vec{B}$ and $\vec{C}$ is
+\begin{align}
+	\vec{n}^{\top}\vec{x} = \vec{n}^{\top}\vec{A}, \quad \vec{n} = \brak{\vec{B}-\vec{A}}\times\brak{\vec{C}-\vec{A}}
+	\label{eq:EE26BTECH11229-plane-3pts}
+\end{align}
+\item The parametric form of the equation of a line is
+\begin{align}
+	\vec{x} = \vec{h} + \kappa\vec{m}
+	\label{eq:EE26BTECH11229-line-param}
+\end{align}
+where $\vec{m}$ is the direction vector, and $\vec{m}^{\top}\vec{n} = 0$ for a normal $\vec{n}$ of the line.
+\item (Line-Conic Intersection) The points of intersection of a line $L: \vec{x} = \vec{h} + \kappa\vec{m}$ $\brak{\kappa \in \mathbb{R}}$ with a conic section $\vec{x}^{\top}\vec{V}\vec{x} + 2\vec{u}^{\top}\vec{x} + f = 0$ are given by
+\begin{align}
+	\vec{x}_i = \vec{h} + \kappa_i\vec{m}
+	\label{eq:EE26BTECH11229-line-conic}
+\end{align}
+where
+\begin{align}
+	\kappa_i = \frac{-\vec{m}^{\top}\brak{\vec{V}\vec{h} + \vec{u}} \pm \sqrt{\sbrak{\vec{m}^{\top}\brak{\vec{V}\vec{h} + \vec{u}}}^2 - g\brak{\vec{h}}\brak{\vec{m}^{\top}\vec{V}\vec{m}}}}{\vec{m}^{\top}\vec{V}\vec{m}}, \quad i = 1, 2
+\end{align}
+with $g\brak{\vec{h}} = \vec{h}^{\top}\vec{V}\vec{h} + 2\vec{u}^{\top}\vec{h} + f$.
+\item The area enclosed between the curves $y = f\brak{x}$ (upper) and $y = g\brak{x}$ (lower) from $x = a$ to $x = b$ is
+\begin{align}
+	A = \int_{a}^{b}\sbrak{f\brak{x} - g\brak{x}}\, dx
+	\label{eq:EE26BTECH11229-area-curves}
+\end{align}
+\item A function $f: X \to Y$ is bijective if it is one-one and onto,
+\begin{align}
+	f\brak{x_1} = f\brak{x_2} \implies x_1 = x_2, \quad \forall y \in Y, \ \exists x \in X \text{ such that } f\brak{x} = y
+	\label{eq:EE26BTECH11229-bij}
+\end{align}
+The inverse of a bijective function is obtained by solving $y = f\brak{x}$ for $x$.
+\item The function $f\brak{x} = \frac{ax + b}{cx + d}$ corresponds to the matrix $\vec{M} = \myvec{a & b \\ c & d}$ acting on $\myvec{x \\ 1}$. Composition of such functions corresponds to the matrix product, and the inverse function corresponds to $\vec{M}^{-1}$ when $\mydet{\vec{M}} \neq 0$.
+\label{eq:EE26BTECH11229-mobius}
+\item The inverse of a square matrix $\vec{A}$ with $\mydet{\vec{A}} \neq 0$ is
+\begin{align}
+	\vec{A}^{-1} = \frac{\text{adj}\brak{\vec{A}}}{\mydet{\vec{A}}}
+	\label{eq:EE26BTECH11229-inverse}
+\end{align}
+and the solution of $\vec{A}\vec{x} = \vec{b}$ is $\vec{x} = \vec{A}^{-1}\vec{b}$.
+\item The Laplace transform of a function $g\brak{t}$ is defined as
+\begin{align}
+	g\brak{t} \system{L} G\brak{s} = \int_{0}^{\infty}e^{-st}g\brak{t}\, dt
+	\label{eq:EE26BTECH11229-laplace-def}
+\end{align}
+The independent variable can have any name, such as $y$.
+\item The Laplace transform of the derivative is
+\begin{align}
+	g^{\prime}\brak{t} \system{L} sG\brak{s} - g\brak{0}
+	\label{eq:EE26BTECH11229-laplace-deriv}
+\end{align}
+\solution
+Applying integration by parts, with $u = e^{-st}$ and $dv = g^{\prime}\brak{t}\, dt$,
+\begin{align}
+	\int_{0}^{\infty}e^{-st}g^{\prime}\brak{t}\, dt = \sbrak{e^{-st}g\brak{t}}_{0}^{\infty} + s\int_{0}^{\infty}e^{-st}g\brak{t}\, dt = -g\brak{0} + sG\brak{s}
+\end{align}
+\item Multiplication by $t$ corresponds to differentiation with respect to $s$,
+\begin{align}
+	t\,g\brak{t} \system{L} -\frac{dG\brak{s}}{ds}
+	\label{eq:EE26BTECH11229-laplace-tmult}
+\end{align}
+\solution
+Differentiating \eqref{eq:EE26BTECH11229-laplace-def} with respect to $s$,
+\begin{align}
+	\frac{dG\brak{s}}{ds} = \int_{0}^{\infty}\brak{-t}e^{-st}g\brak{t}\, dt
+\end{align}
+\item For a non-negative integer $n$,
+\begin{align}
+	t^n u\brak{t} \system{L} \frac{n!}{s^{n+1}}
+	\label{eq:EE26BTECH11229-laplace-power}
+\end{align}
+\solution
+From $u\brak{t} \system{L} \frac{1}{s}$, applying \eqref{eq:EE26BTECH11229-laplace-tmult} $n$ times gives $\brak{-1}^n\frac{d^n}{ds^n}\frac{1}{s} = \frac{n!}{s^{n+1}}$.
+\item (Shift Property) For a constant $a$,
+\begin{align}
+	e^{at}g\brak{t} \system{L} G\brak{s - a}
+	\label{eq:EE26BTECH11229-laplace-shift}
+\end{align}
+\item The Laplace transforms of the cosine and sine functions are
+\begin{align}
+	\cos\brak{at}u\brak{t} \system{L} \frac{s}{s^2 + a^2}, \quad
+	\sin\brak{at}u\brak{t} \system{L} \frac{a}{s^2 + a^2}
+	\label{eq:EE26BTECH11229-laplace-sincos}
+\end{align}
+\item The linear system $\frac{d\vec{x}}{dt} = \vec{M}\vec{x}$ with $\vec{x}\brak{0} = \vec{x}_0$ has the Laplace transform
+\begin{align}
+	\vec{X}\brak{s} = \brak{s\vec{I} - \vec{M}}^{-1}\vec{x}_0
+	\label{eq:EE26BTECH11229-laplace-system}
+\end{align}
+\solution
+Taking the Laplace transform of each row and using \eqref{eq:EE26BTECH11229-laplace-deriv},
+\begin{align}
+	s\vec{X}\brak{s} - \vec{x}_0 = \vec{M}\vec{X}\brak{s}
+	\implies \brak{s\vec{I} - \vec{M}}\vec{X}\brak{s} = \vec{x}_0
+\end{align}
+\item For a $2 \times 2$ matrix $\vec{M}$, the poles of $\brak{s\vec{I} - \vec{M}}^{-1}$ are the eigenvalues of $\vec{M}$, and
+\begin{align}
+	\mydet{s\vec{I} - \vec{M}} = s^2 - \text{tr}\brak{\vec{M}}s + \mydet{\vec{M}}
+	\label{eq:EE26BTECH11229-char-poly}
+\end{align}
+The sum of the eigenvalues is $\text{tr}\brak{\vec{M}}$ and their product is $\mydet{\vec{M}}$.
+\end{enumerate}
