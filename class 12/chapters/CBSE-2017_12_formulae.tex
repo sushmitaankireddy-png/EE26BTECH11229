@@ -109,17 +109,22 @@ which converges to the root nearest to $x_0$, provided $2ax_0 + b \neq 0$.
 \end{align}
 \item If $f^{\prime}\brak{x} > 0$ for all $x$ in an interval, then $f\brak{x}$ is strictly increasing on that interval.
 \label{eq:EE26BTECH11229-increasing}
+
 \item (Trapezoidal Rule) Divide $\sbrak{a, b}$ into $N$ equal sub-intervals of width $h = \frac{b - a}{N}$, with $x_n = a + nh$. Approximating $f\brak{x}$ by a straight line on each sub-interval, the integral is computed by the difference equation
 \begin{align}
 	I_{n+1} = I_n + \frac{h}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}}, \quad I_0 = 0
 	\label{eq:EE26BTECH11229-trapz}
 \end{align}
-and $\int_{a}^{b}f\brak{x}\, dx \approx I_N$.
-
+and
+\begin{align}
+	\int_{a}^{b}f\brak{x}\, dx \approx I_N
+\end{align}
 \solution
 On $\sbrak{x_n, x_{n+1}}$, the area under the straight line joining $\brak{x_n, f\brak{x_n}}$ and $\brak{x_{n+1}, f\brak{x_{n+1}}}$ is a trapezoid,
 \begin{align}
-	\int_{x_n}^{x_{n+1}}f\brak{x}\, dx \approx \frac{x_{n+1} - x_n}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}} = \frac{h}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}}
+	\int_{x_n}^{x_{n+1}}f\brak{x}\, dx &\approx \frac{x_{n+1} - x_n}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}}
+	\nonumber \\
+	&= \frac{h}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}}
 \end{align}
 Adding this area to the integral $I_n = \int_{a}^{x_n}f\brak{x}\, dx$ obtained so far yields \eqref{eq:EE26BTECH11229-trapz}. For a twice differentiable $f\brak{x}$, the error is
 \begin{align}
