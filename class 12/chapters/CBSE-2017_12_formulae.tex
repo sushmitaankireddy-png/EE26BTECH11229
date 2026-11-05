@@ -59,17 +59,6 @@ Substituting $u = \cos x$, $du = -\sin x\, dx$,
 	\int \frac{\sin x}{\cos x}\, dx = -\int \frac{du}{u} = -\ln\abs{\cos x} + C
 \end{align}
 Similarly, substituting $u = \sin x$, $du = \cos x\, dx$ gives the second integral.
-\item For $a > 0$,
-\begin{align}
-	\int \frac{dx}{a^2 - x^2} = \frac{1}{2a}\ln\abs{\frac{a + x}{a - x}} + C
-	\label{eq:EE26BTECH11229-int-a2x2}
-\end{align}
-\solution
-Using partial fractions,
-\begin{align}
-	\frac{1}{a^2 - x^2} = \frac{1}{2a}\sbrak{\frac{1}{a + x} + \frac{1}{a - x}}
-\end{align}
-Integrating, $\int\frac{dx}{a+x} = \ln\abs{a+x}$ and $\int\frac{dx}{a-x} = -\ln\abs{a-x}$, yielding \eqref{eq:EE26BTECH11229-int-a2x2}.
 \item (Continuity) A real-valued function $f\brak{x}$ is continuous at $x = x_0$ if and only if
 \begin{align}
 	\lim_{x \to x_0^-}f\brak{x} = \lim_{x \to x_0^+}f\brak{x} = f\brak{x_0}
@@ -117,13 +106,6 @@ For $f\brak{x}$ to be differentiable at $x = a$, the one-sided derivatives must 
 \begin{align}
 	f^{\prime}\brak{c} = 0
 	\label{eq:EE26BTECH11229-rolle}
-\end{align}
-\item If $f^{\prime}\brak{x} > 0$ for all $x$ in an interval, then $f\brak{x}$ is strictly increasing on that interval.
-\label{eq:EE26BTECH11229-increasing}
-\item If $A = xy$, where $x$ and $y$ vary with time $t$, then by the product rule
-\begin{align}
-	\frac{dA}{dt} = x\frac{dy}{dt} + y\frac{dx}{dt}
-	\label{eq:EE26BTECH11229-rate}
 \end{align}
 \item For a continuous function $f\brak{x}$,
 \begin{align}
@@ -246,11 +228,6 @@ The following code verifies \eqref{eq:EE26BTECH11229-pmf-distinct} in \figref{fi
 	\pr{E_i|A} = \frac{\pr{E_i}\pr{A|E_i}}{\sum_{j=1}^{k}\pr{E_j}\pr{A|E_j}}
 	\label{eq:EE26BTECH11229-bayes}
 \end{align}
-\item For $ab < 1$,
-\begin{align}
-	\tan^{-1}a + \tan^{-1}b = \tan^{-1}\brak{\frac{a + b}{1 - ab}}
-	\label{eq:EE26BTECH11229-tan-inv-sum}
-\end{align}
 \item The value of a determinant does not change if a multiple of one row is subtracted from another row. A determinant can be expanded along any row or column, using the cofactors of its entries.
 \label{eq:EE26BTECH11229-det-props}
 \item (System of Linear Equations) The matrix equation
@@ -281,25 +258,6 @@ Setting the gradient to zero,
 \end{align}
 The matrix $\vec{A}^{\top}\vec{A}$ is invertible when $\rank\brak{\vec{A}}$ equals the number of unknowns, which gives \eqref{eq:EE26BTECH11229-lstsq}.
 
-\item The derivative of the logarithm is
-\begin{align}
-	\frac{d}{dx}\ln u = \frac{1}{u}\frac{du}{dx}
-	\label{eq:EE26BTECH11229-deriv-ln}
-\end{align}
-\item (Logarithmic Differentiation) If $y$ is a function of $x$,
-\begin{align}
-	\frac{d}{dx}x^y = x^y\brak{\frac{y}{x} + \ln x\,\frac{dy}{dx}}, \quad
-	\frac{d}{dx}y^x = y^x\brak{\ln y + \frac{x}{y}\frac{dy}{dx}}
-	\label{eq:EE26BTECH11229-log-diff}
-\end{align}
-\solution
-Taking logarithms, $\ln\brak{x^y} = y\ln x$ and $\ln\brak{y^x} = x\ln y$. Differentiating both sides using \eqref{eq:EE26BTECH11229-deriv-ln} and multiplying by $x^y$ and $y^x$ respectively yields \eqref{eq:EE26BTECH11229-log-diff}.
-\item Standard integrals,
-\begin{align}
-	\int \frac{dt}{t^2 + a^2} = \frac{1}{a}\tan^{-1}\brak{\frac{t}{a}} + C, \quad
-	\int \frac{f^{\prime}\brak{t}}{f\brak{t}}\, dt = \ln\abs{f\brak{t}} + C
-	\label{eq:EE26BTECH11229-int-atan}
-\end{align}
 \item The points $\vec{A}$, $\vec{B}$, $\vec{C}$ and $\vec{D}$ are coplanar if and only if
 \begin{align}
 	\rank\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A} & \vec{D}-\vec{A}} < 3
