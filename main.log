@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  5 NOV 2026 15:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  5 NOV 2026 15:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2284,11 +2284,11 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.13.5
                    \relax 
 l.360 \end{align}
                   [45]
-<class 12/figs/LPP.png, id=791, 578.16pt x 433.62pt>
+<class 12/figs/LPP.png, id=791, 502.9992pt x 394.5942pt>
 File: class 12/figs/LPP.png Graphic file (type png)
 <use class 12/figs/LPP.png>
 Package pdftex.def Info: class 12/figs/LPP.png  used on input line 383.
-(pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
+(pdftex.def)             Requested size: 273.14647pt x 214.2879pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.15.1
 }) has been already used, duplicate ignored
@@ -2475,7 +2475,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/tfrupee/tfrupee.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on main.pdf (54 pages, 1146939 bytes).
+Output written on main.pdf (54 pages, 1208031 bytes).
 PDF statistics:
  1107 PDF objects out of 1200 (max. 8388607)
  948 compressed objects within 10 object streams
