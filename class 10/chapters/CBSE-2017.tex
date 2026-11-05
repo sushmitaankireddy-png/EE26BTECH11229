@@ -18,6 +18,47 @@ From \eqref{eq:EE26BTECH11229-tangent-perp}, the triangle $\vec{O}\vec{T}_1\vec{
 	\\
 	\implies \norm{\vec{O}-\vec{P}} &= \frac{a}{\frac{1}{2}} = 2a
 \end{align}
+To verify numerically, take $a = 3$ and
+\begin{align}
+	\vec{O} = \myvec{0 \\ 0}, \quad \vec{P} = \myvec{6 \\ 0}
+\end{align}
+so that $\norm{\vec{O}-\vec{P}} = 6 = 2a$. Let $\vec{T}$ be a point of contact. From \eqref{eq:EE26BTECH11229-tangent-perp},
+\begin{align}
+	\brak{\vec{P}-\vec{T}}^{\top}\vec{T} = 0 \implies \vec{P}^{\top}\vec{T} = \norm{\vec{T}}^2 = a^2 = 9
+\end{align}
+With $\vec{T} = \myvec{x \\ y}$,
+\begin{align}
+	6x = 9 \implies x = \frac{3}{2}, \quad y^2 = 9 - \frac{9}{4} = \frac{27}{4} \implies y = \pm\frac{3\sqrt{3}}{2}
+\end{align}
+Hence, the points of contact are
+\begin{align}
+	\vec{T}_1 = \myvec{\frac{3}{2} \\ \frac{3\sqrt{3}}{2}}, \quad \vec{T}_2 = \myvec{\frac{3}{2} \\ -\frac{3\sqrt{3}}{2}}
+\end{align}
+The lengths of the tangents are
+\begin{align}
+	\norm{\vec{P}-\vec{T}_1} = \norm{\myvec{\frac{9}{2} \\ -\frac{3\sqrt{3}}{2}}} = \sqrt{\frac{81}{4} + \frac{27}{4}} = 3\sqrt{3} = \norm{\vec{P}-\vec{T}_2}
+\end{align}
+which are equal and agree with $\sqrt{\norm{\vec{P}-\vec{O}}^2 - a^2} = \sqrt{36 - 9} = 3\sqrt{3}$ from \eqref{eq:EE26BTECH11229-tangent-equal}. The angle between the tangents is the angle between $\vec{T}_1 - \vec{P}$ and $\vec{T}_2 - \vec{P}$. From \eqref{eq:EE26BTECH11229-angle-vec},
+\begin{align}
+	\cos\theta = \frac{\brak{\vec{T}_1-\vec{P}}^{\top}\brak{\vec{T}_2-\vec{P}}}{\norm{\vec{T}_1-\vec{P}}\norm{\vec{T}_2-\vec{P}}}
+	= \frac{\frac{81}{4} - \frac{27}{4}}{27} = \frac{1}{2}
+\end{align}
+Hence,
+\begin{align}
+	\theta = 60^{\circ}
+\end{align}
+which verifies that $OP = 2a = 6$ for $a = 3$.
+The following code generates \figref{fig:EE26BTECH11229-20}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/tangent\_length.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/tangent_length.png}
+    \caption{Tangents from $\vec{P}$ to the circle of radius $a = 3$}
+    \label{fig:EE26BTECH11229-20}
+\end{figure}
+
 \item 
 A circle touches all the four sides of a quadrilateral ABCD. Prove that 
 \begin{align*}
@@ -43,6 +84,59 @@ Substituting in the above,
 \begin{align}
 	AB + CD = BC + DA
 \end{align}
+To verify numerically, choose
+\begin{align}
+	\vec{A} = \myvec{0 \\ 0}, \quad \vec{B} = \myvec{6 \\ 0}, \quad \vec{C} = \myvec{3 \\ 4}, \quad \vec{D} = \myvec{0 \\ 4}
+\end{align}
+The lengths of the sides are
+\begin{align}
+	AB = \norm{\vec{B}-\vec{A}} = 6, \quad BC = \norm{\vec{C}-\vec{B}} = 5, \quad CD = \norm{\vec{D}-\vec{C}} = 3, \quad DA = \norm{\vec{A}-\vec{D}} = 4
+\end{align}
+so that
+\begin{align}
+	AB + CD = 9 = BC + DA
+\end{align}
+and the given condition is satisfied. The centre $\vec{O}$ of the circle lies on the bisectors of the angles at $\vec{A}$ and $\vec{B}$. From \eqref{eq:EE26BTECH11229-angle-bisector}, the directions of these bisectors are
+\begin{align}
+	\vec{m}_A &= \frac{\vec{B}-\vec{A}}{\norm{\vec{B}-\vec{A}}} + \frac{\vec{D}-\vec{A}}{\norm{\vec{D}-\vec{A}}} = \myvec{1 \\ 0} + \myvec{0 \\ 1} = \myvec{1 \\ 1}
+	\\
+	\vec{m}_B &= \frac{\vec{A}-\vec{B}}{\norm{\vec{A}-\vec{B}}} + \frac{\vec{C}-\vec{B}}{\norm{\vec{C}-\vec{B}}} = \myvec{-1 \\ 0} + \myvec{-\frac{3}{5} \\ \frac{4}{5}} = \frac{4}{5}\myvec{-2 \\ 1}
+\end{align}
+Let $\vec{O} = \vec{A} + t\vec{m}_A = \vec{B} + s\myvec{-2 \\ 1}$. Then
+\begin{align}
+	t\myvec{1 \\ 1} + s\myvec{2 \\ -1} = \vec{B} - \vec{A} = \myvec{6 \\ 0}
+\end{align}
+The augmented matrix is
+\begin{align}
+	\myvec{1 & 2 & 6 \\ 1 & -1 & 0} \xleftrightarrow{R_2 \leftarrow R_2 - R_1} \myvec{1 & 2 & 6 \\ 0 & -3 & -6}
+\end{align}
+which gives $s = 2$ and $t = 2$. Therefore,
+\begin{align}
+	\vec{O} = \vec{A} + 2\myvec{1 \\ 1} = \myvec{2 \\ 2}
+\end{align}
+The radius is the distance of $\vec{O}$ from the side $AB$, which has the normal vector $\vec{n}_1 = \myvec{0 \\ 1}$. From \eqref{eq:EE26BTECH11229-dist-line},
+\begin{align}
+	r = \frac{\abs{\vec{n}_1^{\top}\brak{\vec{O}-\vec{A}}}}{\norm{\vec{n}_1}} = \frac{\abs{\myvec{0 & 1}\myvec{2 \\ 2}}}{1} = 2
+\end{align}
+To check that the circle touches the other three sides, the normal vectors of $BC$, $CD$ and $DA$ are $\vec{n}_2 = \myvec{4 \\ 3}$ (since $\vec{n}_2^{\top}\brak{\vec{C}-\vec{B}} = 0$), $\vec{n}_3 = \myvec{0 \\ 1}$ and $\vec{n}_4 = \myvec{1 \\ 0}$. Then
+\begin{align}
+	\frac{\abs{\vec{n}_2^{\top}\brak{\vec{O}-\vec{B}}}}{\norm{\vec{n}_2}} &= \frac{\abs{\myvec{4 & 3}\myvec{-4 \\ 2}}}{5} = 2
+	\\
+	\frac{\abs{\vec{n}_3^{\top}\brak{\vec{O}-\vec{C}}}}{\norm{\vec{n}_3}} &= \abs{\myvec{0 & 1}\myvec{-1 \\ -2}} = 2
+	\\
+	\frac{\abs{\vec{n}_4^{\top}\brak{\vec{O}-\vec{D}}}}{\norm{\vec{n}_4}} &= \abs{\myvec{1 & 0}\myvec{2 \\ -2}} = 2
+\end{align}
+Hence, the circle with centre $\vec{O} = \myvec{2 \\ 2}$ and radius $r = 2$ touches all four sides of the quadrilateral $ABCD$.
+The following code generates \figref{fig:EE26BTECH11229-12}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/quad\_incircle.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/quad_incircle.png}
+    \caption{Circle touching all four sides of the quadrilateral $ABCD$}
+    \label{fig:EE26BTECH11229-12}
+\end{figure}
 \item 
 If the distances of $\vec{P}\brak{x, y}$ from $\vec{A}\brak{5, 1}$ and $\vec{B}\brak{-1, 5}$ are equal, then prove that $3x = 2y$.
 \hfill (CBSE~2017)
@@ -65,6 +159,16 @@ Substituting in \eqref{eq:EE26BTECH11229-perp-bisector},
 	\\
 	\therefore 3x &= 2y
 \end{align}
+The following code generates \figref{fig:EE26BTECH11229-13}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/perp\_bisector.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/perp_bisector.png}
+    \caption{Perpendicular bisector of $AB$}
+    \label{fig:EE26BTECH11229-13}
+\end{figure}
 \item 
 Find the value of $p$, for which one root of the quadratic equation $px^2 - 14x + 8 = 0$ is 6 times the other.
 \hfill (CBSE~2017)
@@ -89,42 +193,109 @@ Substituting in \eqref{eq:EE26BTECH11229-Prob_9-2},
 	\implies p &= 3
 \end{align}
 For $p=3$, the roots are $4$ and $\frac{2}{3}$, and indeed $4 = 6\brak{\frac{2}{3}}$.
-The following code verifies the solution
+For $p = 3$, consider the parabola $y = 3x^2 - 14x + 8$. Its quadratic form is
+\begin{align}
+	\vec{x}^{\top}\vec{V}\vec{x} + 2\vec{u}^{\top}\vec{x} + f = 0
+\end{align}
+where
+\begin{align}
+	\vec{x} = \myvec{x \\ y}, \quad \vec{V} = \myvec{3 & 0 \\ 0 & 0}, \quad \vec{u} = \myvec{-7 \\ -\frac{1}{2}}, \quad f = 8
+\end{align}
+Since $\rank\brak{\vec{V}} = 1$, this is a parabola. The $x$-axis is the line $\vec{x} = \vec{h} + \kappa\vec{m}$ with
+\begin{align}
+	\vec{h} = \myvec{0 \\ 0}, \quad \vec{m} = \myvec{1 \\ 0}
+\end{align}
+Then
+\begin{align}
+	\vec{m}^{\top}\vec{V}\vec{m} = 3, \quad \vec{m}^{\top}\brak{\vec{V}\vec{h} + \vec{u}} = -7, \quad g\brak{\vec{h}} = f = 8
+\end{align}
+From \eqref{eq:EE26BTECH11229-conic-line}, the points of intersection of the parabola with the $x$-axis satisfy
+\begin{align}
+	3\kappa^2 - 14\kappa + 8 = 0
+\end{align}
+which is the same equation as the given quadratic equation for $p = 3$. From \eqref{eq:EE26BTECH11229-quad-formula},
+\begin{align}
+	\kappa = \frac{14 \pm \sqrt{196 - 96}}{6} = \frac{14 \pm 10}{6} = 4 \text{ or } \frac{2}{3}
+\end{align}
+Therefore, the parabola meets the $x$-axis at
+\begin{align}
+	\vec{x} = \kappa\vec{m} = \myvec{4 \\ 0} \text{ and } \myvec{\frac{2}{3} \\ 0}
+\end{align}
+so the roots of the quadratic equation are the intersections of the parabola with the $x$-axis.
+The following code generates \figref{fig:EE26BTECH11229-16}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/quadratic.c}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/root\_ratio.py}@*)
 \end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/root_ratio.png}
+    \caption{Parabola $y = 3x^2 - 14x + 8$ meeting the $x$-axis at $x = \frac{2}{3}$ and $x = 4$}
+    \label{fig:EE26BTECH11229-16}
+\end{figure}
+
 \item 
 For what value of $n$, are the $n^{\text{th}}$ terms of two A.Ps $63, 65, 67, \ldots$ and $3, 10, 17, \ldots$ equal ?
 \hfill (CBSE~2017)
 \\
 \solution
-For the first A.P., $a = 63$, $d = 2$ and for the second A.P., $a = 3$, $d = 7$. Equating the $n^{\text{th}}$ terms using \eqref{eq:EE26BTECH11229-ap-nth},
+Let the index start from $0$, so that $x\brak{n}$ is the $\brak{n+1}^{\text{th}}$ term. From \eqref{eq:EE26BTECH11229-ap-step}, with $a = 63$, $d = 2$ for the first A.P. and $a = 3$, $d = 7$ for the second A.P.,
 \begin{align}
-	63 + \brak{n-1}2 &= 3 + \brak{n-1}7
-	\\
-	\implies 5\brak{n-1} &= 60
-	\\
-	\therefore n &= 13
+	x_1\brak{n} = \brak{63 + 2n}u\brak{n}, \quad x_2\brak{n} = \brak{3 + 7n}u\brak{n}
 \end{align}
-Both terms are then equal to $87$.
+The two sequences intersect when $x_1\brak{n} = x_2\brak{n}$ for $n \ge 0$,
+\begin{align}
+	63 + 2n &= 3 + 7n
+	\\
+	\implies 5n &= 60
+	\\
+	\therefore n &= 12
+\end{align}
+Hence, the stems of the two sequences coincide at $n = 12$, where
+\begin{align}
+	x_1\brak{12} = 63 + 24 = 87, \quad x_2\brak{12} = 3 + 84 = 87
+\end{align}
+Since $x\brak{n}$ is the $\brak{n+1}^{\text{th}}$ term, the $13^{\text{th}}$ terms of the two A.Ps are equal.
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/ap\_equal.c}@*)
 \end{lstlisting}
+The following code generates \figref{fig:EE26BTECH11229-17}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/ap\_equal.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/ap_equal.png}
+    \caption{Stem plot of the two A.Ps, intersecting at $n = 12$}
+    \label{fig:EE26BTECH11229-17}
+\end{figure}
 \item 
 On a straight line passing through the foot of a tower, two points C and D are at distances of 4 m and 16 m from the foot respectively. If the angles of elevation from C and D of the top of the tower are complementary, then find the height of the tower.
 \hfill (CBSE~2017)
 \\
 \solution
-Let $h$ be the height of the tower and $\theta$ be the angle of elevation from $\vec{C}$. The angle of elevation from $\vec{D}$ is then $90^{\circ} - \theta$. From \eqref{eq:EE26BTECH11229-trig},
+Let the foot of the tower be the origin, with the tower along the $y$-axis and $C$, $D$ on the positive $x$-axis. Let $h$ be the height of the tower. Then
 \begin{align}
-	\tan\theta = \frac{h}{4}, \quad \tan\brak{90^{\circ}-\theta} = \frac{h}{16}
+	\vec{O} = \myvec{0 \\ 0}, \quad \vec{C} = \myvec{4 \\ 0}, \quad \vec{D} = \myvec{16 \\ 0}, \quad \vec{T} = \myvec{0 \\ h}
 \end{align}
-From \eqref{eq:EE26BTECH11229-tan-comp},
+where $\vec{T}$ is the top of the tower. Let $\theta$ be the angle of elevation from $\vec{C}$, that is, the angle between $\vec{T}-\vec{C}$ and $\vec{O}-\vec{C}$. The angle of elevation from $\vec{D}$ is then $90^{\circ}-\theta$. The vectors are
 \begin{align}
-	\frac{h}{4}\cdot\frac{h}{16} &= 1
+	\vec{T}-\vec{C} = \myvec{-4 \\ h}, \quad \vec{O}-\vec{C} = \myvec{-4 \\ 0}, \quad
+	\vec{T}-\vec{D} = \myvec{-16 \\ h}, \quad \vec{O}-\vec{D} = \myvec{-16 \\ 0}
+\end{align}
+From \eqref{eq:EE26BTECH11229-angle-vec},
+\begin{align}
+	\cos\theta &= \frac{\brak{\vec{T}-\vec{C}}^{\top}\brak{\vec{O}-\vec{C}}}{\norm{\vec{T}-\vec{C}}\norm{\vec{O}-\vec{C}}} = \frac{16}{4\sqrt{16+h^2}} = \frac{4}{\sqrt{16+h^2}}
 	\\
-	\implies h^2 &= 64
+	\cos\brak{90^{\circ}-\theta} &= \frac{\brak{\vec{T}-\vec{D}}^{\top}\brak{\vec{O}-\vec{D}}}{\norm{\vec{T}-\vec{D}}\norm{\vec{O}-\vec{D}}} = \frac{16}{\sqrt{256+h^2}}
+\end{align}
+Since $\cos\brak{90^{\circ}-\theta} = \sin\theta$, we have $\cos^2\theta + \cos^2\brak{90^{\circ}-\theta} = 1$,
+\begin{align}
+	\frac{16}{16+h^2} + \frac{256}{256+h^2} &= 1
+	\\
+	\implies 16\brak{256+h^2} + 256\brak{16+h^2} &= \brak{16+h^2}\brak{256+h^2}
+	\\
+	\implies h^4 &= 4096
 	\\
 	\therefore h &= 8 \text{ m}
 \end{align}
@@ -138,262 +309,91 @@ The following code generates \figref{fig:EE26BTECH11229-5}
     \caption{Tower and the angles of elevation}
     \label{fig:EE26BTECH11229-5}
 \end{figure}
-\item 
-Three semicircles each of diameter 3 cm, a circle of diameter 4.5 cm and a semicircle of radius 4.5 cm are drawn in the given figure. Find the area of the shaded region.
-\hfill (CBSE~2017)
-\begin{figure}[H]
-	\centering
-\begin{tikzpicture}[scale=0.8]
-% large semicircle (shaded)
-\fill[pattern=north east lines] (-4.5,0) arc (180:0:4.5) -- cycle;
-% unshaded: circle and the two upper small semicircles
-\fill[white] (0,2.25) circle (2.25);
-\fill[white] (-4.5,0) arc (180:0:1.5) -- cycle;
-\fill[white] (1.5,0) arc (180:0:1.5) -- cycle;
-% lower small semicircle (shaded)
-\fill[pattern=north east lines] (-1.5,0) arc (180:360:1.5) -- cycle;
 
-% outlines
-\draw (-4.5,0) arc (180:0:4.5) -- cycle;
-\draw (0,2.25) circle (2.25);
-\draw (-4.5,0) arc (180:0:1.5);
-\draw (1.5,0) arc (180:0:1.5);
-\draw (-1.5,0) arc (180:360:1.5);
-
-% dimensions
-\draw[dotted] (-4.5,0) -- (-4.5,-2.2);
-\draw[dotted] (-1.5,0) -- (-1.5,-2.2);
-\draw[dotted] (1.5,0) -- (1.5,-2.2);
-\draw[dotted] (4.5,0) -- (4.5,-2.2);
-\draw[<->] (-4.5,-2) -- (-1.5,-2) node[midway,below] {3 cm};
-\draw[<->] (-1.5,-2) -- (1.5,-2) node[midway,below] {3 cm};
-\draw[<->] (1.5,-2) -- (4.5,-2) node[midway,below] {3 cm};
-\end{tikzpicture}
-\caption{}
-    \label{fig:EE26BTECH11229-1}
-\end{figure}
-\solution
-In \figref{fig:EE26BTECH11229-1}, the radii are
-\begin{align}
-	R = \frac{9}{2} \text{ cm (large semicircle)}, \quad
-	r = \frac{3}{2} \text{ cm (small semicircles)}, \quad
-	\rho = \frac{9}{4} \text{ cm (circle)}
-\end{align}
-The shaded region is the large semicircle, excluding the circle and the two upper small semicircles, and including the lower small semicircle. Using \eqref{eq:EE26BTECH11229-area-circle}, the area is
-\begin{align}
-	A &= \frac{1}{2}\pi R^2 - \pi\rho^2 - 2\brak{\frac{1}{2}\pi r^2} + \frac{1}{2}\pi r^2
-	\\
-	&= \frac{1}{2}\pi R^2 - \pi\rho^2 - \frac{1}{2}\pi r^2
-	\\
-	&= \pi\brak{\frac{81}{8} - \frac{81}{16} - \frac{9}{8}}
-	= \frac{63\pi}{16}
-\end{align}
-Substituting $\pi = \frac{22}{7}$,
-\begin{align}
-	A = \frac{63}{16}\times\frac{22}{7} = \frac{99}{8} = 12.375 \text{ cm}^2
-\end{align}
-The following code generates \figref{fig:EE26BTECH11229-9}
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/shaded\_area.py}@*)
-\end{lstlisting}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figs/shaded_region.png}
-    \caption{Shaded region}
-    \label{fig:EE26BTECH11229-9}
-\end{figure}
 \item 
 In what ratio does the point $\brak{\frac{24}{11}, y}$ divide the line segment joining the points $\vec{P}\brak{2, -2}$ and $\vec{Q}\brak{3, 7}$ ? Also find the value of $y$.
 \hfill (CBSE~2017)
 \\
 \solution
-Let the ratio be $k:1$. From \eqref{eq:EE26BTECH11229-section},
+Let $\vec{R} = \myvec{\frac{24}{11} \\ y}$. Since $\vec{R}$ lies on the line segment joining $\vec{P}$ and $\vec{Q}$, the points $\vec{P}$, $\vec{Q}$ and $\vec{R}$ are collinear. Then
 \begin{align}
-	\myvec{\frac{24}{11} \\ y} = \frac{k\myvec{3 \\ 7} + \myvec{2 \\ -2}}{k+1}
+	\vec{Q} - \vec{P} = \myvec{1 \\ 9}, \quad \vec{R} - \vec{P} = \myvec{\frac{2}{11} \\ y+2}
 \end{align}
-Considering the first row,
+From \eqref{eq:EE26BTECH11229-collinear},
 \begin{align}
-	\frac{24}{11} &= \frac{3k+2}{k+1}
-	\\
-	\implies 24k + 24 &= 33k + 22
-	\\
-	\implies k &= \frac{2}{9}
+	\rank\myvec{\vec{Q}-\vec{P} & \vec{R}-\vec{P}} = \rank\myvec{1 & \frac{2}{11} \\ 9 & y+2} = 1
 \end{align}
-Thus, the ratio is $2:9$. Considering the second row,
+Performing the row operation $R_2 \leftarrow R_2 - 9R_1$,
 \begin{align}
-	y = \frac{7k - 2}{k+1} = \frac{\frac{14}{9} - 2}{\frac{11}{9}} = -\frac{4}{11}
+	\myvec{1 & \frac{2}{11} \\ 9 & y+2} \xleftrightarrow{R_2 \leftarrow R_2 - 9R_1} \myvec{1 & \frac{2}{11} \\ 0 & y + 2 - \frac{18}{11}}
 \end{align}
+For the rank to be $1$, the second row must vanish,
+\begin{align}
+	y + 2 - \frac{18}{11} = 0 \implies y = -\frac{4}{11}
+\end{align}
+The second column is also $\frac{2}{11}$ times the first column, so
+\begin{align}
+	\vec{R} - \vec{P} = \frac{2}{11}\brak{\vec{Q} - \vec{P}}
+\end{align}
+From \eqref{eq:EE26BTECH11229-ratio-collinear} with $\lambda = \frac{2}{11}$,
+\begin{align}
+	\vec{P}\vec{R} : \vec{R}\vec{Q} = \lambda : \brak{1-\lambda} = \frac{2}{11} : \frac{9}{11} = 2 : 9
+\end{align}
+Thus, the ratio is $2:9$ and $y = -\frac{4}{11}$.
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/section.c}@*)
 \end{lstlisting}
 \item 
-Water in a canal, 5.4 m wide and 1.8 m deep, is flowing with a speed of 25 km/hour. How much area can it irrigate in 40 minutes, if 10 cm of standing water is required for irrigation ?
-\hfill (CBSE~2017)
-\\
-\solution
-The cross-sectional area, speed and time are
-\begin{align}
-	A = 5.4 \times 1.8 \text{ m}^2, \quad v = 25000 \text{ m/h}, \quad t = \frac{40}{60} = \frac{2}{3} \text{ h}
-\end{align}
-From \eqref{eq:EE26BTECH11229-flow}, the volume of water that flows in 40 minutes is
-\begin{align}
-	V = 5.4 \times 1.8 \times 25000 \times \frac{2}{3} = 162000 \text{ m}^3
-\end{align}
-If this water stands at a depth of $10 \text{ cm} = 0.1 \text{ m}$ over an area $S$,
-\begin{align}
-	S \times 0.1 &= 162000
-	\\
-	\implies S &= 1620000 \text{ m}^2 = 162 \text{ hectares}
-\end{align}
-\item 
-In the given figure, two concentric circles with centre O have radii 21 cm and 42 cm. If $\angle AOB = 60^{\circ}$, find the area of the shaded region.
-\hfill [Use $\pi = \frac{22}{7}$] \hfill (CBSE~2017)
-\begin{figure}[H]
-	\centering
-\begin{tikzpicture}[scale=1.6]
-\coordinate (O) at (0,0);
-\coordinate (A) at (240:2);
-\coordinate (B) at (300:2);
-\coordinate (C) at (240:1);
-\coordinate (D) at (300:1);
-% shaded ring
-\fill[pattern=vertical lines, even odd rule] (O) circle (2) circle (1);
-% unshaded part of the ring inside the 60 degree angle
-\fill[white] (C) -- (A) arc (240:300:2) -- (D) arc (300:240:1) -- cycle;
-% outlines
-\draw (O) circle (2);
-\draw (O) circle (1);
-\draw (O) -- (A);
-\draw (O) -- (B);
-\draw (A) arc (240:300:2);
-\draw (0.0,-0.45) node {$60^{\circ}$};
-\fill (O) circle (0.025) node[above] {O};
-\node[below left] at (A) {A};
-\node[below right] at (B) {B};
-\node[left] at (C) {C};
-\node[right] at (D) {D};
-\end{tikzpicture}
-\caption{}
-    \label{fig:EE26BTECH11229-2}
-\end{figure}
-\solution
-In \figref{fig:EE26BTECH11229-2}, the radii are $R = 42$ cm and $r = 21$ cm. The shaded region is the ring between the circles, excluding the part of the ring inside the $60^{\circ}$ angle. From \eqref{eq:EE26BTECH11229-sector},
-\begin{align}
-	A &= \pi\brak{R^2 - r^2} - \frac{60^{\circ}}{360^{\circ}}\pi\brak{R^2 - r^2}
-	\\
-	&= \frac{5}{6}\pi\brak{42^2 - 21^2}
-	= \frac{5}{6}\times\frac{22}{7}\times 1323
-\end{align}
-yielding
-\begin{align}
-	A = 3465 \text{ cm}^2
-\end{align}
-The following code generates \figref{fig:EE26BTECH11229-6}
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/sector\_area.py}@*)
-\end{lstlisting}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figs/sector_area.png}
-    \caption{Annular sector}
-    \label{fig:EE26BTECH11229-6}
-\end{figure}
-\item 
-The dimensions of a solid iron cuboid are $4.4 \text{ m} \times 2.6 \text{ m} \times 1.0 \text{ m}$. It is melted and recast into a hollow cylindrical pipe of 30 cm inner radius and thickness 5 cm. Find the length of the pipe.
-\hfill (CBSE~2017)
-\\
-\solution
-The volume of the cuboid is
-\begin{align}
-	V = 4.4 \times 2.6 \times 1.0 = 11.44 \text{ m}^3
-\end{align}
-The inner and outer radii of the pipe are $r = 0.3$ m and $R = 0.3 + 0.05 = 0.35$ m. Let $h$ be the length of the pipe. Equating the volumes using \eqref{eq:EE26BTECH11229-hollow-cyl},
-\begin{align}
-	\frac{22}{7}\brak{0.35^2 - 0.3^2}h &= 11.44
-	\\
-	\implies \frac{22}{7}\times 0.0325\, h &= 11.44
-	\\
-	\therefore h &= 112 \text{ m}
-\end{align}
-The following code verifies the solution
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/cylinder.c}@*)
-\end{lstlisting}
-\item 
-A toy is in the form of a cone of radius 3.5 cm mounted on a hemisphere of same radius on its circular face. The total height of the toy is 15.5 cm. Find the total surface area of the toy.
-\hfill (CBSE~2017)
-\\
-\solution
-The radius is $r = 3.5$ cm. The height of the cone is
-\begin{align}
-	h = 15.5 - 3.5 = 12 \text{ cm}
-\end{align}
-From \eqref{eq:EE26BTECH11229-cone}, the slant height is
-\begin{align}
-	l = \sqrt{12^2 + 3.5^2} = \sqrt{156.25} = 12.5 \text{ cm}
-\end{align}
-The total surface area is the sum of the curved surface areas of the cone and the hemisphere, from \eqref{eq:EE26BTECH11229-cone} and \eqref{eq:EE26BTECH11229-hemisphere},
-\begin{align}
-	A &= \pi r l + 2\pi r^2 = \pi r\brak{l + 2r}
-	\\
-	&= \frac{22}{7}\times 3.5 \times \brak{12.5 + 7}
-	= 214.5 \text{ cm}^2
-\end{align}
-The following code generates \figref{fig:EE26BTECH11229-7}
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/cone\_hemisphere.py}@*)
-\end{lstlisting}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figs/cone_hemisphere.png}
-    \caption{Cone mounted on a hemisphere}
-    \label{fig:EE26BTECH11229-7}
-\end{figure}
-\item 
 How many terms of an A.P. $9, 17, 25, \ldots$ must be taken to give a sum of 636 ?
 \hfill (CBSE~2017)
 \\
 \solution
-Here $a = 9$ and $d = 8$. From \eqref{eq:EE26BTECH11229-ap-sum},
+Let $x\brak{n}$ be the $\brak{n+1}^{\text{th}}$ term of the A.P. $9, 17, 25, \ldots$, where $n = 0, 1, 2, \ldots$ Then
 \begin{align}
-	\frac{n}{2}\sbrak{18 + 8\brak{n-1}} &= 636
+	x\brak{n} = \brak{9 + 8n}u\brak{n}
+\end{align}
+The sum of the first $n+1$ terms is
+\begin{align}
+	y\brak{n} = \sum_{k=0}^{n} x\brak{k} = x\brak{n} * u\brak{n}
+\end{align}
+From \eqref{eq:EE26BTECH11229-z-prop}, for $\abs{z} > 1$,
+\begin{align}
+	Y\brak{z} = \frac{X\brak{z}}{1 - z^{-1}}
+\end{align}
+Using \eqref{eq:EE26BTECH11229-z-pairs},
+\begin{align}
+	X\brak{z} &= \frac{9}{1 - z^{-1}} + \frac{8z^{-1}}{\brak{1 - z^{-1}}^2} = \frac{9 - z^{-1}}{\brak{1 - z^{-1}}^2}
 	\\
-	\implies 4n^2 + 5n - 636 &= 0
+	\implies Y\brak{z} &= \frac{9 - z^{-1}}{\brak{1 - z^{-1}}^3} = \frac{9}{\brak{1 - z^{-1}}^3} - \frac{z^{-1}}{\brak{1 - z^{-1}}^3}
+\end{align}
+Taking the inverse Z-transform using \eqref{eq:EE26BTECH11229-z-pairs} and \eqref{eq:EE26BTECH11229-z-prop},
+\begin{align}
+	y\brak{n} &= 9\cdot\frac{\brak{n+1}\brak{n+2}}{2}u\brak{n} - \frac{n\brak{n+1}}{2}u\brak{n-1}
+\end{align}
+The second term is zero at $n = 0$, so $u\brak{n-1}$ can be replaced by $u\brak{n}$,
+\begin{align}
+	y\brak{n} = \frac{\brak{n+1}\brak{9n + 18 - n}}{2}u\brak{n} = \brak{n+1}\brak{4n+9}u\brak{n}
+\end{align}
+Equating the sum to $636$,
+\begin{align}
+	\brak{n+1}\brak{4n+9} &= 636
+	\\
+	\implies 4n^2 + 13n - 627 &= 0
 \end{align}
 From \eqref{eq:EE26BTECH11229-quad-formula},
 \begin{align}
-	n = \frac{-5 \pm \sqrt{25 + 10176}}{8} = \frac{-5 \pm 101}{8}
+	n = \frac{-13 \pm \sqrt{169 + 10032}}{8} = \frac{-13 \pm 101}{8}
 \end{align}
-Since $n$ is positive,
+Since $n \ge 0$,
 \begin{align}
-	n = 12
+	n = 11
 \end{align}
+Hence, the number of terms is $n + 1 = 12$.
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/ap\_sum.c}@*)
 \end{lstlisting}
-\item 
-If the roots of the equation $\brak{a^2 + b^2}x^2 - 2\brak{ac + bd}x + \brak{c^2 + d^2} = 0$ are equal, prove that $\frac{a}{b} = \frac{c}{d}$.
-\hfill (CBSE~2017)
-\\
-\solution
-From \eqref{eq:EE26BTECH11229-quad-equal},
-\begin{align}
-	4\brak{ac + bd}^2 - 4\brak{a^2 + b^2}\brak{c^2 + d^2} &= 0
-	\\
-	\implies a^2c^2 + 2abcd + b^2d^2 &= a^2c^2 + a^2d^2 + b^2c^2 + b^2d^2
-	\\
-	\implies a^2d^2 - 2abcd + b^2c^2 &= 0
-	\\
-	\implies \brak{ad - bc}^2 &= 0
-	\\
-	\implies ad &= bc
-\end{align}
-Dividing by $bd$,
-\begin{align}
-	\frac{a}{b} = \frac{c}{d}
-\end{align}
 \item 
 If the points $\vec{A}\brak{k+1, 2k}$, $\vec{B}\brak{3k, 2k+3}$ and $\vec{C}\brak{5k-1, 5k}$ are collinear, then find the value of $k$.
 \hfill (CBSE~2017)
@@ -403,11 +403,21 @@ Let
 \begin{align}
 	\vec{B} - \vec{A} = \myvec{2k-1 \\ 3}, \quad \vec{C} - \vec{A} = \myvec{4k-2 \\ 3k}
 \end{align}
-From \eqref{eq:EE26BTECH11229-collinear}, the points are collinear if
+From \eqref{eq:EE26BTECH11229-collinear}, the points are collinear if and only if
 \begin{align}
-	\mydet{\myvec{2k-1 & 4k-2 \\ 3 & 3k}} &= 0
-	\\
-	\implies 3k\brak{2k-1} - 3\brak{4k-2} &= 0
+	\rank\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A}} = \rank\myvec{2k-1 & 4k-2 \\ 3 & 3k} = 1
+\end{align}
+Performing the row operations $R_1 \leftrightarrow R_2$ and $R_1 \leftarrow \frac{R_1}{3}$,
+\begin{align}
+	\myvec{2k-1 & 4k-2 \\ 3 & 3k} \xleftrightarrow[R_1 \leftarrow \frac{R_1}{3}]{R_1 \leftrightarrow R_2} \myvec{1 & k \\ 2k-1 & 4k-2}
+\end{align}
+Performing the row operation $R_2 \leftarrow R_2 - \brak{2k-1}R_1$,
+\begin{align}
+	\myvec{1 & k \\ 2k-1 & 4k-2} \xleftrightarrow{R_2 \leftarrow R_2 - \brak{2k-1}R_1} \myvec{1 & k \\ 0 & -2k^2 + 5k - 2}
+\end{align}
+The first row is nonzero, so for the rank to be $1$, the second row must vanish,
+\begin{align}
+	-2k^2 + 5k - 2 &= 0
 	\\
 	\implies 2k^2 - 5k + 2 &= 0
 	\\
@@ -426,25 +436,27 @@ Two different dice are thrown together. Find the probability that the numbers ob
 \hfill (CBSE~2017)
 \\
 \solution
-The total number of equally likely outcomes is $N = 36$.
+Let $X_1$ and $X_2$ represent the scores on the two dice, and let $X = X_1 + X_2$ denote their sum.
 \begin{enumerate}
-\item The sum is even if both numbers are even or both are odd. There are $3 \times 3 = 9$ outcomes of each type. From \eqref{eq:EE26BTECH11229-prob-def},
+\item From the triangular PMF in \eqref{eq:EE26BTECH11229-dice-pmf}, the sum is even for $n \in \{2, 4, 6, 8, 10, 12\}$. Hence,
 \begin{align}
-	\pr{\text{even sum}} = \frac{9 + 9}{36} = \frac{1}{2}
+	\pr{X \text{ is even}} &= \sum_{n \in \{2, 4, 6, 8, 10, 12\}} p_X\brak{n}
+	\\
+	&= \frac{1 + 3 + 5 + 5 + 3 + 1}{36} = \frac{1}{2}
 \end{align}
-\item The product is odd only if both numbers are odd, which gives $3 \times 3 = 9$ outcomes. Thus,
+\item The product $X_1 X_2$ is odd if and only if both $X_1$ and $X_2$ are odd. From \eqref{eq:EE26BTECH11229-dice-uniform},
 \begin{align}
-	\pr{\text{odd product}} = \frac{9}{36} = \frac{1}{4}
+	\pr{X_1 \text{ is odd}} = p_{X_1}\brak{1} + p_{X_1}\brak{3} + p_{X_1}\brak{5} = \frac{3}{6} = \frac{1}{2}
+\end{align}
+and similarly $\pr{X_2 \text{ is odd}} = \frac{1}{2}$. Since $X_1$ and $X_2$ are independent,
+\begin{align}
+	\pr{X_1 X_2 \text{ is odd}} = \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}
 \end{align}
 Using the complement in \eqref{eq:EE26BTECH11229-prob-def},
 \begin{align}
-	\pr{\text{even product}} = 1 - \frac{1}{4} = \frac{3}{4}
+	\pr{X_1 X_2 \text{ is even}} = 1 - \frac{1}{4} = \frac{3}{4}
 \end{align}
 \end{enumerate}
-The following code verifies the solution
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/dice\_prob.c}@*)
-\end{lstlisting}
 \item 
 In the given figure, $XY$ and $X^{\prime}Y^{\prime}$ are two parallel tangents to a circle with centre O and another tangent $AB$ with point of contact $C$, is intersecting $XY$ at $A$ and $X^{\prime}Y^{\prime}$ at $B$. Prove that $\angle AOB = 90^{\circ}$.
 \hfill (CBSE~2017)
@@ -484,46 +496,91 @@ In the given figure, $XY$ and $X^{\prime}Y^{\prime}$ are two parallel tangents t
     \label{fig:EE26BTECH11229-3}
 \end{figure}
 \solution
-In \figref{fig:EE26BTECH11229-3}, let $P$ and $Q$ be the points of contact of $XY$ and $X^{\prime}Y^{\prime}$. From \eqref{eq:EE26BTECH11229-tangent-perp}, $OP \perp XY$ and $OQ \perp X^{\prime}Y^{\prime}$. Since $XY \parallel X^{\prime}Y^{\prime}$, the points $P$, $O$ and $Q$ are collinear. From \eqref{eq:EE26BTECH11229-tangent-equal}, 
+In \figref{fig:EE26BTECH11229-3}, let $r$ be the radius of the circle, and let $P$, $Q$ and $C$ be the points of contact of $XY$, $X^{\prime}Y^{\prime}$ and $AB$. Take $\vec{O}$ as the origin with $XY \parallel X^{\prime}Y^{\prime}$ along the $x$-direction. Since the tangents at $P$ and $Q$ are parallel, from \eqref{eq:EE26BTECH11229-tangent-perp}, $P$, $O$ and $Q$ are collinear,
 \begin{align}
-	AP = AC, \quad BQ = BC
+	\vec{O} = \myvec{0 \\ 0}, \quad \vec{P} = \myvec{0 \\ r}, \quad \vec{Q} = \myvec{0 \\ -r}, \quad \vec{C} = \myvec{c_1 \\ c_2}, \quad c_1^2 + c_2^2 = r^2
 \end{align}
-Also $OP = OC = OQ$, and $OA$, $OB$ are common. Therefore, the triangles $OPA$ and $OCA$ are congruent, and so are $OQB$ and $OCB$,
+The points $\vec{A}$ and $\vec{B}$ lie on the tangents $XY$ and $X^{\prime}Y^{\prime}$ respectively, so
 \begin{align}
-	\angle AOP = \angle AOC, \quad \angle BOQ = \angle BOC
+	\vec{A} = \myvec{a \\ r}, \quad \vec{B} = \myvec{b \\ -r}
 \end{align}
-Since $POQ$ is a straight line,
+$AB$ touches the circle at $\vec{C}$ and $\vec{A}$, $\vec{B}$ lie on this tangent. From \eqref{eq:EE26BTECH11229-tangent-perp} with $\vec{O}$ as the origin,
 \begin{align}
-	\angle AOP + \angle AOC + \angle BOC + \angle BOQ &= 180^{\circ}
+	\brak{\vec{A}-\vec{C}}^{\top}\vec{C} = 0 &\implies \vec{A}^{\top}\vec{C} = \norm{\vec{C}}^2 = r^2
 	\\
-	\implies 2\brak{\angle AOC + \angle BOC} &= 180^{\circ}
+	\brak{\vec{B}-\vec{C}}^{\top}\vec{C} = 0 &\implies \vec{B}^{\top}\vec{C} = r^2
+\end{align}
+Substituting the coordinates,
+\begin{align}
+	a c_1 + r c_2 &= r^2 \implies a c_1 = r\brak{r - c_2}
+	\\
+	b c_1 - r c_2 &= r^2 \implies b c_1 = r\brak{r + c_2}
+\end{align}
+Multiplying the two equations,
+\begin{align}
+	ab\,c_1^2 = r^2\brak{r^2 - c_2^2} = r^2 c_1^2
+\end{align}
+Since $c_1 \neq 0$ (otherwise $AB$ would coincide with $XY$ or $X^{\prime}Y^{\prime}$),
+\begin{align}
+	ab = r^2
+\end{align}
+From \eqref{eq:EE26BTECH11229-angle-vec},
+\begin{align}
+	\cos\angle AOB = \frac{\vec{A}^{\top}\vec{B}}{\norm{\vec{A}}\norm{\vec{B}}}
+	= \frac{ab - r^2}{\norm{\vec{A}}\norm{\vec{B}}} = 0
 \end{align}
 Hence,
 \begin{align}
-	\angle AOB = \angle AOC + \angle BOC = 90^{\circ}
+	\angle AOB = 90^{\circ}
 \end{align}
-\item 
-In a rain-water harvesting system, the rain-water from a roof of $22 \text{ m} \times 20 \text{ m}$ drains into a cylindrical tank having diameter of base 2 m and height 3.5 m. If the tank is full, find the rainfall in cm. Write your views on water conservation.
-\hfill (CBSE~2017)
-\\
-\solution
-The radius of the tank is $r = 1$ m and its height is $h = 3.5$ m. From \eqref{eq:EE26BTECH11229-cylinder}, the volume of the tank is
+To verify numerically, take a circle with centre $\vec{O}$ and radius $r = 10$, and the point of contact $\vec{C}$ of $AB$,
 \begin{align}
-	V = \frac{22}{7} \times 1^2 \times 3.5 = 11 \text{ m}^3
+	\vec{O} = \myvec{0 \\ 0}, \quad \vec{P} = \myvec{0 \\ 10}, \quad \vec{Q} = \myvec{0 \\ -10}, \quad \vec{C} = \myvec{8 \\ -6}
 \end{align}
-Let the rainfall be $x$ m. All the rain-water falling on the roof is collected in the tank, so
+Here $\norm{\vec{C}}^2 = 64 + 36 = 100 = r^2$, so $\vec{C}$ lies on the circle. The points $\vec{A}$ and $\vec{B}$ lie on the tangents $y = 10$ and $y = -10$ respectively, so let
 \begin{align}
-	22 \times 20 \times x &= 11
+	\vec{A} = \myvec{a \\ 10}, \quad \vec{B} = \myvec{b \\ -10}
+\end{align}
+From \eqref{eq:EE26BTECH11229-tangent-perp}, $\vec{A}^{\top}\vec{C} = \vec{B}^{\top}\vec{C} = r^2 = 100$,
+\begin{align}
+	8a - 60 &= 100 \implies a = 20
 	\\
-	\implies x &= \frac{11}{440} = 0.025 \text{ m}
+	8b + 60 &= 100 \implies b = 5
 \end{align}
-Hence, the rainfall is $2.5$ cm.
-The following code verifies the solution
+Hence,
+\begin{align}
+	\vec{A} = \myvec{20 \\ 10}, \quad \vec{B} = \myvec{5 \\ -10}
+\end{align}
+Then $ab = 100 = r^2$, and the tangent $AB$ is perpendicular to the radius at $\vec{C}$,
+\begin{align}
+	\brak{\vec{A}-\vec{C}}^{\top}\vec{C} &= \myvec{12 & 16}\myvec{8 \\ -6} = 0
+	\\
+	\brak{\vec{B}-\vec{C}}^{\top}\vec{C} &= \myvec{-3 & -4}\myvec{8 \\ -6} = 0
+\end{align}
+The tangent lengths from $\vec{A}$ and $\vec{B}$ are equal, from \eqref{eq:EE26BTECH11229-tangent-equal},
+\begin{align}
+	\norm{\vec{A}-\vec{P}} = \norm{\myvec{20 \\ 0}} = 20 = \norm{\myvec{12 \\ 16}} = \norm{\vec{A}-\vec{C}}
+	\\
+	\norm{\vec{B}-\vec{Q}} = \norm{\myvec{5 \\ 0}} = 5 = \norm{\myvec{-3 \\ -4}} = \norm{\vec{B}-\vec{C}}
+\end{align}
+Finally, from \eqref{eq:EE26BTECH11229-angle-vec},
+\begin{align}
+	\cos\angle AOB = \frac{\vec{A}^{\top}\vec{B}}{\norm{\vec{A}}\norm{\vec{B}}}
+	= \frac{100 - 100}{\sqrt{500}\sqrt{125}} = 0
+	\\
+	\implies \angle AOB = 90^{\circ}
+\end{align}
+which verifies the result.
+The following code generates \figref{fig:EE26BTECH11229-18}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/rainfall.c}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/tangent\_angle.py}@*)
 \end{lstlisting}
-
-Water conservation is essential because fresh water is limited. Rain-water harvesting reduces the dependence on groundwater, recharges the water table and reduces flooding. Every individual should save water in daily life.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/tangent_angle.png}
+    \caption{Tangents from $\vec{h}$ to the circle, with the points of contact $\vec{T}_1$ and $\vec{T}_2$}
+    \label{fig:EE26BTECH11229-18}
+\end{figure}
 \item 
 Prove that the lengths of two tangents drawn from an external point to a circle are equal.
 \hfill (CBSE~2017)
@@ -539,21 +596,75 @@ Therefore,
 \begin{align}
 	\norm{\vec{P}-\vec{T}_1} = \norm{\vec{P}-\vec{T}_2}
 \end{align}
-\item 
-If the ratio of the sum of the first $n$ terms of two A.Ps is $\brak{7n + 1} : \brak{4n + 27}$, then find the ratio of their $9^{\text{th}}$ terms.
-\hfill (CBSE~2017)
-\\
-\solution
-Let $S_n$ and $S_n^{\prime}$ be the sums of the first $n$ terms of the two A.Ps, and $a_9$, $a_9^{\prime}$ their $9^{\text{th}}$ terms. Then
+To verify numerically, take a circle with centre $\vec{O} = \myvec{0 \\ 0}$ and radius $r = 5$, and the external point $\vec{h} = \myvec{5 \\ 10}$. From \eqref{eq:EE26BTECH11229-circle},
 \begin{align}
-	\frac{S_n}{S_n^{\prime}} = \frac{7n+1}{4n+27}
+	\vec{V} = \vec{I}, \quad \vec{u} = -\vec{O} = \myvec{0 \\ 0}, \quad f = \norm{\vec{O}}^2 - r^2 = -25
 \end{align}
-For $m = 9$, $2m - 1 = 17$. From \eqref{eq:EE26BTECH11229-ap-mid},
+and
 \begin{align}
-	\frac{a_9}{a_9^{\prime}} = \frac{S_{17}/17}{S_{17}^{\prime}/17} = \frac{S_{17}}{S_{17}^{\prime}}
-	= \frac{7\brak{17} + 1}{4\brak{17} + 27} = \frac{120}{95} = \frac{24}{19}
+	g\brak{\vec{h}} = \norm{\vec{h}}^2 + 2\vec{u}^{\top}\vec{h} + f = 125 - 25 = 100 > 0
 \end{align}
-Thus, the ratio of the $9^{\text{th}}$ terms is $24:19$.
+so $\vec{h}$ is an external point. From \eqref{eq:EE26BTECH11229-sigma},
+\begin{align}
+	\vec{\Sigma} = \myvec{5 \\ 10}\myvec{5 & 10} - 100\vec{I} = \myvec{-75 & 50 \\ 50 & 0}
+\end{align}
+The eigenvalues are the roots of
+\begin{align}
+	\mydet{\lambda\vec{I} - \vec{\Sigma}} \Rightarrow \lambda^2 + 75\lambda - 2500 = \brak{\lambda - 25}\brak{\lambda + 100} = 0
+\end{align}
+so $\lambda_1 = 25$ and $\lambda_2 = -100$. For $\lambda_1 = 25$, using row reduction,
+\begin{align}
+	\vec{\Sigma} - 25\vec{I} = \myvec{-100 & 50 \\ 50 & -25} \xleftrightarrow[R_2 \leftarrow R_2 - 50R_1]{R_1 \leftarrow -\frac{R_1}{100}} \myvec{1 & -\frac{1}{2} \\ 0 & 0} \implies \vec{p}_1 = \myvec{1 \\ 2}
+\end{align}
+For $\lambda_2 = -100$,
+\begin{align}
+	\vec{\Sigma} + 100\vec{I} = \myvec{25 & 50 \\ 50 & 100} \xleftrightarrow[R_2 \leftarrow R_2 - 50R_1]{R_1 \leftarrow \frac{R_1}{25}} \myvec{1 & 2 \\ 0 & 0} \implies \vec{p}_2 = \myvec{2 \\ -1}
+\end{align}
+Hence,
+\begin{align}
+	\vec{D} = \myvec{25 & 0 \\ 0 & -100}, \quad \vec{P} = \frac{1}{\sqrt{5}}\myvec{1 & 2 \\ 2 & -1}
+\end{align}
+Here $\vec{P}^{\top}\vec{P} = \vec{I}$, so $\vec{P}^{\top} = \vec{P}^{-1}$, and one can verify that $\vec{P}^{\top}\vec{\Sigma}\vec{P} = \vec{D}$. From \eqref{eq:EE26BTECH11229-tangent-dir}, the direction vectors of the tangents are
+\begin{align}
+	\vec{m} = \vec{P}\myvec{\sqrt{100} \\ \pm\sqrt{25}} = \frac{1}{\sqrt{5}}\myvec{1 & 2 \\ 2 & -1}\myvec{10 \\ \pm 5}
+	= \frac{1}{\sqrt{5}}\myvec{20 \\ 15} \text{ or } \frac{1}{\sqrt{5}}\myvec{0 \\ 25}
+\end{align}
+Only the direction of $\vec{m}$ matters, since $\mu\vec{m}$ does not change on scaling $\vec{m}$. So take
+\begin{align}
+	\vec{m}_1 = \myvec{4 \\ 3}, \quad \vec{m}_2 = \myvec{0 \\ 1}
+\end{align}
+From \eqref{eq:EE26BTECH11229-contact}, the points of contact $\vec{T}_i = \vec{h} + \mu_i\vec{m}_i$ are given by
+\begin{align}
+	\mu_1 &= -\frac{\vec{m}_1^{\top}\brak{\vec{h}+\vec{u}}}{\vec{m}_1^{\top}\vec{m}_1} = -\frac{50}{25} = -2, \quad
+	\vec{T}_1 = \myvec{5 \\ 10} - 2\myvec{4 \\ 3} = \myvec{-3 \\ 4}
+	\\
+	\mu_2 &= -\frac{\vec{m}_2^{\top}\brak{\vec{h}+\vec{u}}}{\vec{m}_2^{\top}\vec{m}_2} = -\frac{10}{1} = -10, \quad
+	\vec{T}_2 = \myvec{5 \\ 10} - 10\myvec{0 \\ 1} = \myvec{5 \\ 0}
+\end{align}
+Both points lie on the circle, since $\norm{\vec{T}_1}^2 = 9 + 16 = 25$ and $\norm{\vec{T}_2}^2 = 25$. Also, from \eqref{eq:EE26BTECH11229-tangent-perp},
+\begin{align}
+	\brak{\vec{h}-\vec{T}_1}^{\top}\brak{\vec{T}_1-\vec{O}} &= \myvec{8 & 6}\myvec{-3 \\ 4} = 0
+	\\
+	\brak{\vec{h}-\vec{T}_2}^{\top}\brak{\vec{T}_2-\vec{O}} &= \myvec{0 & 10}\myvec{5 \\ 0} = 0
+\end{align}
+so the tangents are perpendicular to the radii. The lengths of the tangents are
+\begin{align}
+	\norm{\vec{h}-\vec{T}_1} &= \norm{\myvec{8 \\ 6}} = 10
+	\\
+	\norm{\vec{h}-\vec{T}_2} &= \norm{\myvec{0 \\ 10}} = 10
+\end{align}
+which are equal and agree with $\sqrt{\norm{\vec{h}-\vec{O}}^2 - r^2} = \sqrt{125 - 25} = 10$ from \eqref{eq:EE26BTECH11229-tangent-equal}.
+The following code generates \figref{fig:EE26BTECH11229-21}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/tangent\_equal.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/tangent_equal.png}
+    \caption{Equal tangent lengths $\norm{\vec{P}-\vec{T}_1} = \norm{\vec{P}-\vec{T}_2}$}
+    \label{fig:EE26BTECH11229-21}
+\end{figure}
+
 \item 
 Solve for $x$ :
 \begin{align*}
@@ -577,6 +688,16 @@ Here $q^2 - 4pr = 16 - 16 = 0$, so from \eqref{eq:EE26BTECH11229-quad-equal} the
 	x = -2
 \end{align}
 which satisfies $x \neq -\frac{1}{2}, 1$.
+The following code generates \figref{fig:EE26BTECH11229-14}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/equal\_roots.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/equal_roots.png}
+    \caption{Parabola touching the $x$-axis at $x = -2$}
+    \label{fig:EE26BTECH11229-14}
+\end{figure}
 \item 
 A takes 6 days less than B to do a work. If both A and B working together can do it in 4 days, how many days will B take to finish it ?
 \hfill (CBSE~2017)
@@ -599,20 +720,45 @@ The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/work\_time.c}@*)
 \end{lstlisting}
+The following code generates \figref{fig:EE26BTECH11229-15}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/work\_time.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/work_time.png}
+    \caption{Work done by A and B}
+    \label{fig:EE26BTECH11229-15}
+\end{figure}
 \item 
 From the top of a tower, 100 m high, a man observes two cars on the opposite sides of the tower and in same straight line with its base, with angles of depression $30^{\circ}$ and $45^{\circ}$. Find the distance between the cars. \hfill [Take $\sqrt{3} = 1.732$]
 \hfill (CBSE~2017)
 \\
 \solution
-Let $d_1$ and $d_2$ be the distances of the cars from the base of the tower, for the angles of depression $45^{\circ}$ and $30^{\circ}$ respectively. From \eqref{eq:EE26BTECH11229-depression},
+Let the foot of the tower be the origin, with the tower along the $y$-axis and the cars on the $x$-axis on opposite sides of the tower. Let the cars be at distances $d_1$ and $d_2$ from the foot, with angles of depression $45^{\circ}$ and $30^{\circ}$ respectively,
 \begin{align}
-	\tan 45^{\circ} = \frac{100}{d_1} &\implies d_1 = 100 \text{ m}
-	\\
-	\tan 30^{\circ} = \frac{100}{d_2} &\implies d_2 = 100\sqrt{3} \text{ m}
+	\vec{O} = \myvec{0 \\ 0}, \quad \vec{T} = \myvec{0 \\ 100}, \quad \vec{C}_1 = \myvec{d_1 \\ 0}, \quad \vec{C}_2 = \myvec{-d_2 \\ 0}
 \end{align}
-Since the cars are on opposite sides of the tower, the distance between them is
+where $\vec{T}$ is the top of the tower. The vectors are
 \begin{align}
-	d_1 + d_2 = 100\brak{1 + \sqrt{3}} = 100\brak{1 + 1.732} = 273.2 \text{ m}
+	\vec{T}-\vec{C}_1 = \myvec{-d_1 \\ 100}, \quad \vec{O}-\vec{C}_1 = \myvec{-d_1 \\ 0}, \quad
+	\vec{T}-\vec{C}_2 = \myvec{d_2 \\ 100}, \quad \vec{O}-\vec{C}_2 = \myvec{d_2 \\ 0}
+\end{align}
+From \eqref{eq:EE26BTECH11229-depression},
+\begin{align}
+	\cos 45^{\circ} &= \frac{\brak{\vec{T}-\vec{C}_1}^{\top}\brak{\vec{O}-\vec{C}_1}}{\norm{\vec{T}-\vec{C}_1}\norm{\vec{O}-\vec{C}_1}} = \frac{d_1}{\sqrt{d_1^2 + 10000}}
+	\\
+	\cos 30^{\circ} &= \frac{\brak{\vec{T}-\vec{C}_2}^{\top}\brak{\vec{O}-\vec{C}_2}}{\norm{\vec{T}-\vec{C}_2}\norm{\vec{O}-\vec{C}_2}} = \frac{d_2}{\sqrt{d_2^2 + 10000}}
+\end{align}
+Squaring both equations,
+\begin{align}
+	\frac{1}{2} &= \frac{d_1^2}{d_1^2 + 10000} \implies d_1^2 = 10000 \implies d_1 = 100 \text{ m}
+	\\
+	\frac{3}{4} &= \frac{d_2^2}{d_2^2 + 10000} \implies d_2^2 = 30000 \implies d_2 = 100\sqrt{3} \text{ m}
+\end{align}
+The distance between the cars is
+\begin{align}
+	\norm{\vec{C}_1 - \vec{C}_2} = \norm{\myvec{d_1 + d_2 \\ 0}} = d_1 + d_2 = 100\brak{1 + \sqrt{3}} = 100\brak{1 + 1.732} = 273.2 \text{ m}
 \end{align}
 The following code generates \figref{fig:EE26BTECH11229-8}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -623,66 +769,5 @@ The following code generates \figref{fig:EE26BTECH11229-8}
     \includegraphics[width=0.75\linewidth]{figs/tower_cars.png}
     \caption{Tower and the two cars}
     \label{fig:EE26BTECH11229-8}
-\end{figure}
-\item 
-In the given figure, O is the centre of the circle with $AC = 24$ cm, $AB = 7$ cm and $\angle BOD = 90^{\circ}$. Find the area of the shaded region.
-\hfill (CBSE~2017)
-\begin{figure}[H]
-	\centering
-\begin{tikzpicture}[scale=1.2]
-\coordinate (O) at (0,0);
-\coordinate (A) at (62.5:2.5);
-\coordinate (B) at (30:2.5);
-\coordinate (C) at (210:2.5);
-\coordinate (D) at (-60:2.5);
-% shaded regions: segment on AC, segment on AB, sector BOD
-\fill[pattern=north west lines] (A) arc (62.5:210:2.5) -- cycle;
-\fill[pattern=north west lines] (B) arc (30:62.5:2.5) -- cycle;
-\fill[pattern=vertical lines] (O) -- (B) arc (30:-60:2.5) -- cycle;
-% outlines
-\draw (O) circle (2.5);
-\draw (A) -- (C);
-\draw (A) -- (B);
-\draw (C) -- (B);
-\draw (O) -- (D);
-% right angle mark at O
-\draw (30:0.25) -- ++(-60:0.25) -- (-60:0.25);
-\fill (O) circle (0.04);
-% labels
-\node[above] at (A) {$A$};
-\node[right] at (B) {$B$};
-\node[left] at (C) {$C$};
-\node[below] at (D) {$D$};
-\node[above left] at (O) {$O$};
-\end{tikzpicture}
-\caption{}
-    \label{fig:EE26BTECH11229-4}
-\end{figure}
-\solution
-In \figref{fig:EE26BTECH11229-4}, $B$, $O$ and $C$ are collinear, so $BC$ is a diameter. From \eqref{eq:EE26BTECH11229-thales},
-\begin{align}
-	\angle BAC = 90^{\circ}, \quad BC = \sqrt{7^2 + 24^2} = 25 \text{ cm}
-\end{align}
-The radius is $r = \frac{25}{2}$ cm. Since $OD \perp BC$, $\angle COD = 90^{\circ}$ as well. The circle consists of the triangle $ABC$, the two segments on $AB$ and $AC$, and the two quadrants $BOD$ and $COD$. The shaded region is the two segments and the quadrant $BOD$, so its area is
-\begin{align}
-	A &= \pi r^2 - \text{ar}\brak{\triangle ABC} - \text{ar}\brak{\text{sector } COD}
-	\\
-	&= \pi r^2 - \frac{1}{2}\brak{7}\brak{24} - \frac{1}{4}\pi r^2
-	= \frac{3}{4}\pi r^2 - 84
-\end{align}
-Substituting $\pi = \frac{22}{7}$ and $r^2 = \frac{625}{4}$,
-\begin{align}
-	A = \frac{3}{4}\times\frac{22}{7}\times\frac{625}{4} - 84
-	= \frac{20625}{56} - 84 = \frac{15921}{56} \approx 284.3 \text{ cm}^2
-\end{align}
-The following code generates \figref{fig:EE26BTECH11229-10}
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/shaded\_circle.py}@*)
-\end{lstlisting}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figs/shaded_circle.png}
-    \caption{Shaded region of the circle}
-    \label{fig:EE26BTECH11229-10}
 \end{figure}
 \end{enumerate}

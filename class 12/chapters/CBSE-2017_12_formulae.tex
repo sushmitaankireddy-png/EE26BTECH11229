@@ -47,12 +47,6 @@ The probability of an event $E$ is
 	\pr{AB} = \pr{A}\pr{B}
 	\label{eq:EE26BTECH11229-indep}
 \end{align}
-\item A linear programming problem (LPP) for minimising the cost $Z$ is
-\begin{align}
-	\text{minimise } Z = \vec{c}^{\top}\vec{x} \quad \text{subject to } \vec{M}\vec{x} \succeq \vec{b}, \ \vec{x} \succeq \vec{0}
-	\label{eq:EE26BTECH11229-lpp}
-\end{align}
-where the inequality $\succeq$ holds for every row (component).
 \item Standard integrals,
 \begin{align}
 	\int \tan x\, dx = -\ln\abs{\cos x} + C, \quad
@@ -176,10 +170,14 @@ which equals $\sec^2 x - \sec x\tan x$.
 	\vec{u}^{\top}\vec{v} = 0
 	\label{eq:EE26BTECH11229-perp-vec}
 \end{align}
-\item The area of a right-angled triangle with the perpendicular sides $\vec{u}$ and $\vec{v}$ is
+\item The area of a triangle with two sides $\vec{u}$ and $\vec{v}$ meeting at a vertex is
 \begin{align}
-	A = \frac{1}{2}\norm{\vec{u}}\norm{\vec{v}}
-	\label{eq:EE26BTECH11229-area-right}
+	A = \frac{1}{2}\norm{\vec{u}\times\vec{v}}
+	\label{eq:EE26BTECH11229-area-cross}
+\end{align}
+where, for $\vec{u} = \myvec{u_1 \\ u_2 \\ u_3}$ and $\vec{v} = \myvec{v_1 \\ v_2 \\ v_3}$,
+\begin{align}
+	\vec{u}\times\vec{v} = \myvec{u_2v_3 - u_3v_2 \\ u_3v_1 - u_1v_3 \\ u_1v_2 - u_2v_1}
 \end{align}
 \item The mean and the variance of a discrete random variable $X$ with PMF $p_X\brak{n}$ are
 \begin{align}
@@ -187,6 +185,62 @@ which equals $\sec^2 x - \sec x\tan x$.
 	\text{Var}\brak{X} = \sum_{n}n^2\,p_X\brak{n} - \brak{E\brak{X}}^2
 	\label{eq:EE26BTECH11229-mean-var}
 \end{align}
+
+\item (Sum of Two Cards Drawn from $\cbrak{1, 3, 5, 7}$)
+\begin{itemize}
+\item Let $X_1, X_2 \in \cbrak{1, 3, 5, 7}$ be independent discrete uniform random variables representing the numbers on two cards drawn with replacement, each having the PMF
+\begin{align}
+	p_{X_1}\brak{n} = p_{X_2}\brak{n} = \begin{cases}
+		\frac{1}{4}, & n \in \cbrak{1, 3, 5, 7}
+		\\
+		0, & \text{otherwise}
+	\end{cases}
+	\label{eq:EE26BTECH11229-pmf-cards}
+\end{align}
+\item Let $X = X_1 + X_2$ denote their sum. The PMF of $X$ is given by the discrete convolution of $p_{X_1}\brak{n}$ and $p_{X_2}\brak{n}$,
+\begin{align}
+	p_X\brak{n} = \pr{X_1 + X_2 = n} &= \sum_{k}\pr{X_1 = n - k \mid X_2 = k}p_{X_2}\brak{k}
+	\\
+	&= \sum_{k}p_{X_1}\brak{n - k}p_{X_2}\brak{k} = p_{X_1}\brak{n} * p_{X_2}\brak{n}
+	\label{eq:EE26BTECH11229-conv}
+\end{align}
+\item Substituting \eqref{eq:EE26BTECH11229-pmf-cards} into \eqref{eq:EE26BTECH11229-conv} yields
+\begin{align}
+	p_X\brak{n} = \begin{cases}
+		\frac{1}{16}, & n = 2, 14
+		\\
+		\frac{2}{16}, & n = 4, 12
+		\\
+		\frac{3}{16}, & n = 6, 10
+		\\
+		\frac{4}{16}, & n = 8
+		\\
+		0, & \text{otherwise}
+	\end{cases}
+\end{align}
+\item The cards are drawn without replacement, so the case $X_1 = X_2$ is not possible. It contributes $\frac{1}{16}$ to $n = 2, 6, 10, 14$, and $\pr{X_1 = X_2} = \frac{1}{4}$. Removing it and normalising by $1 - \frac{1}{4}$ gives the PMF
+\begin{align}
+	p_X\brak{n} = \begin{cases}
+		\frac{1}{6}, & n = 4, 6, 10, 12
+		\\
+		\frac{1}{3}, & n = 8
+		\\
+		0, & \text{otherwise}
+	\end{cases}
+	\label{eq:EE26BTECH11229-pmf-distinct}
+\end{align}
+\end{itemize}
+The following code verifies \eqref{eq:EE26BTECH11229-pmf-distinct} in \figref{fig:EE26BTECH11229-pmf}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/PMF.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/PMF.png}
+    \caption{Probability mass function}
+    \label{fig:EE26BTECH11229-pmf}
+\end{figure}
+
 \item (Bayes' Theorem) Let $E_1, E_2, \ldots, E_k$ be mutually exclusive events covering the sample space. For an event $A$,
 \begin{align}
 	\pr{E_i|A} = \frac{\pr{E_i}\pr{A|E_i}}{\sum_{j=1}^{k}\pr{E_j}\pr{A|E_j}}
@@ -209,6 +263,24 @@ is consistent if and only if
 	\label{eq:EE26BTECH11229-consist}
 \end{align}
 and the solution is unique if $r$ equals the number of unknowns.
+
+\item (Least Squares) If $\vec{A}\vec{x} = \vec{b}$ has more equations than unknowns, the least squares solution minimises
+\begin{align}
+	\min_{\vec{x}}\norm{\vec{A}\vec{x} - \vec{b}}^2 \implies \vec{x} = \brak{\vec{A}^{\top}\vec{A}}^{-1}\vec{A}^{\top}\vec{b}
+	\label{eq:EE26BTECH11229-lstsq}
+\end{align}
+provided $\rank\brak{\vec{A}}$ equals the number of unknowns. If the system is consistent, the minimum value is zero and $\vec{x}$ is the exact solution.
+\solution
+Expanding the cost,
+\begin{align}
+	f\brak{\vec{x}} = \norm{\vec{A}\vec{x} - \vec{b}}^2 = \vec{x}^{\top}\vec{A}^{\top}\vec{A}\vec{x} - 2\vec{b}^{\top}\vec{A}\vec{x} + \vec{b}^{\top}\vec{b}
+\end{align}
+Setting the gradient to zero,
+\begin{align}
+	2\vec{A}^{\top}\vec{A}\vec{x} - 2\vec{A}^{\top}\vec{b} = \vec{0} \implies \vec{A}^{\top}\vec{A}\vec{x} = \vec{A}^{\top}\vec{b}
+\end{align}
+The matrix $\vec{A}^{\top}\vec{A}$ is invertible when $\rank\brak{\vec{A}}$ equals the number of unknowns, which gives \eqref{eq:EE26BTECH11229-lstsq}.
+
 \item The derivative of the logarithm is
 \begin{align}
 	\frac{d}{dx}\ln u = \frac{1}{u}\frac{du}{dx}
@@ -228,8 +300,6 @@ Taking logarithms, $\ln\brak{x^y} = y\ln x$ and $\ln\brak{y^x} = x\ln y$. Differ
 	\int \frac{f^{\prime}\brak{t}}{f\brak{t}}\, dt = \ln\abs{f\brak{t}} + C
 	\label{eq:EE26BTECH11229-int-atan}
 \end{align}
-\item The maximum or the minimum value of a linear function $Z$ over a feasible region that is a convex polygon occurs at a corner point of the region.
-\label{eq:EE26BTECH11229-corner}
 \item The points $\vec{A}$, $\vec{B}$, $\vec{C}$ and $\vec{D}$ are coplanar if and only if
 \begin{align}
 	\rank\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A} & \vec{D}-\vec{A}} < 3
@@ -270,12 +340,18 @@ with $g\brak{\vec{h}} = \vec{h}^{\top}\vec{V}\vec{h} + 2\vec{u}^{\top}\vec{h} + 
 The inverse of a bijective function is obtained by solving $y = f\brak{x}$ for $x$.
 \item The function $f\brak{x} = \frac{ax + b}{cx + d}$ corresponds to the matrix $\vec{M} = \myvec{a & b \\ c & d}$ acting on $\myvec{x \\ 1}$. Composition of such functions corresponds to the matrix product, and the inverse function corresponds to $\vec{M}^{-1}$ when $\mydet{\vec{M}} \neq 0$.
 \label{eq:EE26BTECH11229-mobius}
-\item The inverse of a square matrix $\vec{A}$ with $\mydet{\vec{A}} \neq 0$ is
+\item (Inverse by Gauss-Jordan Elimination) The inverse of an $n \times n$ matrix $\vec{A}$ exists if and only if $\rank\brak{\vec{A}} = n$. It is obtained by applying elementary row operations to the augmented matrix until the left half becomes the identity,
 \begin{align}
-	\vec{A}^{-1} = \frac{\text{adj}\brak{\vec{A}}}{\mydet{\vec{A}}}
-	\label{eq:EE26BTECH11229-inverse}
+	\sbrak{\vec{A} \mid \vec{I}} \xrightarrow{\text{row operations}} \sbrak{\vec{I} \mid \vec{A}^{-1}}
+	\label{eq:EE26BTECH11229-gauss-inverse}
 \end{align}
 and the solution of $\vec{A}\vec{x} = \vec{b}$ is $\vec{x} = \vec{A}^{-1}\vec{b}$.
+\solution
+Each row operation is multiplication on the left by an elementary matrix. If $\vec{E}$ is the product of the elementary matrices that reduce $\vec{A}$ to $\vec{I}$, then
+\begin{align}
+	\vec{E}\sbrak{\vec{A} \mid \vec{I}} = \sbrak{\vec{E}\vec{A} \mid \vec{E}} = \sbrak{\vec{I} \mid \vec{E}}
+\end{align}
+so $\vec{E}\vec{A} = \vec{I}$ and $\vec{E} = \vec{A}^{-1}$.
 \item The Laplace transform of a function $g\brak{t}$ is defined as
 \begin{align}
 	g\brak{t} \system{L} G\brak{s} = \int_{0}^{\infty}e^{-st}g\brak{t}\, dt

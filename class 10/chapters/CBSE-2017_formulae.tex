@@ -25,10 +25,14 @@ which is the same for $i=1,2$, yielding \eqref{eq:EE26BTECH11229-tangent-equal}.
 	\tan\theta = \frac{\text{opposite}}{\text{adjacent}}
 	\label{eq:EE26BTECH11229-trig}
 \end{align}
-\item For complementary angles,
+\item The angle $\theta$ between the vectors $\vec{a}$ and $\vec{b}$ is given by
 \begin{align}
-	\tan\brak{90^{\circ}-\theta} = \frac{1}{\tan\theta}
-	\label{eq:EE26BTECH11229-tan-comp}
+	\cos\theta = \frac{\vec{a}^{\top}\vec{b}}{\norm{\vec{a}}\norm{\vec{b}}}
+	\label{eq:EE26BTECH11229-angle-vec}
+\end{align}
+For complementary angles,
+\begin{align}
+	\cos\brak{90^{\circ}-\theta} = \sin\theta, \quad \cos^2\theta + \cos^2\brak{90^{\circ}-\theta} = 1
 \end{align}
 \item The locus of a point $\vec{x}$ equidistant from the points $\vec{A}$ and $\vec{B}$ is
 \begin{align}
@@ -53,24 +57,25 @@ which simplifies to \eqref{eq:EE26BTECH11229-perp-bisector}.
 	a_n = a + \brak{n-1}d
 	\label{eq:EE26BTECH11229-ap-nth}
 \end{align}
-\item The area of a circle of radius $r$ and of a semicircle of radius $r$ are
+\item If $\vec{R}$ lies on the line through $\vec{P}$ and $\vec{Q}$, then
 \begin{align}
-	A_{\text{circle}} = \pi r^2, \quad A_{\text{semicircle}} = \frac{1}{2}\pi r^2
-	\label{eq:EE26BTECH11229-area-circle}
+	\vec{R} - \vec{P} = \lambda\brak{\vec{Q} - \vec{P}}
+	\label{eq:EE26BTECH11229-ratio-collinear}
 \end{align}
-\item The point $\vec{R}$ dividing the line segment joining $\vec{P}$ and $\vec{Q}$ in the ratio $k:1$ is
+for some scalar $\lambda$, and $\vec{R}$ divides the line segment $\vec{P}\vec{Q}$ in the ratio
 \begin{align}
-	\vec{R} = \frac{k\vec{Q} + \vec{P}}{k+1}
-	\label{eq:EE26BTECH11229-section}
+	\vec{P}\vec{R} : \vec{R}\vec{Q} = \lambda : \brak{1 - \lambda}
 \end{align}
+\solution
+From \eqref{eq:EE26BTECH11229-collinear}, the columns of $\myvec{\vec{Q}-\vec{P} & \vec{R}-\vec{P}}$ are linearly dependent, which gives the first equation. Then
+\begin{align}
+	\vec{R} - \vec{Q} = \brak{\lambda - 1}\brak{\vec{Q} - \vec{P}}
+\end{align}
+so $\norm{\vec{R}-\vec{P}} : \norm{\vec{R}-\vec{Q}} = \abs{\lambda} : \abs{1-\lambda}$, yielding the ratio.
 \item The points $\vec{A}$, $\vec{B}$ and $\vec{C}$ are collinear if and only if
 \begin{align}
 	\rank\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A}} = 1
 	\label{eq:EE26BTECH11229-collinear}
-\end{align}
-which, for points in a plane, is equivalent to
-\begin{align}
-	\mydet{\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A}}} = 0
 \end{align}
 \item The roots of the quadratic equation $px^2 + qx + r = 0$ are
 \begin{align}
@@ -82,72 +87,181 @@ The roots are equal if and only if
 	q^2 - 4pr = 0
 	\label{eq:EE26BTECH11229-quad-equal}
 \end{align}
-\item The sum of the first $n$ terms of an A.P. with first term $a$ and common difference $d$ is
+\item The equation of a conic is
 \begin{align}
-	S_n = \frac{n}{2}\sbrak{2a + \brak{n-1}d}
-	\label{eq:EE26BTECH11229-ap-sum}
+	\vec{x}^{\top}\vec{V}\vec{x} + 2\vec{u}^{\top}\vec{x} + f = 0
+	\label{eq:EE26BTECH11229-conic}
 \end{align}
-\item The volume of a cuboid of length $l$, breadth $b$ and height $h$ is $lbh$. Water flowing through a canal of cross-sectional area $A$ with speed $v$ for a time $t$ has volume
+where $\vec{V}$ is a symmetric matrix. It is a parabola if $\rank\brak{\vec{V}} = 1$. The points of intersection with the line $\vec{x} = \vec{h} + \kappa\vec{m}$ satisfy
 \begin{align}
-	V = A\,v\,t
-	\label{eq:EE26BTECH11229-flow}
+	\kappa^2\vec{m}^{\top}\vec{V}\vec{m} + 2\kappa\vec{m}^{\top}\brak{\vec{V}\vec{h} + \vec{u}} + g\brak{\vec{h}} = 0
+	\label{eq:EE26BTECH11229-conic-line}
 \end{align}
-\item The volume of a hollow cylinder of outer radius $R$, inner radius $r$ and length $h$ is
+\item The equation of a circle with centre $\vec{O}$ and radius $r$ is
 \begin{align}
-	V = \pi\brak{R^2 - r^2}h
-	\label{eq:EE26BTECH11229-hollow-cyl}
+	\norm{\vec{x}}^2 + 2\vec{u}^{\top}\vec{x} + f = 0
+	\label{eq:EE26BTECH11229-circle}
 \end{align}
-\item The area of a sector of angle $\theta$ of a circle of radius $r$ and the area of a ring between circles of radii $R$ and $r$ are
+where
 \begin{align}
-	A_{\text{sector}} = \frac{\theta}{360^{\circ}}\pi r^2, \quad
-	A_{\text{ring}} = \pi\brak{R^2 - r^2}
-	\label{eq:EE26BTECH11229-sector}
+	\vec{u} = -\vec{O}, \quad f = \norm{\vec{O}}^2 - r^2
 \end{align}
-\item For a cone of radius $r$ and height $h$, the slant height $l$ and the curved surface area are
+This is \eqref{eq:EE26BTECH11229-conic} with $\vec{V} = \vec{I}$. The point $\vec{h}$ is external to the circle if
 \begin{align}
-	l = \sqrt{h^2 + r^2}, \quad A_{\text{cone}} = \pi r l
-	\label{eq:EE26BTECH11229-cone}
+	g\brak{\vec{h}} = \norm{\vec{h}}^2 + 2\vec{u}^{\top}\vec{h} + f > 0
 \end{align}
-The curved surface area of a hemisphere of radius $r$ is
+\item For an external point $\vec{h}$ of the circle in \eqref{eq:EE26BTECH11229-circle}, define
 \begin{align}
-	A_{\text{hemisphere}} = 2\pi r^2
-	\label{eq:EE26BTECH11229-hemisphere}
+	\vec{\Sigma} = \brak{\vec{h}+\vec{u}}\brak{\vec{h}+\vec{u}}^{\top} - g\brak{\vec{h}}\vec{I}
+	\label{eq:EE26BTECH11229-sigma}
 \end{align}
-\item For an event $E$ with $m$ favourable outcomes out of $N$ equally likely outcomes, and its complement $E^{\prime}$,
+Let $\lambda_1$, $\lambda_2$ be the roots of $\mydet{\lambda\vec{I} - \vec{\Sigma}} = 0$ (the eigenvalues) and $\vec{p}_1$, $\vec{p}_2$ the corresponding eigenvectors, found by row reduction of $\vec{\Sigma}\vec{p} = \lambda\vec{p}$. Define
 \begin{align}
-	\pr{E} = \frac{m}{N}, \quad \pr{E} + \pr{E^{\prime}} = 1
-	\label{eq:EE26BTECH11229-prob-def}
+	\vec{D} = \myvec{\lambda_1 & 0 \\ 0 & \lambda_2}, \quad
+	\vec{P} = \myvec{\frac{\vec{p}_1}{\norm{\vec{p}_1}} & \frac{\vec{p}_2}{\norm{\vec{p}_2}}}
 \end{align}
-\item The volume of a cylinder of radius $r$ and height $h$ is
+Then $\vec{P}^{\top} = \vec{P}^{-1}$ and $\vec{P}^{\top}\vec{\Sigma}\vec{P} = \vec{D}$. The direction vectors of the tangents from $\vec{h}$ are
 \begin{align}
-	V = \pi r^2 h
-	\label{eq:EE26BTECH11229-cylinder}
+	\vec{m} = \vec{P}\myvec{\sqrt{\abs{\lambda_2}} \\ \pm\sqrt{\abs{\lambda_1}}}
+	\label{eq:EE26BTECH11229-tangent-dir}
 \end{align}
-\item The $m^{\text{th}}$ term of an A.P. is related to the sum of its first $2m-1$ terms by
+and the points of contact are
 \begin{align}
-	S_{2m-1} = \brak{2m-1}a_m
-	\label{eq:EE26BTECH11229-ap-mid}
+	\vec{x} = \vec{h} + \mu\vec{m}, \quad \mu = -\frac{\vec{m}^{\top}\brak{\vec{h}+\vec{u}}}{\vec{m}^{\top}\vec{m}}
+	\label{eq:EE26BTECH11229-contact}
 \end{align}
 \solution
-From \eqref{eq:EE26BTECH11229-ap-sum}, with $n = 2m-1$,
+The line $\vec{x} = \vec{h} + \mu\vec{m}$ is tangent to the circle if \eqref{eq:EE26BTECH11229-conic-line}, with $\vec{V} = \vec{I}$, has equal roots,
 \begin{align}
-	S_{2m-1} = \frac{2m-1}{2}\sbrak{2a + \brak{2m-2}d} = \brak{2m-1}\brak{a + \brak{m-1}d}
+	\brak{\vec{m}^{\top}\brak{\vec{h}+\vec{u}}}^2 - g\brak{\vec{h}}\vec{m}^{\top}\vec{m} = \vec{m}^{\top}\vec{\Sigma}\vec{m} = 0
 \end{align}
-yielding \eqref{eq:EE26BTECH11229-ap-mid} from \eqref{eq:EE26BTECH11229-ap-nth}.
+Substituting $\vec{m} = \vec{P}\vec{y}$ and using $\vec{P}^{\top}\vec{\Sigma}\vec{P} = \vec{D}$,
+\begin{align}
+	\lambda_1 y_1^2 + \lambda_2 y_2^2 = 0
+\end{align}
+Since $\lambda_1$ and $\lambda_2$ have opposite signs, this is satisfied by $\vec{y} = \myvec{\sqrt{\abs{\lambda_2}} \\ \pm\sqrt{\abs{\lambda_1}}}$, yielding \eqref{eq:EE26BTECH11229-tangent-dir}. The equal root of \eqref{eq:EE26BTECH11229-conic-line} is $\mu = -\frac{\vec{m}^{\top}\brak{\vec{h}+\vec{u}}}{\vec{m}^{\top}\vec{m}}$, yielding \eqref{eq:EE26BTECH11229-contact}.
+where $g\brak{\vec{h}} = \vec{h}^{\top}\vec{V}\vec{h} + 2\vec{u}^{\top}\vec{h} + f$.
+\solution
+Substituting $\vec{x} = \vec{h} + \kappa\vec{m}$ in \eqref{eq:EE26BTECH11229-conic} and using $\vec{V}^{\top} = \vec{V}$,
+\begin{align}
+	\brak{\vec{h} + \kappa\vec{m}}^{\top}\vec{V}\brak{\vec{h} + \kappa\vec{m}} + 2\vec{u}^{\top}\brak{\vec{h} + \kappa\vec{m}} + f = 0
+\end{align}
+which on expanding yields \eqref{eq:EE26BTECH11229-conic-line}.
+\item The unit step function is
+\begin{align}
+	u\brak{n} =
+	\begin{cases}
+		1, & n \ge 0
+		\\
+		0, & n < 0
+	\end{cases}
+\end{align}
+An A.P. with first term $a$ and common difference $d$, with the index starting from $0$, is
+\begin{align}
+	x\brak{n} = \brak{a + nd}u\brak{n}
+	\label{eq:EE26BTECH11229-ap-step}
+\end{align}
+where $x\brak{n}$ is the $\brak{n+1}^{\text{th}}$ term.
+\item The Z-transform of a sequence $x\brak{n}$ is
+\begin{align}
+	X\brak{z} = \sum_{n=-\infty}^{\infty} x\brak{n}z^{-n}
+\end{align}
+For convolution, delay and accumulation,
+\begin{align}
+	x_1\brak{n} * x_2\brak{n} \xleftrightarrow{\mathcal{Z}} X_1\brak{z}X_2\brak{z}, \quad
+	x\brak{n-1} \xleftrightarrow{\mathcal{Z}} z^{-1}X\brak{z}
+	\label{eq:EE26BTECH11229-z-prop}
+\end{align}
+The unit step $u\brak{n}$ satisfies
+\begin{align}
+	u\brak{n} \xleftrightarrow{\mathcal{Z}} \frac{1}{1 - z^{-1}}, \quad \abs{z} > 1
+\end{align}
+Since $\sum_{k=0}^{n} x\brak{k} = x\brak{n} * u\brak{n}$, the running sum satisfies
+\begin{align}
+	\sum_{k=0}^{n} x\brak{k} \xleftrightarrow{\mathcal{Z}} \frac{X\brak{z}}{1 - z^{-1}}
+\end{align}
+\item For $\abs{z} > 1$,
+\begin{align}
+	n\,u\brak{n} \xleftrightarrow{\mathcal{Z}} \frac{z^{-1}}{\brak{1 - z^{-1}}^2}, \quad
+	\frac{\brak{n+1}\brak{n+2}}{2}u\brak{n} \xleftrightarrow{\mathcal{Z}} \frac{1}{\brak{1 - z^{-1}}^3}
+	\label{eq:EE26BTECH11229-z-pairs}
+\end{align}
+\solution
+Since $\sum_{k=0}^{n} 1 = n + 1$, from \eqref{eq:EE26BTECH11229-z-prop},
+\begin{align}
+	\brak{n+1}u\brak{n} = u\brak{n} * u\brak{n} \xleftrightarrow{\mathcal{Z}} \frac{1}{\brak{1 - z^{-1}}^2}
+\end{align}
+Since $\sum_{k=0}^{n} \brak{k+1} = \frac{\brak{n+1}\brak{n+2}}{2}$,
+\begin{align}
+	\frac{\brak{n+1}\brak{n+2}}{2}u\brak{n} = \brak{n+1}u\brak{n} * u\brak{n} \xleftrightarrow{\mathcal{Z}} \frac{1}{\brak{1 - z^{-1}}^3}
+\end{align}
+Delaying $\brak{n+1}u\brak{n}$ by one sample gives $n\,u\brak{n-1} = n\,u\brak{n}$, which has the transform $\frac{z^{-1}}{\brak{1 - z^{-1}}^2}$ from \eqref{eq:EE26BTECH11229-z-prop}.
+\item For an event $E$ and its complement $E^{\prime}$,
+\begin{align}
+	\pr{E} + \pr{E^{\prime}} = 1
+	\label{eq:EE26BTECH11229-prob-def}
+\end{align}
+\item Let $X_1, X_2 \in \{1, 2, 3, 4, 5, 6\}$ be independent discrete uniform random variables representing the outcomes of two fair dice, each having probability mass function (PMF)
+\begin{align}
+	p_{X_1}\brak{n} = p_{X_2}\brak{n} =
+	\begin{cases}
+		\frac{1}{6}, & 1 \le n \le 6
+		\\
+		0, & \text{otherwise}
+	\end{cases}
+	\label{eq:EE26BTECH11229-dice-uniform}
+\end{align}
+Let $X = X_1 + X_2$ denote their sum. The PMF of $X$ is the discrete convolution of $p_{X_1}\brak{n}$ and $p_{X_2}\brak{n}$,
+\begin{align}
+	p_X\brak{n} = \pr{X_1 + X_2 = n} = \sum_{k} p_{X_1}\brak{n-k}\, p_{X_2}\brak{k} = p_{X_1}\brak{n} * p_{X_2}\brak{n}
+	\label{eq:EE26BTECH11229-dice-conv}
+\end{align}
+Substituting \eqref{eq:EE26BTECH11229-dice-uniform} into \eqref{eq:EE26BTECH11229-dice-conv} yields the triangular PMF
+\begin{align}
+	p_X\brak{n} =
+	\begin{cases}
+		0, & n < 2
+		\\
+		\frac{n-1}{36}, & 2 \le n \le 7
+		\\
+		\frac{13-n}{36}, & 7 < n \le 12
+		\\
+		0, & n > 12
+	\end{cases}
+	\label{eq:EE26BTECH11229-dice-pmf}
+\end{align}
+The following code verifies \eqref{eq:EE26BTECH11229-dice-pmf} in \figref{fig:EE26BTECH11229-11}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/dice\_pmf.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/dice_pmf.png}
+    \caption{PMF of the sum of two fair dice: Simulation vs Analysis}
+    \label{fig:EE26BTECH11229-11}
+\end{figure}
 \item If a person completes a work in $t$ days, the rate of work is $\frac{1}{t}$ of the work per day. The rates of persons working together add up,
 \begin{align}
 	\frac{1}{t} = \frac{1}{t_1} + \frac{1}{t_2}
 	\label{eq:EE26BTECH11229-work}
 \end{align}
-\item The angle of depression of an object from a point at a height $h$ is equal to the angle of elevation of that point from the object (alternate angles). If the horizontal distance is $d$, from \eqref{eq:EE26BTECH11229-trig},
+\item The angle of depression of an object $\vec{C}$ from a point $\vec{T}$ is equal to the angle of elevation of $\vec{T}$ from $\vec{C}$ (alternate angles). If $\vec{O}$ is the foot of the perpendicular from $\vec{T}$ to the ground, this angle $\theta$ is the angle between $\vec{T}-\vec{C}$ and $\vec{O}-\vec{C}$. From \eqref{eq:EE26BTECH11229-angle-vec},
 \begin{align}
-	\tan\theta = \frac{h}{d}
+	\cos\theta = \frac{\brak{\vec{T}-\vec{C}}^{\top}\brak{\vec{O}-\vec{C}}}{\norm{\vec{T}-\vec{C}}\norm{\vec{O}-\vec{C}}}
 	\label{eq:EE26BTECH11229-depression}
 \end{align}
-\item An angle in a semicircle is a right angle. If $BC$ is a diameter of a circle and $A$ is a point on the circle, then
+\item The points on the internal bisector of the angle at a vertex $\vec{A}$, with adjacent vertices $\vec{B}$ and $\vec{D}$, are
 \begin{align}
-	\angle BAC = 90^{\circ}, \quad BC^2 = AB^2 + AC^2
-	\label{eq:EE26BTECH11229-thales}
+	\vec{x} = \vec{A} + t\brak{\frac{\vec{B}-\vec{A}}{\norm{\vec{B}-\vec{A}}} + \frac{\vec{D}-\vec{A}}{\norm{\vec{D}-\vec{A}}}}, \quad t \in \mathbb{R}
+	\label{eq:EE26BTECH11229-angle-bisector}
 \end{align}
-The area of a right triangle with perpendicular sides $p$ and $q$ is $\frac{1}{2}pq$.
+\solution
+The two terms in the bracket are unit vectors along the sides $\vec{A}\vec{B}$ and $\vec{A}\vec{D}$. Their sum is the diagonal of a rhombus, which bisects the angle between them, yielding \eqref{eq:EE26BTECH11229-angle-bisector}.
+\item The distance of a point $\vec{O}$ from the line passing through $\vec{P}$ with normal vector $\vec{n}$ is
+\begin{align}
+	d = \frac{\abs{\vec{n}^{\top}\brak{\vec{O}-\vec{P}}}}{\norm{\vec{n}}}
+	\label{eq:EE26BTECH11229-dist-line}
+\end{align}
+\solution
+The distance is the length of the projection of $\vec{O}-\vec{P}$ on $\vec{n}$, yielding \eqref{eq:EE26BTECH11229-dist-line}.
 \end{enumerate}

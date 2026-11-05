@@ -1,72 +1,51 @@
-import matplotlib.pyplot as plt
 import numpy as np
-#If using termux
-import subprocess
-import shlex
-#end if
-# Import custom modules
-from CoordGeo.line.funcs import line_gen
-from CoordGeo.plotting.funcs import label_pts
+import cvxpy as cp
+import matplotlib.pyplot as plt
 
-# Objective Z = c^T [x, y] and corner points of the feasible region (2xN matrix)
-c = np.array([34.0, 45.0])
-corners = np.block([
-    np.array([0.0, 0.0]).reshape(-1, 1),
-    np.array([35.0, 0.0]).reshape(-1, 1),
-    np.array([0.0, 70 / 3]).reshape(-1, 1)
-])
+# LPP: maximise Z = 34x + 45y
+c = np.array([34, 45])
+M = np.array([[1, 1], [2, 3]])
+b = np.array([300, 70])
 
-# Evaluate Z at every corner and pick the maximum
-Z = c @ corners
-best = np.argmax(Z)
-print("Z at corners O, A, B =", np.round(Z, 4))
-print(f"Max Z = {Z[best]:.4f} at (x, y) = ({corners[0, best]:.4f}, {corners[1, best]:.4f})")
+# Solve using cvxpy
+x = cp.Variable(2)
+prob = cp.Problem(cp.Maximize(c @ x), [M @ x <= b, x >= 0])
+prob.solve()
+xo, yo = x.value
+zo = prob.value
+print("x, y =", xo, yo)
+print("Maximum Z =", zo)
 
-# Initialize single figure plot
 fig, ax = plt.subplots(figsize=(8, 6))
 
-# Shade the feasible region
-ax.fill(corners[0, :], corners[1, :], color="orange", alpha=0.35, label="Feasible region")
+# Constraint lines
+xs = np.linspace(0, 40, 400)
+ax.plot(xs, (70 - 2 * xs) / 3, color="tab:blue", label=r"$2x+3y=70$")
+ax.plot(xs, 300 - xs, color="tab:green", label=r"$x+y=300$ (outside this window, redundant)")
 
-# Constraint line 2x + 3y = 70 using line_gen
-A_c = np.array([35.0, 0.0]).reshape(-1, 1)
-B_c = np.array([0.0, 70 / 3]).reshape(-1, 1)
-con = line_gen(A_c, B_c)
-ax.plot(con[0, :], con[1, :], color="blue", lw=2.5, label=r"$2x+3y=70$")
+# Feasible region: triangle with corner points (0,0), (35,0), (0,70/3)
+corners = np.array([[0, 0], [35, 0], [0, 70 / 3]])
+ax.fill(corners[:, 0], corners[:, 1], color="lightblue", alpha=0.5, label="Feasible region")
 
-# Iso-profit line through the optimum: 34x + 45y = 1190
-A_z = np.array([0.0, Z[best] / 45]).reshape(-1, 1)
-B_z = np.array([Z[best] / 34, 0.0]).reshape(-1, 1)
-iso = line_gen(A_z, B_z)
-ax.plot(iso[0, :], iso[1, :], color="crimson", linestyle="--", lw=2,
-        label=rf"$Z=34x+45y={Z[best]:.0f}$")
+# Corner points with the value of Z
+for px, py in corners:
+    z = c @ np.array([px, py])
+    ax.plot(px, py, "ko")
+    ax.annotate(f"({px:.0f}, {py:.2f})\nZ = {z:.0f}", (px, py),
+                textcoords="offset points", xytext=(8, 8), fontsize=9)
 
-# Generate coordinate axes using line_gen
-A_x = np.array([0.0, 0.0]).reshape(-1, 1)
-B_x = np.array([45.0, 0.0]).reshape(-1, 1)
-x_axis = line_gen(A_x, B_x)
-ax.plot(x_axis[0, :], x_axis[1, :], color="black", lw=1)
+# Optimum and the line Z = 1190 passing through it
+ax.plot(xo, yo, "ro", markersize=9, label=f"Maximum: Z = {zo:.0f} at ({xo:.0f}, {yo:.0f})")
+ax.plot(xs, (zo - 34 * xs) / 45, "r--", linewidth=1, label=r"$34x+45y=1190$")
 
-A_y = np.array([0.0, 0.0]).reshape(-1, 1)
-B_y = np.array([0.0, 45.0]).reshape(-1, 1)
-y_axis = line_gen(A_y, B_y)
-ax.plot(y_axis[0, :], y_axis[1, :], color="black", lw=1)
-
-# Plot and label the corner points
-ax.plot(corners[0, :], corners[1, :], "o", color="darkred", markersize=6, zorder=5)
-label_pts(corners, ["O (0, 0)", "A (35, 0) [max]", "B (0, 70/3)"])
-
-# Plot formatting
-ax.set_xlabel("$x$")
-ax.set_ylabel("$y$")
-ax.set_xlim(-2, 45)
-ax.set_ylim(-2, 45)
-ax.grid(True, linestyle="--", alpha=0.4)
-ax.legend(loc="upper right")
-
-plt.tight_layout()
-#If using termux
-plt.savefig("figs/LPP.png")
-#subprocess.run(shlex.split("termux-open figs/LPP.png"))
-#else
+ax.set_xlim(-2, 40)
+ax.set_ylim(-2, 40)
+ax.axhline(0, color="black", linewidth=0.8)
+ax.axvline(0, color="black", linewidth=0.8)
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$y$")
+ax.set_title(r"Maximise $Z=34x+45y$ subject to $x+y\leq 300,\ 2x+3y\leq 70,\ x,y\geq 0$")
+ax.legend(loc="upper right", fontsize=8)
+ax.grid(True)
+plt.savefig("figs/LPP.png", dpi=200, bbox_inches="tight")
 plt.show()
