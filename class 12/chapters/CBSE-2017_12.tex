@@ -115,25 +115,44 @@ The function $f\brak{x}$ is a polynomial, so it is differentiable, and hence con
 \begin{align}
 	f\brak{-\sqrt{3}} = -3\sqrt{3} + 3\sqrt{3} = 0, \quad f\brak{0} = 0
 \end{align}
-The conditions of \eqref{eq:EE26BTECH11229-rolle} hold, so there exists $c \in \brak{-\sqrt{3}, 0}$ with $f^{\prime}\brak{c} = 0$,
+The conditions of \eqref{eq:EE26BTECH11229-rolle} hold, so there exists $c \in \brak{-\sqrt{3}, 0}$ with $f^{\prime}\brak{c} = 0$. The derivative is
 \begin{align}
-	f^{\prime}\brak{x} &= 3x^2 - 3 = 3\brak{x - 1}\brak{x + 1} = 0
-	\\
-	\implies x &= \pm 1
+	f^{\prime}\brak{x} = 3x^2 - 3 = 0
 \end{align}
-Since $-\sqrt{3} \approx -1.732$, only $x = -1$ lies in $\brak{-\sqrt{3}, 0}$, so
+which is a quadratic equation. To solve it, apply \eqref{eq:EE26BTECH11229-newton} to $g\brak{x} = f^{\prime}\brak{x} = 3x^2 - 3$, which is of the form $ax^2 + bx + c$ with $a = 3$, $b = 0$, $c = -3$. From \eqref{eq:EE26BTECH11229-newton-quad}, the difference equation is
+\begin{align}
+	x_{n+1} = \frac{3x_n^2 + 3}{6x_n} = \frac{x_n^2 + 1}{2x_n}
+\end{align}
+Starting with $x_0 = -1.5 \in \brak{-\sqrt{3}, 0}$,
+\begin{align}
+	x_1 \approx -1.0833, \quad x_2 \approx -1.0032, \quad x_3 \approx -1.0000
+\end{align}
+The iterations converge to $-1$. This can be justified from the difference equation, since
+\begin{align}
+	x_{n+1} + 1 = \frac{\brak{x_n + 1}^2}{2x_n}
+\end{align}
+For $x_n < 0$, the right side is non-positive, so $x_{n+1} \le -1$ after the first step. Also, $\abs{x_n + 1} < 2\abs{x_n}$, so $\abs{x_{n+1} + 1} < \abs{x_n + 1}$ and the error keeps decreasing. Hence $x_n \to -1$, which is the same as the root of $3\brak{x - 1}\brak{x + 1} = 0$ lying in $\brak{-\sqrt{3}, 0}$, since $-\sqrt{3} \approx -1.732$ and $+1$ is outside the interval. Therefore,
 \begin{align}
 	c = -1
 \end{align}
-Using \eqref{eq:EE26BTECH11229-newton} on $f^{\prime}\brak{x}$, with $f^{\prime\prime}\brak{x} = 6x$,
-\begin{align}
-	x_{n+1} = x_n - \frac{3x_n^2 - 3}{6x_n} = \frac{x_n^2 + 1}{2x_n}
-\end{align}
-For $x_0 = -1.5$, the iterations are $x_1 \approx -1.0833$, $x_2 \approx -1.0032$, $x_3 \approx -1.0000$, which converge to $c = -1$.
-The following code verifies the solution
+The tangent at $\brak{c, f\brak{c}} = \brak{-1, 2}$ is horizontal, and it is parallel to the chord joining the end points, as shown in \figref{fig:EE26BTECH11229-rolle}.
+
+The following code verifies the solution using the difference equation
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/rolle.c}@*)
 \end{lstlisting}
+
+The following code generates \figref{fig:EE26BTECH11229-rolle}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/rolle.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/rolle.png}
+    \caption{Graph of $f\brak{x} = x^3 - 3x$ on $\sbrak{-\sqrt{3}, 0}$ with the horizontal tangent at $c = -1$}
+    \label{fig:EE26BTECH11229-rolle}
+\end{figure}
+
 \item 
 Show that the function $f\brak{x} = x^3 - 3x^2 + 6x - 100$ is increasing on $\mathbb{R}$.
 \hfill (CBSE~2017)
@@ -194,8 +213,22 @@ Here $\tan x - \sec x = -\frac{\cos x}{1 + \sin x}$ is continuous on $\sbrak{0, 
 Therefore,
 \begin{align}
 	2I = \pi\brak{\pi - 2}
-	\implies I = \frac{\pi\brak{\pi - 2}}{2}
+	\implies I = \frac{\pi\brak{\pi - 2}}{2} \approx 1.7932
 \end{align}
+To verify this numerically, from \eqref{eq:EE26BTECH11229-trig-id} the integrand is
+\begin{align}
+	f\brak{x} = \frac{x\tan x}{\sec x + \tan x} = \frac{x\sin x}{1 + \sin x}
+\end{align}
+which is continuous on $\sbrak{0, \pi}$, even though $\tan x$ is not defined at $x = \frac{\pi}{2}$. Taking $N$ equal sub-intervals of width $h = \frac{\pi}{N}$, with $x_n = nh$, the difference equation of \eqref{eq:EE26BTECH11229-trapz} is
+\begin{align}
+	I_{n+1} = I_n + \frac{h}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}}, \quad I_0 = 0
+\end{align}
+and $I \approx I_N$. As $N$ increases, $I_N$ approaches $\frac{\pi\brak{\pi - 2}}{2}$, with an error that decreases as $h^2$.
+
+The following code verifies the solution using the difference equation
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/Integral\_xtanx.c}@*)
+\end{lstlisting}
 
 The following code generates \figref{fig:EE26BTECH11229-integral_xtanx}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -384,35 +417,34 @@ The following code generates \figref{fig:EE26BTECH11229-lpp}
     \caption{Linear programming problem}
     \label{fig:EE26BTECH11229-lpp}
 \end{figure}
-
 \item 
 Find the value of $x$ such that the points $A\brak{3, 2, 1}$, $B\brak{4, x, 5}$, $C\brak{4, 2, -2}$ and $D\brak{6, 5, -1}$ are coplanar.
 \hfill (CBSE~2017)
 \\
 \solution
-The vectors from $\vec{A}$ are
+The matrix of the points is
 \begin{align}
-	\vec{B} - \vec{A} = \myvec{1 \\ x - 2 \\ 4}, \quad \vec{C} - \vec{A} = \myvec{1 \\ 0 \\ -3}, \quad \vec{D} - \vec{A} = \myvec{3 \\ 3 \\ -2}
+	\vec{P} = \myvec{\vec{A} & \vec{B} & \vec{C} & \vec{D}} = \myvec{3 & 4 & 4 & 6 \\ 2 & x & 2 & 5 \\ 1 & 5 & -2 & -1}
 \end{align}
-From \eqref{eq:EE26BTECH11229-coplanar}, the points are coplanar if
+From \eqref{eq:EE26BTECH11229-coplanar}, the direction matrix is
 \begin{align}
-	\begin{vmatrix}
-		1 & x - 2 & 4 \\
-		1 & 0 & -3 \\
-		3 & 3 & -2
-	\end{vmatrix} = 0
+	\vec{M} = \myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A} & \vec{D}-\vec{A}} = \vec{P}\myvec{-1 & -1 & -1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1}
+	= \myvec{1 & 1 & 3 \\ x - 2 & 0 & 3 \\ 4 & -3 & -2}
 \end{align}
-Expanding along the first row,
+The points are coplanar if $\rank\brak{\vec{M}} < 3$, that is, $\mydet{\vec{M}} = 0$. Applying $C_2 \to C_2 - C_1$ and $C_3 \to C_3 - 3C_1$, from \eqref{eq:EE26BTECH11229-det-props},
 \begin{align}
-	1\brak{0 + 9} - \brak{x - 2}\brak{-2 + 9} + 4\brak{3 - 0} &= 0
-	\\
-	\implies 9 - 7\brak{x - 2} + 12 &= 0
-	\\
-	\implies 35 - 7x &= 0
-	\\
-	\therefore x &= 5
+	\mydet{\vec{M}} = \begin{vmatrix}
+		1 & 0 & 0 \\
+		x - 2 & -\brak{x - 2} & 9 - 3x \\
+		4 & -7 & -14
+	\end{vmatrix}
+	= 14\brak{x - 2} + 7\brak{9 - 3x} = 35 - 7x
 \end{align}
-As a check, for $x = 5$, $\brak{\vec{B}-\vec{A}} + 2\brak{\vec{C}-\vec{A}} = \myvec{3 \\ 3 \\ -2} = \vec{D} - \vec{A}$, so the rank is less than $3$.
+Equating to zero,
+\begin{align}
+	35 - 7x = 0 \implies x = 5
+\end{align}
+As a check, for $x = 5$ the columns of $\vec{M}$ satisfy $\myvec{1 \\ 3 \\ 4} + 2\myvec{1 \\ 0 \\ -3} = \myvec{3 \\ 3 \\ -2}$, so the rank is less than $3$.
 
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -463,37 +495,69 @@ Find the coordinates of the point where the line through the points $\brak{3, -4
 \hfill (CBSE~2017)
 \\
 \solution
-Let $\vec{A} = \myvec{1 \\ 2 \\ 3}$, $\vec{B} = \myvec{4 \\ 2 \\ -3}$, $\vec{C} = \myvec{0 \\ 4 \\ 3}$. Then
+Let $\vec{A}$, $\vec{B}$, $\vec{C}$ be the points of the plane and $\vec{D}$, $\vec{E}$ be the points of the line. The matrix of the points is
 \begin{align}
-	\vec{B} - \vec{A} = \myvec{3 \\ 0 \\ -6}, \quad \vec{C} - \vec{A} = \myvec{-1 \\ 2 \\ 0}
+	\vec{P} = \myvec{\vec{A} & \vec{B} & \vec{C} & \vec{D} & \vec{E}} = \myvec{1 & 4 & 0 & 3 & 2 \\ 2 & 2 & 4 & -4 & -3 \\ 3 & -3 & 3 & -5 & 1}
 \end{align}
-From \eqref{eq:EE26BTECH11229-plane-3pts}, a normal to the plane is
+From \eqref{eq:EE26BTECH11229-plane-param} and \eqref{eq:EE26BTECH11229-line-param}, the point of intersection satisfies
 \begin{align}
-	\vec{n} = \myvec{3 \\ 0 \\ -6}\times\myvec{-1 \\ 2 \\ 0} = \myvec{12 \\ 6 \\ 6} \propto \myvec{2 \\ 1 \\ 1}
+	\vec{A} + \lambda\brak{\vec{B}-\vec{A}} + \mu\brak{\vec{C}-\vec{A}} = \vec{D} + \kappa\brak{\vec{E}-\vec{D}}
 \end{align}
-and the plane is
+which can be written as
 \begin{align}
-	\myvec{2 & 1 & 1}\vec{x} = 2 + 2 + 3 = 7
+	\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A} & \vec{D}-\vec{E}}\myvec{\lambda \\ \mu \\ \kappa} = \vec{D}-\vec{A}
 \end{align}
-The line through $\vec{P} = \myvec{3 \\ -4 \\ -5}$ and $\vec{Q} = \myvec{2 \\ -3 \\ 1}$ has the direction $\vec{m} = \vec{Q} - \vec{P} = \myvec{-1 \\ 1 \\ 6}$. From \eqref{eq:EE26BTECH11229-line-param},
+The direction matrix
 \begin{align}
-	\vec{x} = \myvec{3 \\ -4 \\ -5} + \kappa\myvec{-1 \\ 1 \\ 6}
+	\vec{M} = \myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A} & \vec{D}-\vec{E} & \vec{D}-\vec{A}}
 \end{align}
-Substituting in the equation of the plane,
+is obtained from $\vec{P}$ as
 \begin{align}
-	\brak{-3} + 5\kappa &= 7
-	\\
-	\implies \kappa &= 2
+	\vec{M} = \vec{P}\myvec{-1 & -1 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & -1 & 0}
+	= \myvec{3 & -1 & 1 & 2 \\ 0 & 2 & -1 & -6 \\ -6 & 0 & -6 & -8}
+\end{align}
+Row reducing the augmented matrix $\vec{M}$,
+\begin{align}
+	\myvec{3 & -1 & 1 & 2 \\ 0 & 2 & -1 & -6 \\ -6 & 0 & -6 & -8}
+	&\xrightarrow{R_3 \to R_3 + 2R_1}
+	\myvec{3 & -1 & 1 & 2 \\ 0 & 2 & -1 & -6 \\ 0 & -2 & -4 & -4}
+	\nonumber \\
+	&\xrightarrow{R_3 \to R_3 + R_2}
+	\myvec{3 & -1 & 1 & 2 \\ 0 & 2 & -1 & -6 \\ 0 & 0 & -5 & -10}
+	\nonumber \\
+	&\xrightarrow{R_3 \to -\frac{1}{5}R_3}
+	\myvec{3 & -1 & 1 & 2 \\ 0 & 2 & -1 & -6 \\ 0 & 0 & 1 & 2}
+	\nonumber \\
+	&\xrightarrow[R_1 \to R_1 - R_3]{R_2 \to R_2 + R_3}
+	\myvec{3 & -1 & 0 & 0 \\ 0 & 2 & 0 & -4 \\ 0 & 0 & 1 & 2}
+	\nonumber \\
+	&\xrightarrow{R_2 \to \frac{1}{2}R_2}
+	\myvec{3 & -1 & 0 & 0 \\ 0 & 1 & 0 & -2 \\ 0 & 0 & 1 & 2}
+	\nonumber \\
+	&\xrightarrow{R_1 \to R_1 + R_2}
+	\myvec{3 & 0 & 0 & -2 \\ 0 & 1 & 0 & -2 \\ 0 & 0 & 1 & 2}
+	\nonumber \\
+	&\xrightarrow{R_1 \to \frac{1}{3}R_1}
+	\myvec{1 & 0 & 0 & -\frac{2}{3} \\ 0 & 1 & 0 & -2 \\ 0 & 0 & 1 & 2}
+\end{align}
+Here the rank of the coefficient matrix and the augmented matrix is $3$, which is the number of unknowns. From \eqref{eq:EE26BTECH11229-consist}, the solution is unique,
+\begin{align}
+	\lambda = -\frac{2}{3}, \quad \mu = -2, \quad \kappa = 2
 \end{align}
 Therefore, the point of intersection is
 \begin{align}
-	\vec{x} = \myvec{3 \\ -4 \\ -5} + 2\myvec{-1 \\ 1 \\ 6} = \myvec{1 \\ -2 \\ 7}
+	\vec{x} = \vec{D} + \kappa\brak{\vec{E}-\vec{D}} = \myvec{3 \\ -4 \\ -5} + 2\myvec{-1 \\ 1 \\ 6} = \myvec{1 \\ -2 \\ 7}
+\end{align}
+As a check,
+\begin{align}
+	\vec{A} + \lambda\brak{\vec{B}-\vec{A}} + \mu\brak{\vec{C}-\vec{A}} = \myvec{1 \\ 2 \\ 3} - \frac{2}{3}\myvec{3 \\ 0 \\ -6} - 2\myvec{-1 \\ 2 \\ 0} = \myvec{1 \\ -2 \\ 7}
 \end{align}
 
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/lineplane.py}@*)
 \end{lstlisting}
+
 \item 
 Find the particular solution of the differential equation $\brak{x - y}\frac{dy}{dx} = \brak{x + 2y}$, given that $y = 0$ when $x = 1$.
 \hfill (CBSE~2017)

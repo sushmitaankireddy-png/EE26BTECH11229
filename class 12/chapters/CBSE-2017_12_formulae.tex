@@ -97,16 +97,47 @@ For $f\brak{x}$ to be differentiable at $x = a$, the one-sided derivatives must 
 	f_1^{\prime}\brak{a} = f_2^{\prime}\brak{a}
 	\label{eq:EE26BTECH11229-piecewise-diff}
 \end{align}
-\item (Newton-Raphson Method) For a real-valued differentiable function $f\brak{x}$, the root is iteratively approximated using its first-order Taylor series expansion about the current estimate $x_n$,
+\item (Newton-Raphson Method) For a real-valued differentiable function $g\brak{x}$, the root of $g\brak{x} = 0$ is iteratively approximated using the first-order Taylor series expansion about the current estimate $x_n$, which gives the difference equation
 \begin{align}
-	x_{n+1} = x_n - \frac{f\brak{x_n}}{f^{\prime}\brak{x_n}}
+	x_{n+1} = x_n - \frac{g\brak{x_n}}{g^{\prime}\brak{x_n}}
 	\label{eq:EE26BTECH11229-newton}
 \end{align}
+\solution
+The first-order Taylor series of $g\brak{x}$ about $x_n$ is
+\begin{align}
+	g\brak{x} \approx g\brak{x_n} + g^{\prime}\brak{x_n}\brak{x - x_n}
+\end{align}
+Equating the right side to zero and calling the solution $x_{n+1}$ yields \eqref{eq:EE26BTECH11229-newton}. If $x_n \to x^*$, then $x^* = x^* - \frac{g\brak{x^*}}{g^{\prime}\brak{x^*}}$, so $g\brak{x^*} = 0$, that is, the limit is a root of $g\brak{x}$.
+\item For a quadratic equation $g\brak{x} = ax^2 + bx + c = 0$, we have $g^{\prime}\brak{x} = 2ax + b$, and the difference equation in \eqref{eq:EE26BTECH11229-newton} becomes
+\begin{align}
+	x_{n+1} = x_n - \frac{ax_n^2 + bx_n + c}{2ax_n + b} = \frac{ax_n^2 - c}{2ax_n + b}
+	\label{eq:EE26BTECH11229-newton-quad}
+\end{align}
+which converges to the root nearest to $x_0$, provided $2ax_0 + b \neq 0$.
 \item (Rolle's Theorem) If $f\brak{x}$ is continuous on $\sbrak{a, b}$, differentiable on $\brak{a, b}$ and $f\brak{a} = f\brak{b}$, then there exists $c \in \brak{a, b}$ such that
 \begin{align}
 	f^{\prime}\brak{c} = 0
 	\label{eq:EE26BTECH11229-rolle}
 \end{align}
+\item If $f^{\prime}\brak{x} > 0$ for all $x$ in an interval, then $f\brak{x}$ is strictly increasing on that interval.
+\label{eq:EE26BTECH11229-increasing}
+\item (Trapezoidal Rule) Divide $\sbrak{a, b}$ into $N$ equal sub-intervals of width $h = \frac{b - a}{N}$, with $x_n = a + nh$. Approximating $f\brak{x}$ by a straight line on each sub-interval, the integral is computed by the difference equation
+\begin{align}
+	I_{n+1} = I_n + \frac{h}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}}, \quad I_0 = 0
+	\label{eq:EE26BTECH11229-trapz}
+\end{align}
+and $\int_{a}^{b}f\brak{x}\, dx \approx I_N$.
+
+\solution
+On $\sbrak{x_n, x_{n+1}}$, the area under the straight line joining $\brak{x_n, f\brak{x_n}}$ and $\brak{x_{n+1}, f\brak{x_{n+1}}}$ is a trapezoid,
+\begin{align}
+	\int_{x_n}^{x_{n+1}}f\brak{x}\, dx \approx \frac{x_{n+1} - x_n}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}} = \frac{h}{2}\brak{f\brak{x_n} + f\brak{x_{n+1}}}
+\end{align}
+Adding this area to the integral $I_n = \int_{a}^{x_n}f\brak{x}\, dx$ obtained so far yields \eqref{eq:EE26BTECH11229-trapz}. For a twice differentiable $f\brak{x}$, the error is
+\begin{align}
+	\int_{a}^{b}f\brak{x}\, dx - I_N = -\frac{\brak{b - a}h^2}{12}f^{\prime\prime}\brak{\xi}, \quad \xi \in \brak{a, b}
+\end{align}
+so it decreases as $h^2$.
 \item For a continuous function $f\brak{x}$,
 \begin{align}
 	\int_{0}^{a}f\brak{x}\, dx = \int_{0}^{a}f\brak{a - x}\, dx
@@ -228,7 +259,7 @@ The following code verifies \eqref{eq:EE26BTECH11229-pmf-distinct} in \figref{fi
 	\pr{E_i|A} = \frac{\pr{E_i}\pr{A|E_i}}{\sum_{j=1}^{k}\pr{E_j}\pr{A|E_j}}
 	\label{eq:EE26BTECH11229-bayes}
 \end{align}
-\item The value of a determinant does not change if a multiple of one row is subtracted from another row. A determinant can be expanded along any row or column, using the cofactors of its entries.
+\item The value of a determinant does not change if a multiple of one row (or column) is subtracted from another row (or column). A determinant can be expanded along any row or column, using the cofactors of its entries.
 \label{eq:EE26BTECH11229-det-props}
 \item (System of Linear Equations) The matrix equation
 \begin{align}
@@ -258,17 +289,22 @@ Setting the gradient to zero,
 \end{align}
 The matrix $\vec{A}^{\top}\vec{A}$ is invertible when $\rank\brak{\vec{A}}$ equals the number of unknowns, which gives \eqref{eq:EE26BTECH11229-lstsq}.
 
-\item The points $\vec{A}$, $\vec{B}$, $\vec{C}$ and $\vec{D}$ are coplanar if and only if
+\item The matrix of the points $\vec{A}$, $\vec{B}$, $\vec{C}$ and $\vec{D}$ is $\vec{P} = \myvec{\vec{A} & \vec{B} & \vec{C} & \vec{D}}$, and their direction matrix is
 \begin{align}
-	\rank\myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A} & \vec{D}-\vec{A}} < 3
+	\vec{M} = \myvec{\vec{B}-\vec{A} & \vec{C}-\vec{A} & \vec{D}-\vec{A}} = \vec{P}\myvec{-1 & -1 & -1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1}
 	\label{eq:EE26BTECH11229-coplanar}
 \end{align}
-that is, the determinant of the matrix is zero.
+The points are coplanar if and only if
+\begin{align}
+	\rank\brak{\vec{M}} < 3
+\end{align}
+that is, the determinant of $\vec{M}$ is zero.
 \item The plane through the points $\vec{A}$, $\vec{B}$ and $\vec{C}$ is
 \begin{align}
-	\vec{n}^{\top}\vec{x} = \vec{n}^{\top}\vec{A}, \quad \vec{n} = \brak{\vec{B}-\vec{A}}\times\brak{\vec{C}-\vec{A}}
-	\label{eq:EE26BTECH11229-plane-3pts}
+	\vec{x} = \vec{A} + \lambda\brak{\vec{B}-\vec{A}} + \mu\brak{\vec{C}-\vec{A}}, \quad \lambda, \mu \in \mathbb{R}
+	\label{eq:EE26BTECH11229-plane-param}
 \end{align}
+The point of intersection of this plane with the line in \eqref{eq:EE26BTECH11229-line-param} is obtained by solving the linear system for $\lambda$, $\mu$ and $\kappa$, which has a unique solution if the rank of the coefficient matrix is $3$.
 \item The parametric form of the equation of a line is
 \begin{align}
 	\vec{x} = \vec{h} + \kappa\vec{m}
