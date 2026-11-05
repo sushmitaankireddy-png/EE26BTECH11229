@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  4 NOV 2026 14:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  5 NOV 2026 14:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1351,11 +1351,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 25.
 Writing index file main.idx
 Package translations Info: No language package found. I am going to use `englis
 h' as default language. on input line 29.
-(./main.aux
-
-LaTeX Warning: Label `fig:EE26BTECH11229-lpp' multiply defined.
-
-)
+(./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -1682,130 +1678,122 @@ File: figs/LPP.png Graphic file (type png)
 <use figs/LPP.png>
 Package pdftex.def Info: figs/LPP.png  used on input line 539.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
-File: figs/LPP.png Graphic file (type png)
-<use figs/LPP.png>
-Package pdftex.def Info: figs/LPP.png  used on input line 549.
-(pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
- [23 <./figs/LPP.png>]
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.21.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.562 \end{align}
-                  [24]
+l.552 \end{align}
+                  [23 <./figs/LPP.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.600 \end{align}
+l.590 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.604 \end{align}
-                 
+l.594 \end{align}
+                  [24]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.23.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.635 \end{align}
+l.625 \end{align}
                   [25]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.24.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.671 \end{align}
+l.661 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.24.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.675 \end{align}
+l.665 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.24.3
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.679 \end{align}
-                  [26]
+l.669 \end{align}
+                 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.24.4
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.684 \end{align}
+l.674 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.24.5
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.690 \end{align}
-                  [27]
-<figs/euler.png, id=520, 722.7pt x 578.16pt>
+l.680 \end{align}
+                  [26]
+<figs/euler.png, id=509, 722.7pt x 578.16pt>
 File: figs/euler.png Graphic file (type png)
 <use figs/euler.png>
-Package pdftex.def Info: figs/euler.png  used on input line 723.
+Package pdftex.def Info: figs/euler.png  used on input line 713.
 (pdftex.def)             Requested size: 273.14647pt x 218.5121pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.25.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.735 \end{align}
-                  [28 <./figs/Euler.png>]
-<figs/parabola_line.png, id=536, 578.16pt x 433.62pt>
+l.725 \end{align}
+                  [27 <./figs/Euler.png>]
+<figs/parabola_line.png, id=525, 578.16pt x 433.62pt>
 File: figs/parabola_line.png Graphic file (type png)
 <use figs/parabola_line.png>
-Package pdftex.def Info: figs/parabola_line.png  used on input line 766.
+Package pdftex.def Info: figs/parabola_line.png  used on input line 756.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
-
+ [28]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.26.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.781 \end{align}
-                  [29 <./figs/parabola_line.png>] [30]
+l.771 \end{align}
+                  [29 <./figs/parabola_line.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.28.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.838 \end{align}
+l.828 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.28.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.844 \end{align}
+l.834 \end{align}
                  
-Overfull \hbox (11.75351pt too wide) detected at line 844
+Overfull \hbox (11.75351pt too wide) detected at line 834
 []
  []
 
 
-Overfull \hbox (15.50702pt too wide) detected at line 850
+Overfull \hbox (15.50702pt too wide) detected at line 840
 []
  []
 
-) [31] (./main.aux)
+[30]) [31] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2E9AB2C8EB563F2900FE3D2B07BF54F5;415.
  ) 
 Here is how much of TeX's memory you used:
- 54637 strings out of 467533
- 1308396 string characters out of 5422137
- 1958172 words of memory out of 5000000
+ 54634 strings out of 467533
+ 1308350 string characters out of 5422137
+ 1958132 words of memory out of 5000000
  82449 multiletter control sequences out of 15000+600000
  662449 words of font info for 109 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 109i,18n,118p,1194b,1420s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,18n,118p,1194b,1412s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -1823,10 +1811,10 @@ sr/share/texlive/texmf-dist/fonts/type1/public/tfrupee/tfrupee.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on main.pdf (31 pages, 803725 bytes).
+Output written on main.pdf (31 pages, 803554 bytes).
 PDF statistics:
- 736 PDF objects out of 1000 (max. 8388607)
- 627 compressed objects within 7 object streams
- 333 named destinations out of 1000 (max. 500000)
+ 731 PDF objects out of 1000 (max. 8388607)
+ 622 compressed objects within 7 object streams
+ 330 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
