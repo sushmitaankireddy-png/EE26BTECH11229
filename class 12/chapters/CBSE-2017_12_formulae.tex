@@ -47,18 +47,6 @@ The probability of an event $E$ is
 	\pr{AB} = \pr{A}\pr{B}
 	\label{eq:EE26BTECH11229-indep}
 \end{align}
-\item Standard integrals,
-\begin{align}
-	\int \tan x\, dx = -\ln\abs{\cos x} + C, \quad
-	\int \cot x\, dx = \ln\abs{\sin x} + C
-	\label{eq:EE26BTECH11229-int-tancot}
-\end{align}
-\solution
-Substituting $u = \cos x$, $du = -\sin x\, dx$,
-\begin{align}
-	\int \frac{\sin x}{\cos x}\, dx = -\int \frac{du}{u} = -\ln\abs{\cos x} + C
-\end{align}
-Similarly, substituting $u = \sin x$, $du = \cos x\, dx$ gives the second integral.
 \item (Continuity) A real-valued function $f\brak{x}$ is continuous at $x = x_0$ if and only if
 \begin{align}
 	\lim_{x \to x_0^-}f\brak{x} = \lim_{x \to x_0^+}f\brak{x} = f\brak{x_0}

@@ -1,24 +1,5 @@
 \begin{enumerate}[label=\thesubsection.\arabic*, ref=\thesubsection.\theenumi]
 \item 
-Find :
-\begin{align*}
-	\int \frac{\sin^2 x - \cos^2 x}{\sin x \cos x}\, dx
-\end{align*}
-\hfill (CBSE~2017)
-\\
-\solution
-Splitting the numerator,
-\begin{align}
-	\frac{\sin^2 x - \cos^2 x}{\sin x\cos x} = \frac{\sin x}{\cos x} - \frac{\cos x}{\sin x} = \tan x - \cot x
-\end{align}
-From \eqref{eq:EE26BTECH11229-int-tancot},
-\begin{align}
-	\int \brak{\tan x - \cot x}\, dx &= -\ln\abs{\cos x} - \ln\abs{\sin x} + C
-	\\
-	&= -\ln\abs{\sin x\cos x} + C
-\end{align}
-Since $\sin x\cos x = \frac{1}{2}\sin 2x$, this is also $-\ln\abs{\sin 2x} + C^{\prime}$.
-\item 
 Find the distance between the planes $2x - y + 2z = 5$ and $5x - 2.5y + 5z = 20$.
 \hfill (CBSE~2017)
 \\
