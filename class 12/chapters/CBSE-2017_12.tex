@@ -107,27 +107,6 @@ The following code generates \figref{fig:EE26BTECH11229-tailor-cost}
 \end{figure}
 
 \item 
-Find :
-\begin{align*}
-	\int \frac{dx}{5 - 8x - x^2}
-\end{align*}
-\hfill (CBSE~2017)
-\\
-\solution
-Completing the square,
-\begin{align}
-	5 - 8x - x^2 = 21 - \brak{x^2 + 8x + 16} = \brak{\sqrt{21}}^2 - \brak{x + 4}^2
-\end{align}
-Substituting $u = x + 4$, $du = dx$, and using \eqref{eq:EE26BTECH11229-int-a2x2} with $a = \sqrt{21}$,
-\begin{align}
-	\int \frac{dx}{5 - 8x - x^2} = \int \frac{du}{\brak{\sqrt{21}}^2 - u^2}
-	= \frac{1}{2\sqrt{21}}\ln\abs{\frac{\sqrt{21} + u}{\sqrt{21} - u}} + C
-\end{align}
-yielding
-\begin{align}
-	\int \frac{dx}{5 - 8x - x^2} = \frac{1}{2\sqrt{21}}\ln\abs{\frac{\sqrt{21} + x + 4}{\sqrt{21} - x - 4}} + C
-\end{align}
-\item 
 Find the value of $c$ in Rolle's theorem for the function $f\brak{x} = x^3 - 3x$ in $\sbrak{-\sqrt{3}, 0}$.
 \hfill (CBSE~2017)
 \\
@@ -180,24 +159,6 @@ The following code generates \figref{fig:EE26BTECH11229-increasing}
     \caption{Increasing function}
     \label{fig:EE26BTECH11229-increasing}
 \end{figure}
-\item 
-The length $x$, of a rectangle is decreasing at the rate of 5 cm/minute and the width $y$, is increasing at the rate of 4 cm/minute. When $x = 8$ cm and $y = 6$ cm, find the rate of change of the area of the rectangle.
-\hfill (CBSE~2017)
-\\
-\solution
-The area is $A = xy$, with
-\begin{align}
-	\frac{dx}{dt} = -5 \text{ cm/min}, \quad \frac{dy}{dt} = 4 \text{ cm/min}
-\end{align}
-From \eqref{eq:EE26BTECH11229-rate}, at $x = 8$, $y = 6$,
-\begin{align}
-	\frac{dA}{dt} = 8\brak{4} + 6\brak{-5} = 32 - 30 = 2 \text{ cm}^2\text{/min}
-\end{align}
-The area is increasing at the rate of $2 \text{ cm}^2\text{/min}$.
-The following code verifies the solution
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/area.c}@*)
-\end{lstlisting}
 \item 
 Evaluate :
 \begin{align*}
@@ -369,80 +330,6 @@ The following code verifies the solution
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/bayes.c}@*)
 \end{lstlisting}
 \item 
-If $\tan^{-1}\frac{x - 3}{x - 4} + \tan^{-1}\frac{x + 3}{x + 4} = \frac{\pi}{4}$, then find the value of $x$.
-\hfill (CBSE~2017)
-\\
-\solution
-Let
-\begin{align}
-	a = \frac{x - 3}{x - 4}, \quad b = \frac{x + 3}{x + 4}
-\end{align}
-Then
-\begin{align}
-	a + b &= \frac{\brak{x-3}\brak{x+4} + \brak{x+3}\brak{x-4}}{x^2 - 16} = \frac{2x^2 - 24}{x^2 - 16}
-	\\
-	1 - ab &= \frac{\brak{x^2 - 16} - \brak{x^2 - 9}}{x^2 - 16} = \frac{-7}{x^2 - 16}
-\end{align}
-Taking the tangent of both sides and using \eqref{eq:EE26BTECH11229-tan-inv-sum},
-\begin{align}
-	\frac{a + b}{1 - ab} &= \tan\frac{\pi}{4} = 1
-	\\
-	\implies \frac{2x^2 - 24}{-7} &= 1
-	\\
-	\implies x^2 &= \frac{17}{2}
-\end{align}
-For this value, $ab = \frac{x^2 - 9}{x^2 - 16} = \frac{1}{15} < 1$, so \eqref{eq:EE26BTECH11229-tan-inv-sum} holds. Hence,
-\begin{align}
-	x = \pm\sqrt{\frac{17}{2}}
-\end{align}
-The following code verifies the solution
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/root.c}@*)
-\end{lstlisting}
-\item 
-Using properties of determinants, prove that
-\begin{align*}
-	\begin{vmatrix}
-		a^2 + 2a & 2a + 1 & 1 \\
-		2a + 1 & a + 2 & 1 \\
-		3 & 3 & 1
-	\end{vmatrix} = \brak{a - 1}^3
-\end{align*}
-\hfill (CBSE~2017)
-\\
-\solution
-Applying $R_1 \to R_1 - R_2$ and $R_2 \to R_2 - R_3$, from \eqref{eq:EE26BTECH11229-det-props},
-\begin{align}
-	\begin{vmatrix}
-		a^2 + 2a & 2a + 1 & 1 \\
-		2a + 1 & a + 2 & 1 \\
-		3 & 3 & 1
-	\end{vmatrix}
-	= \begin{vmatrix}
-		a^2 - 1 & a - 1 & 0 \\
-		2a - 2 & a - 1 & 0 \\
-		3 & 3 & 1
-	\end{vmatrix}
-\end{align}
-Expanding along the third column,
-\begin{align}
-	&= \begin{vmatrix}
-		a^2 - 1 & a - 1 \\
-		2\brak{a - 1} & a - 1
-	\end{vmatrix}
-	= \brak{a - 1}\brak{a - 1}\begin{vmatrix}
-		a + 1 & 1 \\
-		2 & 1
-	\end{vmatrix}
-	\\
-	&= \brak{a - 1}^2\brak{a + 1 - 2} = \brak{a - 1}^3
-\end{align}
-
-The following code verifies the solution
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/detcheck.py}@*)
-\end{lstlisting}
-\item 
 Find matrix $\vec{A}$ such that
 \begin{align*}
 	\myvec{2 & -1 \\ 1 & 0 \\ -3 & 4}\vec{A} = \myvec{-1 & -8 \\ 1 & -2 \\ 9 & 22}
@@ -477,49 +364,6 @@ The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/matrix.py}@*)
 \end{lstlisting}
-\item 
-If $x^y + y^x = a^b$, then find $\frac{dy}{dx}$.
-\hfill (CBSE~2017)
-\\
-\solution
-Differentiating both sides with respect to $x$, and using \eqref{eq:EE26BTECH11229-log-diff},
-\begin{align}
-	x^y\brak{\frac{y}{x} + \ln x\,\frac{dy}{dx}} + y^x\brak{\ln y + \frac{x}{y}\frac{dy}{dx}} = 0
-\end{align}
-since $a^b$ is a constant. Collecting the terms in $\frac{dy}{dx}$,
-\begin{align}
-	\frac{dy}{dx}\brak{x^y\ln x + x\,y^{x-1}} &= -\brak{y\,x^{y-1} + y^x\ln y}
-\end{align}
-Therefore,
-\begin{align}
-	\frac{dy}{dx} = -\frac{y\,x^{y-1} + y^x\ln y}{x^y\ln x + x\,y^{x-1}}
-\end{align}
-\item 
-Find :
-\begin{align*}
-	\int \frac{\sin\theta\, d\theta}{\brak{4 + \cos^2\theta}\brak{2 - \sin^2\theta}}
-\end{align*}
-\hfill (CBSE~2017)
-\\
-\solution
-Substituting $t = \cos\theta$, $dt = -\sin\theta\, d\theta$ and $2 - \sin^2\theta = 1 + t^2$,
-\begin{align}
-	\int \frac{\sin\theta\, d\theta}{\brak{4 + \cos^2\theta}\brak{2 - \sin^2\theta}}
-	= -\int \frac{dt}{\brak{4 + t^2}\brak{1 + t^2}}
-\end{align}
-Using partial fractions,
-\begin{align}
-	\frac{1}{\brak{4 + t^2}\brak{1 + t^2}} = \frac{1}{3}\sbrak{\frac{1}{1 + t^2} - \frac{1}{4 + t^2}}
-\end{align}
-From \eqref{eq:EE26BTECH11229-int-atan},
-\begin{align}
-	-\frac{1}{3}\sbrak{\tan^{-1}t - \frac{1}{2}\tan^{-1}\frac{t}{2}} + C
-\end{align}
-Substituting $t = \cos\theta$,
-\begin{align}
-	\int \frac{\sin\theta\, d\theta}{\brak{4 + \cos^2\theta}\brak{2 - \sin^2\theta}}
-	= -\frac{1}{3}\tan^{-1}\brak{\cos\theta} + \frac{1}{6}\tan^{-1}\brak{\frac{\cos\theta}{2}} + C
-\end{align}
 \item 
 Solve the following linear programming problem graphically :
 \\
