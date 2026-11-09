@@ -26,21 +26,12 @@
 \usepackage{amsfonts}
 \makeindex
 
-%------------------------------------------------------------
-% Class-folder handling: chapter files refer to figs/..., codes/...
-% relative to their own class folder. \setclass{<folder>} makes
-% those paths resolve inside that folder while compiling from root.
-%------------------------------------------------------------
+% Folders: 10/{chapters,figs,codes} and 12/{chapters,figs,codes}.
+% These two lines let the chapter files keep using figs/... from inside their own class folder.
 \makeatletter
-\newcommand{\classdir}{}
-\newcommand{\setclass}[1]{%
-  \renewcommand{\classdir}{#1/}%
-  \graphicspath{{#1/}}%
-  \def\input@path{{#1/}}%
-}
-\let\origlstinputlisting\lstinputlisting
-\renewcommand{\lstinputlisting}[2][]{\origlstinputlisting[#1]{\classdir #2}}
+\def\input@path{{./}{10/}{12/}}
 \makeatother
+\graphicspath{{./}{10/}{12/}}
 
 \begin{document}
 \bibliographystyle{IEEEtran}
@@ -50,6 +41,7 @@
 \title{
 	%\begin{flushleft}
 	\begin{center}
+	%MATRICES \\ In Geometry
 	Math for EE
 	\\
 \rule{0.4\columnwidth}{0.4pt}
@@ -60,11 +52,12 @@
 \vspace{11cm}
 	%\begin{flushleft}
 	\begin{center}
-\includegraphics[width=0.2\columnwidth]{12/figs/logo.jpg}
+\includegraphics[width=0.2\columnwidth]{10/figs/logo.jpg}
 \\
 		{	\huge G. V. V. Sharma}
 	\end{center}
 	%\end{flushleft}
+%\IEEEpubid{\makebox[\columnwidth]{978-1-7281-5966-1/20/\$31.00 ©2020 IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{ }}
 }
 \maketitle
 
@@ -76,6 +69,12 @@ This book introduces matrices through high school coordinate geometry. This appr
 The content is sufficient for industry jobs and covers nearly all matrix prerequisites for machine learning.
 There is no copyright, so readers are free to print and share.  
 
+%This book is dedicated to my high school teachers, Dr. G.N. Chandwani and Dr. Anand K. Tripathi.
+%\begin{flushright}
+%\today
+%\end{flushright}
+%Github: https://github.com/gadepall/matgeo
+%		\\
 License: https://creativecommons.org/licenses/by-sa/3.0/
 \\
 and
@@ -94,31 +93,26 @@ In this edition, some incorrect solutions were removed.  All figures redrawn. Mo
 \tableofcontents
 
 \newpage
+%\twocolumn
 \onecolumn
 
 
+%\renewcommand{\theequation}{\theenumi}
 \numberwithin{equation}{enumi}
 \numberwithin{figure}{enumi}
+%\renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
 
-\section{CBSE Mathematics 2017}
+\section{10}
+\subsection{Formulae}
+\input{10/chapters/CBSE-2017_formulae.tex}
+\subsection{Problems}
+\input{10/chapters/CBSE-2017.tex}
 
-%------------------------------ Class 10 ------------------------------
-\subsection{Class 10}
-\setclass{10}
-\subsubsection{Formulae}
-\input{chapters/CBSE-2017_formulae.tex}
-\subsubsection{Problems}
-\input{chapters/CBSE-2017.tex}
-
-\newpage
-
-%------------------------------ Class 12 ------------------------------
-\subsection{Class 12}
-\setclass{12}
-\subsubsection{Formulae}
-\input{chapters/CBSE-2017_12_formulae.tex}
-\subsubsection{Problems}
-\input{chapters/CBSE-2017_12.tex}
+\section{12}
+\subsection{Formulae}
+\input{12/chapters/CBSE-2017_12_formulae.tex}
+\subsection{Problems}
+\input{12/chapters/CBSE-2017_12.tex}
 
 \end{document}
