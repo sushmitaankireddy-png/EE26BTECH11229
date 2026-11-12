@@ -97,6 +97,13 @@ where $\vec{V}$ is a symmetric matrix. It is a parabola if $\rank\brak{\vec{V}} 
 	\kappa^2\vec{m}^{\top}\vec{V}\vec{m} + 2\kappa\vec{m}^{\top}\brak{\vec{V}\vec{h} + \vec{u}} + g\brak{\vec{h}} = 0
 	\label{eq:EE26BTECH11229-conic-line}
 \end{align}
+where $g\brak{\vec{h}} = \vec{h}^{\top}\vec{V}\vec{h} + 2\vec{u}^{\top}\vec{h} + f$.
+\solution
+Substituting $\vec{x} = \vec{h} + \kappa\vec{m}$ in \eqref{eq:EE26BTECH11229-conic} and using $\vec{V}^{\top} = \vec{V}$,
+\begin{align}
+	\brak{\vec{h} + \kappa\vec{m}}^{\top}\vec{V}\brak{\vec{h} + \kappa\vec{m}} + 2\vec{u}^{\top}\brak{\vec{h} + \kappa\vec{m}} + f = 0
+\end{align}
+which on expanding yields \eqref{eq:EE26BTECH11229-conic-line}.
 \item The equation of a circle with centre $\vec{O}$ and radius $r$ is
 \begin{align}
 	\norm{\vec{x}}^2 + 2\vec{u}^{\top}\vec{x} + f = 0
@@ -140,13 +147,6 @@ Substituting $\vec{m} = \vec{P}\vec{y}$ and using $\vec{P}^{\top}\vec{\Sigma}\ve
 	\lambda_1 y_1^2 + \lambda_2 y_2^2 = 0
 \end{align}
 Since $\lambda_1$ and $\lambda_2$ have opposite signs, this is satisfied by $\vec{y} = \myvec{\sqrt{\abs{\lambda_2}} \\ \pm\sqrt{\abs{\lambda_1}}}$, yielding \eqref{eq:EE26BTECH11229-tangent-dir}. The equal root of \eqref{eq:EE26BTECH11229-conic-line} is $\mu = -\frac{\vec{m}^{\top}\brak{\vec{h}+\vec{u}}}{\vec{m}^{\top}\vec{m}}$, yielding \eqref{eq:EE26BTECH11229-contact}.
-where $g\brak{\vec{h}} = \vec{h}^{\top}\vec{V}\vec{h} + 2\vec{u}^{\top}\vec{h} + f$.
-\solution
-Substituting $\vec{x} = \vec{h} + \kappa\vec{m}$ in \eqref{eq:EE26BTECH11229-conic} and using $\vec{V}^{\top} = \vec{V}$,
-\begin{align}
-	\brak{\vec{h} + \kappa\vec{m}}^{\top}\vec{V}\brak{\vec{h} + \kappa\vec{m}} + 2\vec{u}^{\top}\brak{\vec{h} + \kappa\vec{m}} + f = 0
-\end{align}
-which on expanding yields \eqref{eq:EE26BTECH11229-conic-line}.
 \item The unit step function is
 \begin{align}
 	u\brak{n} =
