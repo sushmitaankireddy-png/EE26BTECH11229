@@ -90,7 +90,9 @@ To verify numerically, choose
 \end{align}
 The lengths of the sides are
 \begin{align}
-	AB = \norm{\vec{B}-\vec{A}} = 6, \quad BC = \norm{\vec{C}-\vec{B}} = 5, \quad CD = \norm{\vec{D}-\vec{C}} = 3, \quad DA = \norm{\vec{A}-\vec{D}} = 4
+	AB &= \norm{\vec{B}-\vec{A}} = 6, \quad BC = \norm{\vec{C}-\vec{B}} = 5
+	\\
+	CD &= \norm{\vec{D}-\vec{C}} = 3, \quad DA = \norm{\vec{A}-\vec{D}} = 4
 \end{align}
 so that
 \begin{align}
@@ -340,10 +342,16 @@ From \eqref{eq:EE26BTECH11229-ratio-collinear} with $\lambda = \frac{2}{11}$,
 	\vec{P}\vec{R} : \vec{R}\vec{Q} = \lambda : \brak{1-\lambda} = \frac{2}{11} : \frac{9}{11} = 2 : 9
 \end{align}
 Thus, the ratio is $2:9$ and $y = -\frac{4}{11}$.
-The following code verifies the solution
+The following code generates \figref{fig:EE26BTECH11229-22}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/section.c}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/section.py}@*)
 \end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/section.png}
+    \caption{The point $\vec{R}$ dividing $\vec{P}\vec{Q}$ in the ratio $2:9$}
+    \label{fig:EE26BTECH11229-22}
+\end{figure}
 \item 
 How many terms of an A.P. $9, 17, 25, \ldots$ must be taken to give a sum of 636 ?
 \hfill (10, 2017)
@@ -427,6 +435,16 @@ Hence,
 \begin{align}
 	k = \frac{1}{2} \quad \text{or} \quad k = 2
 \end{align}
+The following code generates \figref{fig:EE26BTECH11229-23}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/collinear.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/collinear.png}
+    \caption{Points $\vec{A}$, $\vec{B}$ and $\vec{C}$ are collinear for $k = \frac{1}{2}$ and $k = 2$}
+    \label{fig:EE26BTECH11229-23}
+\end{figure}
 \item 
 Two different dice are thrown together. Find the probability that the numbers obtained have
 \begin{enumerate}
@@ -670,7 +688,7 @@ Solve for $x$ :
 \begin{align*}
 	\frac{x-1}{2x+1} + \frac{2x+1}{x-1} = 2, \quad \text{where } x \neq -\frac{1}{2}, 1
 \end{align*}
-\hfill (10, 2017)
+\hfill (CBSE~2017)
 \\
 \solution
 Multiplying by $\brak{2x+1}\brak{x-1}$,
@@ -680,14 +698,34 @@ Multiplying by $\brak{2x+1}\brak{x-1}$,
 	\implies 5x^2 + 2x + 2 &= 4x^2 - 2x - 2
 	\\
 	\implies x^2 + 4x + 4 &= 0
-	\\
-	\implies \brak{x+2}^2 &= 0
 \end{align}
-Here $q^2 - 4pr = 16 - 16 = 0$, so from \eqref{eq:EE26BTECH11229-quad-equal} the roots are equal,
+Let
+\begin{align}
+	f\brak{x} = x^2 + 4x + 4, \quad f^{\prime}\brak{x} = 2x + 4
+\end{align}
+From \eqref{eq:EE26BTECH11229-newton},
+\begin{align}
+	x_{n+1} &= x_n - \frac{x_n^2 + 4x_n + 4}{2x_n + 4}
+	\\
+	&= x_n - \frac{\brak{x_n+2}^2}{2\brak{x_n+2}}
+	\\
+	&= \frac{x_n - 2}{2}
+\end{align}
+Starting with the initial guess $x_0 = 0$, which satisfies $x \neq -\frac{1}{2}, 1$,
+\begin{align}
+	x_1 &= -1, \quad x_2 = -\frac{3}{2}, \quad x_3 = -\frac{7}{4}, \quad x_4 = -\frac{15}{8}
+	\\
+	x_5 &= -1.9375, \quad x_6 = -1.96875, \quad x_7 = -1.984375
+\end{align}
+The iterates satisfy $x_{n+1} + 2 = \frac{x_n + 2}{2}$, so
+\begin{align}
+	x_n = -2 + \frac{2}{2^n} \to -2
+\end{align}
+Since $f\brak{-2} = 4 - 8 + 4 = 0$, we get
 \begin{align}
 	x = -2
 \end{align}
-which satisfies $x \neq -\frac{1}{2}, 1$.
+which satisfies $x \neq -\frac{1}{2}, 1$. Here $f^{\prime}\brak{-2} = 0$, so $-2$ is a repeated root and the error only halves in each iteration.
 The following code generates \figref{fig:EE26BTECH11229-14}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/equal\_roots.py}@*)

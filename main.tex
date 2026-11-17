@@ -103,6 +103,12 @@ In this edition, some incorrect solutions were removed.  All figures redrawn. Mo
 %\renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
 
+% Make hyperref's internal anchor names unique across sections 10 and 12.
+% so clicking a citation in one chapter jumps to the other chapter's equation.
+\renewcommand{\theHequation}{\thesection.\thesubsection.\arabic{enumi}.\arabic{equation}}
+\renewcommand{\theHfigure}{\thesection.\thesubsection.\arabic{enumi}.\arabic{figure}}
+\renewcommand{\theHtable}{\thesection.\thesubsection.\arabic{enumi}.\arabic{table}}
+
 \section{10}
 \subsection{Formulae}
 \input{10/chapters/CBSE-2017_formulae.tex}

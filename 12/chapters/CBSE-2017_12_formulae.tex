@@ -47,6 +47,28 @@ The probability of an event $E$ is
 	\pr{AB} = \pr{A}\pr{B}
 	\label{eq:EE26BTECH11229-indep}
 \end{align}
+\item (Indicator Random Variable) For an event $E$, the random variable
+\begin{align}
+	Y = \begin{cases}
+		0, & X \in E
+		\\
+		1, & \text{otherwise}
+	\end{cases}
+	\label{eq:EE26BTECH11229-indicator}
+\end{align}
+has the PMF
+\begin{align}
+	p_Y\brak{0} = \pr{E}, \quad p_Y\brak{1} = 1 - \pr{E}
+\end{align}
+Events are independent if and only if their indicator random variables are independent.
+\item The discrete random variables $Y_1$ and $Y_2$ are independent if and only if
+\begin{align}
+	p_{Y_1Y_2}\brak{y_1, y_2} = p_{Y_1}\brak{y_1}p_{Y_2}\brak{y_2} \quad \forall\, y_1, y_2
+	\label{eq:EE26BTECH11229-indep-rv}
+\end{align}
+where $p_{Y_1}$ and $p_{Y_2}$ are the individual PMFs of $Y_1$ and $Y_2$. This is \eqref{eq:EE26BTECH11229-indep} applied to the events $\cbrak{Y_1 = y_1}$ and $\cbrak{Y_2 = y_2}$.
+\item (Linear Programming) The maximum or minimum value of a linear objective function $Z = \vec{c}^{\top}\vec{x}$ over a feasible region is attained at a vertex of the region.
+\label{eq:EE26BTECH11229-lpp-vertex}
 \item (Continuity) A real-valued function $f\brak{x}$ is continuous at $x = x_0$ if and only if
 \begin{align}
 	\lim_{x \to x_0^-}f\brak{x} = \lim_{x \to x_0^+}f\brak{x} = f\brak{x_0}
@@ -66,24 +88,6 @@ The probability of an event $E$ is
 	= \lim_{x \to x_0}\sbrak{\frac{f\brak{x} - f\brak{x_0}}{x - x_0}\brak{x - x_0}}
 	= f^{\prime}\brak{x_0}\cdot 0 = 0
 	\label{eq:EE26BTECH11229-diff-cont}
-\end{align}
-\item (Piecewise Boundary Conditions at $x = a$) Consider a function defined by differentiable branches $f_1\brak{x}$ and $f_2\brak{x}$,
-\begin{align}
-	f\brak{x} = \begin{cases}
-		f_1\brak{x}, & x \le a
-		\\
-		f_2\brak{x}, & x > a
-	\end{cases}
-\end{align}
-For $f\brak{x}$ to be continuous at $x = a$,
-\begin{align}
-	\lim_{x \to a^-}f_1\brak{x} = \lim_{x \to a^+}f_2\brak{x} \implies f_1\brak{a} = f_2\brak{a}
-	\label{eq:EE26BTECH11229-piecewise-cont}
-\end{align}
-For $f\brak{x}$ to be differentiable at $x = a$, the one-sided derivatives must coincide,
-\begin{align}
-	f_1^{\prime}\brak{a} = f_2^{\prime}\brak{a}
-	\label{eq:EE26BTECH11229-piecewise-diff}
 \end{align}
 \item (Newton-Raphson Method) For a real-valued differentiable function $g\brak{x}$, the root of $g\brak{x} = 0$ is iteratively approximated using the first-order Taylor series expansion about the current estimate $x_n$, which gives the difference equation
 \begin{align}
@@ -161,15 +165,6 @@ which equals $\sec^2 x - \sec x\tan x$.
 \begin{align}
 	\frac{d}{dx}\tan x = \sec^2 x, \quad \frac{d}{dx}\sec x = \sec x\tan x
 	\label{eq:EE26BTECH11229-deriv-sec}
-\end{align}
-\item The absolute value is defined as
-\begin{align}
-	\abs{x - a} = \begin{cases}
-		x - a, & x \ge a
-		\\
-		a - x, & x < a
-	\end{cases}
-	\label{eq:EE26BTECH11229-abs-def}
 \end{align}
 \item Two vectors $\vec{u}$ and $\vec{v}$ are perpendicular if and only if
 \begin{align}
