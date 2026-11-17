@@ -705,27 +705,17 @@ Let
 \end{align}
 From \eqref{eq:EE26BTECH11229-newton},
 \begin{align}
-	x_{n+1} &= x_n - \frac{x_n^2 + 4x_n + 4}{2x_n + 4}
-	\\
-	&= x_n - \frac{\brak{x_n+2}^2}{2\brak{x_n+2}}
-	\\
-	&= \frac{x_n - 2}{2}
+	x_{n+1} = x_n - \frac{x_n^2 + 4x_n + 4}{2x_n + 4}
 \end{align}
-Starting with the initial guess $x_0 = 0$, which satisfies $x \neq -\frac{1}{2}, 1$,
-\begin{align}
-	x_1 &= -1, \quad x_2 = -\frac{3}{2}, \quad x_3 = -\frac{7}{4}, \quad x_4 = -\frac{15}{8}
-	\\
-	x_5 &= -1.9375, \quad x_6 = -1.96875, \quad x_7 = -1.984375
-\end{align}
-The iterates satisfy $x_{n+1} + 2 = \frac{x_n + 2}{2}$, so
-\begin{align}
-	x_n = -2 + \frac{2}{2^n} \to -2
-\end{align}
-Since $f\brak{-2} = 4 - 8 + 4 = 0$, we get
+Starting with the initial guess $x_0 = 0$, which satisfies $x \neq -\frac{1}{2}, 1$, the iterates tend to $-2$,
 \begin{align}
 	x = -2
 \end{align}
-which satisfies $x \neq -\frac{1}{2}, 1$. Here $f^{\prime}\brak{-2} = 0$, so $-2$ is a repeated root and the error only halves in each iteration.
+which satisfies $x \neq -\frac{1}{2}, 1$.
+The following code computes the iterates
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/newton\_root.c}@*)
+\end{lstlisting}
 The following code generates \figref{fig:EE26BTECH11229-14}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/equal\_roots.py}@*)
