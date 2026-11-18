@@ -759,15 +759,18 @@ Writing $\brak{a, b}$ as the matrix $\myvec{a & b \\ 0 & 1}$, the product
 	\myvec{a & b \\ 0 & 1}\myvec{c & d \\ 0 & 1} = \myvec{ac & ad + b \\ 0 & 1}
 \end{align}
 is exactly $\brak{a, b} * \brak{c, d}$.
-\begin{enumerate}
-\item \textbf{Commutative:} $\brak{a, b} * \brak{c, d} = \brak{ac, b + ad}$ whereas $\brak{c, d} * \brak{a, b} = \brak{ac, d + cb}$. For $\brak{1, 2} * \brak{3, 4} = \brak{3, 6}$ and $\brak{3, 4} * \brak{1, 2} = \brak{3, 10}$. So $*$ is not commutative.
-\item \textbf{Associative:}
+
+\noindent \textbf{Commutative:} $\brak{a, b} * \brak{c, d} = \brak{ac, b + ad}$ whereas $\brak{c, d} * \brak{a, b} = \brak{ac, d + cb}$. For $\brak{1, 2} * \brak{3, 4} = \brak{3, 6}$ and $\brak{3, 4} * \brak{1, 2} = \brak{3, 10}$. So $*$ is not commutative.
+
+\noindent \textbf{Associative:}
 \begin{align}
 	\sbrak{\brak{a, b} * \brak{c, d}} * \brak{e, f} &= \brak{ac, b + ad} * \brak{e, f} = \brak{ace, b + ad + acf}
 	\\
 	\brak{a, b} * \sbrak{\brak{c, d} * \brak{e, f}} &= \brak{a, b} * \brak{ce, d + cf} = \brak{ace, b + ad + acf}
 \end{align}
 The two are equal, so $*$ is associative.
+
+\begin{enumerate}
 \item \textbf{Identity:} Let $\brak{e_1, e_2}$ be the identity. Then $\brak{a, b} * \brak{e_1, e_2} = \brak{ae_1, b + ae_2} = \brak{a, b}$ for all $a, b$, giving $e_1 = 1$, $e_2 = 0$. The identity element is $\brak{1, 0}$, which also satisfies $\brak{1, 0} * \brak{a, b} = \brak{a, b}$.
 \item \textbf{Invertible elements:} For $\brak{c, d}$ to be the inverse of $\brak{a, b}$,
 \begin{align}
@@ -775,8 +778,6 @@ The two are equal, so $*$ is associative.
 \end{align}
 which requires $a \neq 0$. So the invertible elements are $\brak{a, b}$ with $a \neq 0$, and the inverse is $\brak{\frac{1}{a}, -\frac{b}{a}}$. In matrix form, this is $\mydet{\myvec{a & b \\ 0 & 1}} = a \neq 0$.
 \end{enumerate}
-\item 
-If $\vec{A} = \myvec{2 & -3 & 5 \\ 3 & 2 & -4 \\ 1 & 1 & -2}$, find $\vec{A}^{-1}$. Hence using $\vec{A}^{-1}$ solve the system of equations $2x - 3y + 5z = 11$, $3x + 2y - 4z = -5$, $x + y - 2z = -3$.
 \hfill (12, 2017)
 \\
 \solution
