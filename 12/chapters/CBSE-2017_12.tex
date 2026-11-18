@@ -789,6 +789,14 @@ From \eqref{eq:EE26BTECH11229-gauss-inverse},
 \begin{align}
 	\vec{A}^{-1} = \myvec{0 & 1 & -2 \\ -2 & 9 & -23 \\ -1 & 5 & -13}
 \end{align}
+The system is $\vec{A}\vec{x} = \vec{b}$ with $\vec{x} = \myvec{x \\ y \\ z}$ and $\vec{b} = \myvec{11 \\ -5 \\ -3}$. Since $\rank\brak{\vec{A}} = \rank\brak{\sbrak{\vec{A} \mid \vec{b}}} = 3$, from \eqref{eq:EE26BTECH11229-consist} the solution is unique. From \eqref{eq:EE26BTECH11229-gauss-inverse},
+\begin{align}
+	\vec{x} = \vec{A}^{-1}\vec{b} = \myvec{0 & 1 & -2 \\ -2 & 9 & -23 \\ -1 & 5 & -13}\myvec{11 \\ -5 \\ -3} = \myvec{1 \\ 2 \\ 3}
+\end{align}
+Therefore,
+\begin{align}
+	x = 1, \quad y = 2, \quad z = 3
+\end{align}
 
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
