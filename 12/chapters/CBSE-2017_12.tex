@@ -757,39 +757,37 @@ If $\vec{A} = \myvec{2 & -3 & 5 \\ 3 & 2 & -4 \\ 1 & 1 & -2}$, find $\vec{A}^{-1
 \\
 \solution
 Row reducing the augmented matrix $\sbrak{\vec{A} \mid \vec{I}}$,
+{\small
+\setlength{\arraycolsep}{2.5pt}
 \begin{align}
-	\sbrak{\vec{A} \mid \vec{I}} = \myvec{2 & -3 & 5 & 1 & 0 & 0 \\ 3 & 2 & -4 & 0 & 1 & 0 \\ 1 & 1 & -2 & 0 & 0 & 1}
-	\xrightarrow{R_1 \leftrightarrow R_3}
+	\sbrak{\vec{A} \mid \vec{I}} &= \myvec{2 & -3 & 5 & 1 & 0 & 0 \\ 3 & 2 & -4 & 0 & 1 & 0 \\ 1 & 1 & -2 & 0 & 0 & 1}
+	\nonumber \\
+	&\xrightarrow{R_1 \leftrightarrow R_3}
 	\myvec{1 & 1 & -2 & 0 & 0 & 1 \\ 3 & 2 & -4 & 0 & 1 & 0 \\ 2 & -3 & 5 & 1 & 0 & 0}
-\end{align}
-\begin{align}
-	\xrightarrow[R_3 \to R_3 - 2R_1]{R_2 \to R_2 - 3R_1}
+	\nonumber \\
+	&\xrightarrow[R_3 \to R_3 - 2R_1]{R_2 \to R_2 - 3R_1}
 	\myvec{1 & 1 & -2 & 0 & 0 & 1 \\ 0 & -1 & 2 & 0 & 1 & -3 \\ 0 & -5 & 9 & 1 & 0 & -2}
-	\xrightarrow[R_2 \to -R_2]{R_3 \to R_3 - 5R_2'}
+	\nonumber \\
+	&\xrightarrow{R_2 \to -R_2}
+	\myvec{1 & 1 & -2 & 0 & 0 & 1 \\ 0 & 1 & -2 & 0 & -1 & 3 \\ 0 & -5 & 9 & 1 & 0 & -2}
+	\nonumber \\
+	&\xrightarrow{R_3 \to R_3 + 5R_2}
 	\myvec{1 & 1 & -2 & 0 & 0 & 1 \\ 0 & 1 & -2 & 0 & -1 & 3 \\ 0 & 0 & -1 & 1 & -5 & 13}
-\end{align}
-\begin{align}
-	\xrightarrow{R_3 \to -R_3}
+	\nonumber \\
+	&\xrightarrow{R_3 \to -R_3}
 	\myvec{1 & 1 & -2 & 0 & 0 & 1 \\ 0 & 1 & -2 & 0 & -1 & 3 \\ 0 & 0 & 1 & -1 & 5 & -13}
-	\xrightarrow[R_1 \to R_1 + 2R_3]{R_2 \to R_2 + 2R_3}
+	\nonumber \\
+	&\xrightarrow[R_1 \to R_1 + 2R_3]{R_2 \to R_2 + 2R_3}
 	\myvec{1 & 1 & 0 & -2 & 10 & -25 \\ 0 & 1 & 0 & -2 & 9 & -23 \\ 0 & 0 & 1 & -1 & 5 & -13}
-\end{align}
-\begin{align}
-	\xrightarrow{R_1 \to R_1 - R_2}
+	\nonumber \\
+	&\xrightarrow{R_1 \to R_1 - R_2}
 	\myvec{1 & 0 & 0 & 0 & 1 & -2 \\ 0 & 1 & 0 & -2 & 9 & -23 \\ 0 & 0 & 1 & -1 & 5 & -13}
 	= \sbrak{\vec{I} \mid \vec{A}^{-1}}
 \end{align}
+}
 From \eqref{eq:EE26BTECH11229-gauss-inverse},
 \begin{align}
 	\vec{A}^{-1} = \myvec{0 & 1 & -2 \\ -2 & 9 & -23 \\ -1 & 5 & -13}
-\end{align}
-The system is $\vec{A}\vec{x} = \vec{b}$ with $\vec{x} = \myvec{x \\ y \\ z}$ and $\vec{b} = \myvec{11 \\ -5 \\ -3}$. Since $\rank\brak{\vec{A}} = \rank\brak{\sbrak{\vec{A} \mid \vec{b}}} = 3$, from \eqref{eq:EE26BTECH11229-consist} the solution is unique. From \eqref{eq:EE26BTECH11229-gauss-inverse},
-\begin{align}
-	\vec{x} = \vec{A}^{-1}\vec{b} = \myvec{0 & 1 & -2 \\ -2 & 9 & -23 \\ -1 & 5 & -13}\myvec{11 \\ -5 \\ -3} = \myvec{1 \\ 2 \\ 3}
-\end{align}
-Therefore,
-\begin{align}
-	x = 1, \quad y = 2, \quad z = 3
 \end{align}
 
 The following code verifies the solution
