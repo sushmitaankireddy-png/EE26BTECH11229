@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  18 NOV 2026 12:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  18 NOV 2026 13:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1562,119 +1562,110 @@ File: 10/figs/tangent_equal.png Graphic file (type png)
 <use 10/figs/tangent_equal.png>
 Package pdftex.def Info: 10/figs/tangent_equal.png  used on input line 682.
 (pdftex.def)             Requested size: 273.14647pt x 204.868pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 691--695
-
- []
-
-[26 <./10/figs/tangent_equal.png>]
-<10/figs/equal_roots.png, id=544, 578.16pt x 433.62pt>
+ [26 <./10/figs/tangent_equal.png>]
+<10/figs/equal_roots.png, id=547, 578.16pt x 433.62pt>
 File: 10/figs/equal_roots.png Graphic file (type png)
 <use 10/figs/equal_roots.png>
-Package pdftex.def Info: 10/figs/equal_roots.png  used on input line 737.
+Package pdftex.def Info: 10/figs/equal_roots.png  used on input line 730.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
- [27]
-<10/figs/work_time.png, id=565, 578.16pt x 433.62pt>
+ [27 <./10/figs/equal_roots.png>]
+<10/figs/work_time.png, id=566, 578.16pt x 433.62pt>
 File: 10/figs/work_time.png Graphic file (type png)
 <use 10/figs/work_time.png>
-Package pdftex.def Info: 10/figs/work_time.png  used on input line 769.
+Package pdftex.def Info: 10/figs/work_time.png  used on input line 762.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
- [28 <./10/figs/equal_roots.png>]
-Overfull \hbox (9.32126pt too wide) detected at line 786
+ [28 <./10/figs/work_time.png>]
+Overfull \hbox (9.32126pt too wide) detected at line 779
 []
  []
 
-[29 <./10/figs/work_time.png>]
-<10/figs/tower_cars.png, id=593, 650.43pt x 361.35pt>
+<10/figs/tower_cars.png, id=584, 650.43pt x 361.35pt>
 File: 10/figs/tower_cars.png Graphic file (type png)
 <use 10/figs/tower_cars.png>
-Package pdftex.def Info: 10/figs/tower_cars.png  used on input line 811.
+Package pdftex.def Info: 10/figs/tower_cars.png  used on input line 804.
 (pdftex.def)             Requested size: 273.14647pt x 151.74942pt.
-) (./12/chapters/CBSE-2017_12_formulae.tex
-[30 <./10/figs/tower_cars.png>] [31] [32] [33] [34]
-<12/figs/PMF.png, id=695, 578.16pt x 433.62pt>
+[29]) (./12/chapters/CBSE-2017_12_formulae.tex [30 <./10/figs/tower_cars.png>]
+[31] [32] [33]
+<12/figs/PMF.png, id=684, 578.16pt x 433.62pt>
 File: 12/figs/PMF.png Graphic file (type png)
 <use 12/figs/PMF.png>
 Package pdftex.def Info: 12/figs/PMF.png  used on input line 240.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
- [35 <./12/figs/PMF.png>]
-[36] [37]) (./12/chapters/CBSE-2017_12.tex
-<12/figs/distance.png, id=758, 291.0072pt x 302.5704pt>
+ [34] [35 <./12/figs/PMF.png>] [36] [37])
+(./12/chapters/CBSE-2017_12.tex
+<12/figs/distance.png, id=759, 291.0072pt x 302.5704pt>
 File: 12/figs/distance.png Graphic file (type png)
 <use 12/figs/distance.png>
 Package pdftex.def Info: 12/figs/distance.png  used on input line 30.
 (pdftex.def)             Requested size: 273.14647pt x 284.00531pt.
  [38] [39 <./12/figs/distance.png>]
-<12/figs/dice.png, id=799, 415.7934pt x 328.5876pt>
+<12/figs/dice.png, id=798, 415.7934pt x 328.5876pt>
 File: 12/figs/dice.png Graphic file (type png)
 <use 12/figs/dice.png>
 Package pdftex.def Info: 12/figs/dice.png  used on input line 113.
 (pdftex.def)             Requested size: 273.14647pt x 215.8607pt.
-
-[40] [41 <./12/figs/dice.png>]
-<12/figs/tailor_cost.png, id=829, 503.36055pt x 394.95555pt>
+ [40]
+[41 <./12/figs/dice.png>]
+<12/figs/tailor_cost.png, id=828, 503.36055pt x 394.95555pt>
 File: 12/figs/tailor_cost.png Graphic file (type png)
 <use 12/figs/tailor_cost.png>
 Package pdftex.def Info: 12/figs/tailor_cost.png  used on input line 143.
 (pdftex.def)             Requested size: 273.14647pt x 214.32745pt.
  [42 <./12/figs/tailor_cost.png>]
-<12/figs/rolle.png, id=849, 462.528pt x 346.896pt>
+<12/figs/rolle.png, id=848, 462.528pt x 346.896pt>
 File: 12/figs/rolle.png Graphic file (type png)
 <use 12/figs/rolle.png>
 Package pdftex.def Info: 12/figs/rolle.png  used on input line 190.
 (pdftex.def)             Requested size: 273.14647pt x 204.868pt.
  [43 <./12/figs/rolle.png>]
-<12/figs/Increasing.png, id=866, 578.16pt x 433.62pt>
+<12/figs/Increasing.png, id=865, 578.16pt x 433.62pt>
 File: 12/figs/Increasing.png Graphic file (type png)
 <use 12/figs/Increasing.png>
 Package pdftex.def Info: 12/figs/Increasing.png  used on input line 216.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
  [44 <./12/figs/Increasing.png>]
-<12/figs/Integral_xtanx.png, id=888, 578.16pt x 433.62pt>
+<12/figs/Integral_xtanx.png, id=887, 578.16pt x 433.62pt>
 File: 12/figs/Integral_xtanx.png Graphic file (type png)
 <use 12/figs/Integral_xtanx.png>
 Package pdftex.def Info: 12/figs/Integral_xtanx.png  used on input line 278.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
  [45] [46 <./12/figs/Integral_xtanx.png>]
-<12/figs/triangle.png, id=919, 462.528pt x 346.896pt>
+<12/figs/triangle.png, id=918, 462.528pt x 346.896pt>
 File: 12/figs/triangle.png Graphic file (type png)
 <use 12/figs/triangle.png>
 Package pdftex.def Info: 12/figs/triangle.png  used on input line 323.
 (pdftex.def)             Requested size: 273.14647pt x 204.868pt.
- [47 <./12/figs/triangle.png>] [48] [49]
-<12/figs/LPP.png, id=968, 502.9992pt x 394.5942pt>
+[47 <./12/figs/triangle.png>] [48] [49]
+<12/figs/LPP.png, id=967, 502.9992pt x 394.5942pt>
 File: 12/figs/LPP.png Graphic file (type png)
 <use 12/figs/LPP.png>
 Package pdftex.def Info: 12/figs/LPP.png  used on input line 450.
 (pdftex.def)             Requested size: 273.14647pt x 214.2879pt.
  [50 <./12/figs/LPP.png>]
-<12/figs/coplanar.png, id=984, 462.528pt x 346.896pt>
+<12/figs/coplanar.png, id=983, 462.528pt x 346.896pt>
 File: 12/figs/coplanar.png Graphic file (type png)
 <use 12/figs/coplanar.png>
 Package pdftex.def Info: 12/figs/coplanar.png  used on input line 495.
 (pdftex.def)             Requested size: 273.14647pt x 204.868pt.
- [51]
-[52 <./12/figs/coplanar.png>] [53]
-<12/figs/lineplane.png, id=1029, 462.528pt x 346.896pt>
+ [51] [52 <./12/figs/coplanar.png>] [53]
+<12/figs/lineplane.png, id=1028, 462.528pt x 346.896pt>
 File: 12/figs/lineplane.png Graphic file (type png)
 <use 12/figs/lineplane.png>
 Package pdftex.def Info: 12/figs/lineplane.png  used on input line 608.
 (pdftex.def)             Requested size: 273.14647pt x 204.868pt.
  [54] [55 <./12/figs/lineplane.png>]
-<12/figs/euler.png, id=1057, 722.7pt x 578.16pt>
+<12/figs/euler.png, id=1056, 722.7pt x 578.16pt>
 File: 12/figs/euler.png Graphic file (type png)
 <use 12/figs/euler.png>
 Package pdftex.def Info: 12/figs/euler.png  used on input line 673.
 (pdftex.def)             Requested size: 273.14647pt x 218.5121pt.
- [56]
-[57 <./12/figs/Euler.png>]
-<12/figs/parabola_line.png, id=1090, 578.16pt x 433.62pt>
+ [56] [57 <./12/figs/Euler.png>]
+<12/figs/parabola_line.png, id=1089, 578.16pt x 433.62pt>
 File: 12/figs/parabola_line.png Graphic file (type png)
 <use 12/figs/parabola_line.png>
 Package pdftex.def Info: 12/figs/parabola_line.png  used on input line 716.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
- [58 <./12/figs/parabola_line.png>] [59] [60])
-[61] (./main.aux)
+ [58 <./12/figs/parabola_line.png>] [59] [60]) [61] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1687,8 +1678,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 96CB13061DFF6D012EAE4C62D027A707;494.
  ) 
 Here is how much of TeX's memory you used:
- 55394 strings out of 467533
- 1324789 string characters out of 5422137
+ 55393 strings out of 467533
+ 1324781 string characters out of 5422137
  1962484 words of memory out of 5000000
  82862 multiletter control sequences out of 15000+600000
  668804 words of font info for 130 fonts, out of 8000000 for 9000
@@ -1717,10 +1708,10 @@ c/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /tfrupee/tfrupee.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (61 pages, 1621673 bytes).
+Output written on main.pdf (61 pages, 1621647 bytes).
 PDF statistics:
- 1395 PDF objects out of 1440 (max. 8388607)
- 1199 compressed objects within 12 object streams
- 656 named destinations out of 1000 (max. 500000)
+ 1394 PDF objects out of 1440 (max. 8388607)
+ 1198 compressed objects within 12 object streams
+ 655 named destinations out of 1000 (max. 500000)
  297 words of extra memory for PDF output out of 10000 (max. 10000000)
 
