@@ -280,12 +280,6 @@ Let the foot of the tower be the origin, with the tower along the $y$-axis and $
 \begin{align}
 	\vec{O} = \myvec{0 \\ 0}, \quad \vec{C} = \myvec{4 \\ 0}, \quad \vec{D} = \myvec{16 \\ 0}, \quad \vec{T} = \myvec{0 \\ h}
 \end{align}
-where $\vec{T}$ is the top of the tower. Let $\theta$ be the angle of elevation from $\vec{C}$, that is, the angle between $\vec{T}-\vec{C}$ and $\vec{O}-\vec{C}$. The angle of elevation from $\vec{D}$ is then $90^{\circ}-\theta$. The vectors are
-\begin{align}
-	\vec{T}-\vec{C}_1 &= \myvec{-d_1 \\ 100}, \quad \vec{O}-\vec{C}_1 = \myvec{-d_1 \\ 0} \nonumber
-	\\
-	\vec{T}-\vec{C}_2 &= \myvec{d_2 \\ 100}, \quad \vec{O}-\vec{C}_2 = \myvec{d_2 \\ 0}
-\end{align}
 From \eqref{eq:EE26BTECH11229-angle-vec},
 \begin{align}
 	\cos\theta &= \frac{\brak{\vec{T}-\vec{C}}^{\top}\brak{\vec{O}-\vec{C}}}{\norm{\vec{T}-\vec{C}}\norm{\vec{O}-\vec{C}}} = \frac{16}{4\sqrt{16+h^2}} = \frac{4}{\sqrt{16+h^2}}
@@ -704,9 +698,14 @@ Let
 \begin{align}
 	f\brak{x} = x^2 + 4x + 4, \quad f^{\prime}\brak{x} = 2x + 4
 \end{align}
-From \eqref{eq:EE26BTECH11229-newton},
+From \eqref{eq:EE26BTECH11229-newton10}, the difference equation is
 \begin{align}
 	x_{n+1} = x_n - \frac{x_n^2 + 4x_n + 4}{2x_n + 4}
+	= \frac{x_n^2 - 4}{2x_n + 4}
+\end{align}
+which, for $x_n \neq -2$, simplifies to
+\begin{align}
+	x_{n+1} = \frac{x_n - 2}{2}
 \end{align}
 Starting with the initial guess $x_0 = 0$, which satisfies $x \neq -\frac{1}{2}, 1$,
 \begin{align}
@@ -774,8 +773,9 @@ Let the foot of the tower be the origin, with the tower along the $y$-axis and t
 \end{align}
 where $\vec{T}$ is the top of the tower. The vectors are
 \begin{align}
-	\vec{T}-\vec{C}_1 = \myvec{-d_1 \\ 100}, \quad \vec{O}-\vec{C}_1 = \myvec{-d_1 \\ 0}, \quad
-	\vec{T}-\vec{C}_2 = \myvec{d_2 \\ 100}, \quad \vec{O}-\vec{C}_2 = \myvec{d_2 \\ 0}
+	\vec{T}-\vec{C}_1 &= \myvec{-d_1 \\ 100}, \quad \vec{O}-\vec{C}_1 = \myvec{-d_1 \\ 0} \nonumber
+	\\
+	\vec{T}-\vec{C}_2 &= \myvec{d_2 \\ 100}, \quad \vec{O}-\vec{C}_2 = \myvec{d_2 \\ 0}
 \end{align}
 From \eqref{eq:EE26BTECH11229-depression},
 \begin{align}
