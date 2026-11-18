@@ -21,10 +21,16 @@ From \eqref{eq:EE26BTECH11229-plane-dist},
 	d = \frac{\abs{8 - 5}}{3} = 1
 \end{align}
 
-The following code verifies the solution
+The following code generates \figref{fig:EE26BTECH11229-distance}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/distance.py}@*)
 \end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/distance.png}
+    \caption{The parallel planes and the distance between them}
+    \label{fig:EE26BTECH11229-distance}
+\end{figure}
 
 \item 
 If for any $2 \times 2$ square matrix $\vec{A}$, $\vec{A}\,\text{adj}\brak{\vec{A}} = \myvec{8 & 0 \\ 0 & 8}$, then write the value of $\mydet{\vec{A}}$.
@@ -308,10 +314,16 @@ so the area is
 	A = \frac{1}{2}\norm{\myvec{-8 \\ -11 \\ 5}} = \frac{1}{2}\sqrt{64 + 121 + 25} = \frac{\sqrt{210}}{2} \text{ sq. units}
 \end{align}
 
-The following code verifies the solution
+The following code verifies the solution and generates \figref{fig:EE26BTECH11229-triangle}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/triangle.py}@*)
 \end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/triangle.png}
+    \caption{Right-angled triangle $ABC$}
+    \label{fig:EE26BTECH11229-triangle}
+\end{figure}
 
 \item 
 There are 4 cards numbered 1, 3, 5 and 7, one number on one card. Two cards are drawn at random without replacement. Let $X$ denote the sum of the numbers on the two drawn cards. Find the mean and variance of $X$.
@@ -474,10 +486,16 @@ The first two rows are non-zero, so for $\rank\brak{\vec{M}} < 3$ the last row h
 	5 - x = 0 \implies x = 5
 \end{align}
 
-The following code verifies the solution
+The following code verifies the solution and generates \figref{fig:EE26BTECH11229-coplanar}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/coplanar.py}@*)
 \end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/coplanar.png}
+    \caption{The coplanar points $A$, $B$, $C$, $D$ for $x = 5$}
+    \label{fig:EE26BTECH11229-coplanar}
+\end{figure}
 \item 
 Find the general solution of the differential equation
 \begin{align*}
@@ -581,10 +599,16 @@ As a check,
 	\vec{A} + \lambda\brak{\vec{B}-\vec{A}} + \mu\brak{\vec{C}-\vec{A}} = \myvec{1 \\ 2 \\ 3} - \frac{2}{3}\myvec{3 \\ 0 \\ -6} - 2\myvec{-1 \\ 2 \\ 0} = \myvec{1 \\ -2 \\ 7}
 \end{align}
 
-The following code verifies the solution
+The following code verifies the solution and generates \figref{fig:EE26BTECH11229-lineplane}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/lineplane.py}@*)
 \end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/lineplane.png}
+    \caption{The line meets the plane at $\brak{1, -2, 7}$}
+    \label{fig:EE26BTECH11229-lineplane}
+\end{figure}
 
 \item 
 Find the particular solution of the differential equation $\brak{x - y}\frac{dy}{dx} = \brak{x + 2y}$, given that $y = 0$ when $x = 1$.
@@ -707,19 +731,19 @@ From \eqref{eq:EE26BTECH11229-bij}, for one-one,
 \end{align}
 For onto, let $y = \frac{4x + 3}{3x + 4}$ with $y \neq \frac{4}{3}$. Solving for $x$,
 \begin{align}
-	x = \frac{3 - 4y}{3y - 4}
+	x = \frac{4y - 3}{-3y + 4}
 \end{align}
 which is defined for every $y \neq \frac{4}{3}$, and $x \neq -\frac{4}{3}$, since $x = -\frac{4}{3}$ would give $-9 = -16$. So $f$ is onto and hence bijective. The inverse is
 \begin{align}
-	f^{-1}\brak{x} = \frac{3 - 4x}{3x - 4}
+	f^{-1}\brak{x} = \frac{4x - 3}{-3x + 4}
 \end{align}
-From \eqref{eq:EE26BTECH11229-mobius}, $\vec{M} = \myvec{4 & 3 \\ 3 & 4}$ with $\mydet{\vec{M}} = 7 \neq 0$, and $\vec{M}^{-1} = \frac{1}{7}\myvec{4 & -3 \\ -3 & 4}$ gives the same inverse $\frac{4x - 3}{-3x + 4}$. Then
+From \eqref{eq:EE26BTECH11229-mobius}, $\vec{M} = \myvec{4 & 3 \\ 3 & 4}$ with $\mydet{\vec{M}} = 7 \neq 0$, and $\vec{M}^{-1} = \frac{1}{7}\myvec{4 & -3 \\ -3 & 4}$ gives the same inverse. Then
 \begin{align}
-	f^{-1}\brak{0} = \frac{3}{-4} = -\frac{3}{4}
+	f^{-1}\brak{0} = \frac{-3}{4} = -\frac{3}{4}
 \end{align}
 and
 \begin{align}
-	f^{-1}\brak{x} = 2 \implies 3 - 4x = 6x - 8 \implies x = \frac{11}{10}
+	f^{-1}\brak{x} = 2 \implies 4x - 3 = -6x + 8 \implies x = \frac{11}{10}
 \end{align}
 \item 
 Let $A = \mathbb{Q} \times \mathbb{Q}$ and let $*$ be a binary operation on $A$ defined by $\brak{a, b} * \brak{c, d} = \brak{ac, b + ad}$ for $\brak{a, b}, \brak{c, d} \in A$. Determine, whether $*$ is commutative and associative. Then, with respect to $*$ on $A$

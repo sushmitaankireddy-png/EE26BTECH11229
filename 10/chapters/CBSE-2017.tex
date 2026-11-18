@@ -282,8 +282,9 @@ Let the foot of the tower be the origin, with the tower along the $y$-axis and $
 \end{align}
 where $\vec{T}$ is the top of the tower. Let $\theta$ be the angle of elevation from $\vec{C}$, that is, the angle between $\vec{T}-\vec{C}$ and $\vec{O}-\vec{C}$. The angle of elevation from $\vec{D}$ is then $90^{\circ}-\theta$. The vectors are
 \begin{align}
-	\vec{T}-\vec{C} = \myvec{-4 \\ h}, \quad \vec{O}-\vec{C} = \myvec{-4 \\ 0}, \quad
-	\vec{T}-\vec{D} = \myvec{-16 \\ h}, \quad \vec{O}-\vec{D} = \myvec{-16 \\ 0}
+	\vec{T}-\vec{C}_1 &= \myvec{-d_1 \\ 100}, \quad \vec{O}-\vec{C}_1 = \myvec{-d_1 \\ 0} \nonumber
+	\\
+	\vec{T}-\vec{C}_2 &= \myvec{d_2 \\ 100}, \quad \vec{O}-\vec{C}_2 = \myvec{d_2 \\ 0}
 \end{align}
 From \eqref{eq:EE26BTECH11229-angle-vec},
 \begin{align}
@@ -690,6 +691,13 @@ Solve for $x$ :
 \end{align*}
 \hfill (CBSE~2017)
 \\
+\item 
+Solve for $x$ :
+\begin{align*}
+	\frac{x-1}{2x+1} + \frac{2x+1}{x-1} = 2, \quad \text{where } x \neq -\frac{1}{2}, 1
+\end{align*}
+\hfill (CBSE~2017)
+\\
 \solution
 Multiplying by $\brak{2x+1}\brak{x-1}$,
 \begin{align}
@@ -707,12 +715,16 @@ From \eqref{eq:EE26BTECH11229-newton},
 \begin{align}
 	x_{n+1} = x_n - \frac{x_n^2 + 4x_n + 4}{2x_n + 4}
 \end{align}
-Starting with the initial guess $x_0 = 0$, which satisfies $x \neq -\frac{1}{2}, 1$, the iterates tend to $-2$,
+Starting with the initial guess $x_0 = 0$, which satisfies $x \neq -\frac{1}{2}, 1$,
+\begin{align}
+	x_1 = -1, \quad x_2 = -\frac{3}{2}, \quad x_3 = -\frac{7}{4}
+\end{align}
+and the iterations converge to
 \begin{align}
 	x = -2
 \end{align}
 which satisfies $x \neq -\frac{1}{2}, 1$.
-The following code computes the iterates
+The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/newton\_root.c}@*)
 \end{lstlisting}
@@ -786,7 +798,9 @@ Squaring both equations,
 \end{align}
 The distance between the cars is
 \begin{align}
-	\norm{\vec{C}_1 - \vec{C}_2} = \norm{\myvec{d_1 + d_2 \\ 0}} = d_1 + d_2 = 100\brak{1 + \sqrt{3}} = 100\brak{1 + 1.732} = 273.2 \text{ m}
+	\norm{\vec{C}_1 - \vec{C}_2} &= \norm{\myvec{d_1 + d_2 \\ 0}} = d_1 + d_2 \nonumber
+	\\
+	&= 100\brak{1 + \sqrt{3}} = 100\brak{1 + 1.732} = 273.2 \text{ m}
 \end{align}
 The following code generates \figref{fig:EE26BTECH11229-8}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]

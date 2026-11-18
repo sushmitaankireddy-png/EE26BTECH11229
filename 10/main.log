@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  18 NOV 2026 11:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  18 NOV 2026 11:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1679,87 +1679,107 @@ File: figs/tangent_equal.png Graphic file (type png)
 Package pdftex.def Info: figs/tangent_equal.png  used on input line 681.
 (pdftex.def)             Requested size: 273.14647pt x 204.868pt.
 
-pdfTeX warning (ext4): destination with the same identifier (name{equation.13.1
-}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.701 \end{align}
-                 
-pdfTeX warning (ext4): destination with the same identifier (name{equation.13.2
-}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.701 \end{align}
-                 
-pdfTeX warning (ext4): destination with the same identifier (name{equation.13.3
-}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.701 \end{align}
-                  [26 <./figs/tangent_equal.png>]
-<figs/equal_roots.png, id=509, 578.16pt x 433.62pt>
-File: figs/equal_roots.png Graphic file (type png)
-<use figs/equal_roots.png>
-Package pdftex.def Info: figs/equal_roots.png  used on input line 725.
-(pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
+Underfull \hbox (badness 10000) in paragraph at lines 690--694
+
+ []
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.14.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.741 \end{align}
+l.708 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.14.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.741 \end{align}
+l.708 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.14.3
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.741 \end{align}
-                 
+l.708 \end{align}
+                  [26 <./figs/tangent_equal.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.14.4
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.745 \end{align}
-                  [27 <./figs/equal_roots.png>]
-<figs/work_time.png, id=526, 578.16pt x 433.62pt>
-File: figs/work_time.png Graphic file (type png)
-<use figs/work_time.png>
-Package pdftex.def Info: figs/work_time.png  used on input line 757.
+l.712 \end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.14.5
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.716 \end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.14.6
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.720 \end{align}
+                 
+<figs/equal_roots.png, id=509, 578.16pt x 433.62pt>
+File: figs/equal_roots.png Graphic file (type png)
+<use figs/equal_roots.png>
+Package pdftex.def Info: figs/equal_roots.png  used on input line 736.
 (pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
-
+ [27]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.15.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.769 \end{align}
+l.752 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.15.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.774 \end{align}
+l.752 \end{align}
                  
-Overfull \hbox (9.32126pt too wide) detected at line 774
+<figs/work_time.png, id=523, 578.16pt x 433.62pt>
+File: figs/work_time.png Graphic file (type png)
+<use figs/work_time.png>
+Package pdftex.def Info: figs/work_time.png  used on input line 768.
+(pdftex.def)             Requested size: 273.14647pt x 204.86006pt.
+ [28 <./figs/equal_roots.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.16.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.780 \end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.16.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.785 \end{align}
+                 
+Overfull \hbox (9.32126pt too wide) detected at line 785
 []
  []
 
-[28 <./figs/work_time.png>]
-Overfull \hbox (16.9869pt too wide) detected at line 790
-[]
- []
 
-<figs/tower_cars.png, id=540, 650.43pt x 361.35pt>
+pdfTeX warning (ext4): destination with the same identifier (name{equation.16.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.791 \end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.16.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.791 \end{align}
+                  [29 <./figs/work_time.png>]
+<figs/tower_cars.png, id=545, 650.43pt x 361.35pt>
 File: figs/tower_cars.png Graphic file (type png)
 <use figs/tower_cars.png>
-Package pdftex.def Info: figs/tower_cars.png  used on input line 797.
+Package pdftex.def Info: figs/tower_cars.png  used on input line 810.
 (pdftex.def)             Requested size: 273.14647pt x 151.74942pt.
-) [29 <./figs/tower_cars.png>] (./main.aux)
+) [30 <./figs/tower_cars.png>]
+(./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1769,7 +1789,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  54767 strings out of 467533
- 1311630 string characters out of 5422137
+ 1311618 string characters out of 5422137
  1951865 words of memory out of 5000000
  82623 multiletter control sequences out of 15000+600000
  662021 words of font info for 108 fonts, out of 8000000 for 9000
@@ -1791,10 +1811,10 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (29 pages, 634163 bytes).
+Output written on main.pdf (30 pages, 634698 bytes).
 PDF statistics:
- 690 PDF objects out of 1000 (max. 8388607)
- 574 compressed objects within 6 object streams
+ 693 PDF objects out of 1000 (max. 8388607)
+ 576 compressed objects within 6 object streams
  289 named destinations out of 1000 (max. 500000)
  208 words of extra memory for PDF output out of 10000 (max. 10000000)
 

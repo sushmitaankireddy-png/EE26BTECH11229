@@ -1,22 +1,40 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
-# Points given in the question
+# Points, with x = 5
+x = 5
 A = np.array([3, 2, 1])
+B = np.array([4, x, 5])
 C = np.array([4, 2, -2])
 D = np.array([6, 5, -1])
 
-# Coplanarity requires the scalar triple product to be zero
-def determinant(x):
-    B = np.array([4, x, 5])
-    return np.linalg.det(np.array([B-A, C-A, D-A]))
+# Direction matrix and its rank
+M = np.column_stack((B - A, C - A, D - A))
+print("M =")
+print(M)
+print("rank(M) =", np.linalg.matrix_rank(M))
 
-# Since only B's y-coordinate contains x, det is linear in x.
-# So, f(x) = f(0) + x[f(1) - f(0)].
-# To find f(x) = 0, solve this linear equation for x.
-d0 = determinant(0)
-d1 = determinant(1)
-x = -d0 / (d1 - d0)
+# Plane through A, C, D
+n = np.cross(C - A, D - A)
+print("n =", n, ", n.(B - A) =", n @ (B - A))
 
-print("Value of x =", round(x, 2))
-print("Verification =", round(determinant(x), 6))
+gx, gy = np.meshgrid(np.linspace(2, 7, 10), np.linspace(1, 6, 10))
+gz = A[2] - (n[0] * (gx - A[0]) + n[1] * (gy - A[1])) / n[2]
 
+# 3D plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+
+ax.plot_surface(gx, gy, gz, color="tab:blue", alpha=0.3)
+
+for V, name in [(A, "A"), (B, "B"), (C, "C"), (D, "D")]:
+    ax.scatter(*V, color="black")
+    ax.text(V[0], V[1], V[2], name)
+
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("z")
+ax.set_title("Coplanar points A, B, C, D")
+
+plt.savefig("figs/coplanar.png")
+plt.show()
