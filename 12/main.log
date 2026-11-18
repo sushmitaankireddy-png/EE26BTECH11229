@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  18 NOV 2026 15:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.10.20)  18 NOV 2026 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1732,7 +1732,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.19.3
 <to be read again> 
                    \relax 
 l.770 \end{align}
-                  [32] [33]) [34] (./main.aux)
+                  [32]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.20.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.814 \end{align}
+                  [33]) [34] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1742,8 +1748,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  54684 strings out of 467533
- 1309229 string characters out of 5422137
- 1958388 words of memory out of 5000000
+ 1309223 string characters out of 5422137
+ 1960388 words of memory out of 5000000
  82504 multiletter control sequences out of 15000+600000
  668804 words of font info for 130 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -1770,7 +1776,7 @@ ic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/tfrupee/tfrupee.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (34 pages, 1228406 bytes).
+Output written on main.pdf (34 pages, 1228633 bytes).
 PDF statistics:
  762 PDF objects out of 1000 (max. 8388607)
  628 compressed objects within 7 object streams
